@@ -4,9 +4,10 @@ import react from '@astrojs/react';
 import tailwind from '@astrojs/tailwind';
 
 export default defineConfig({
-  site: 'https://fenux.vercel.app', // FenNuX - Desarrollo Web Premium
+  site: 'https://fen-ux-gqcp.vercel.app', // FenNuX - Desarrollo Web Premium
   integrations: [sitemap(), react(), tailwind()],
   output: 'static',
+  base: '/',
   build: {
     assets: 'assets'
   },
