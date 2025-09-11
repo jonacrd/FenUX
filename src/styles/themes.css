@@ -1,0 +1,51 @@
+:root{--radius:18px;--fg:#dbe2ef;--muted:#9aa3b2}
+html{background:var(--bg);color:var(--fg)}
+/* Temas */
+html[data-theme="landing"] {--c1:#00e5ff;--c2:#7c4dff;--ink:#eaf6ff;--bg:#06080e}
+html[data-theme="redesign"]{--c1:#ff4ecd;--c2:#4fc3f7;--ink:#fff0fa;--bg:#0a0610}
+html[data-theme="webapp"]  {--c1:#00e3a2;--c2:#9be15d;--ink:#ebfff7;--bg:#05100d}
+
+/* Tipografía y layout base */
+.section{max-width:1150px;margin:0 auto;padding:64px 16px}
+h1{font-size:clamp(32px,6vw,56px);line-height:1.05;margin:0 0 .6rem}
+h2{font-size:clamp(22px,4.5vw,32px);margin:0 0 .8rem}
+p{margin:.4rem 0 1rem}
+.grid{display:grid;gap:18px}
+@media(min-width:980px){.grid-2{grid-template-columns:1.1fr .9fr}}
+
+/* Cards con glassmorphism */
+.card{border-radius:var(--radius);border:1px solid #ffffff22;background:linear-gradient(180deg,#ffffff0e,#ffffff05);backdrop-filter:blur(8px);padding:18px;transition:.3s}
+.card:hover{transform:translateY(-2px);box-shadow:0 20px 40px #00000040}
+
+/* Botón gooey + magnético */
+.btn{position:relative;display:inline-flex;align-items:center;gap:8px;border:0;border-radius:14px;padding:.85rem 1.1rem;font-weight:800;color:#051018;background:linear-gradient(90deg,var(--c1),var(--c2));filter:url(#gooey);}
+.btn.outline{background:transparent;color:var(--fg);outline:1px solid #ffffff33}
+
+/* Headings con subrayado animado */
+.hl{position:relative;display:inline-block}
+.hl::after{content:"";position:absolute;left:0;bottom:-6px;height:3px;width:0;background:linear-gradient(90deg,var(--c1),var(--c2));transition:.6s cubic-bezier(.22,.61,.36,1)}
+.reveal.is-in .hl::after{width:100%}
+
+/* Gradientes orbes (fondo) */
+.orb{position:absolute;filter:blur(40px);opacity:.6;mix-blend-mode:screen;border-radius:50%}
+.orb.a{width:42vmin;height:42vmin;background:radial-gradient(circle at 30% 30%,var(--c1),transparent 60%)}
+.orb.b{width:50vmin;height:50vmin;background:radial-gradient(circle at 70% 70%,var(--c2),transparent 60%)}
+
+/* Cursor spotlight */
+.spotlight{position:fixed;inset:0;pointer-events:none;background:radial-gradient(180px 180px at var(--mx,50%) var(--my,50%),#ffffff15,transparent 60%);mix-blend-mode:soft-light;z-index:3;}
+
+/* Sección reveal */
+.reveal{opacity:0;transform:translateY(16px) scale(.98)}
+.reveal.is-in{opacity:1;transform:none;transition:.7s cubic-bezier(.22,.61,.36,1)}
+
+/* Parallax contenedor */
+.parallax{position:relative;isolation:isolate;overflow:hidden;border-radius:var(--radius)}
+.parallax > img, .parallax > video, .parallax > canvas{width:100%;display:block;border-radius:var(--radius);transform:translateZ(0)}
+
+/* Etiquetas */
+.badges{display:flex;gap:8px;flex-wrap:wrap}
+.badge{font-size:.8rem;padding:.3rem .6rem;border-radius:999px;border:1px solid #ffffff30;color:#e6edf7}
+
+/* Grid responsive */
+.grid-2{display:grid;gap:18px}
+@media(min-width:980px){.grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}}

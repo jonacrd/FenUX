@@ -1,0 +1,22 @@
+---
+const { title, subtitle, badges=[], image="/images/placeholder.svg", ctas=[] } = Astro.props;
+---
+<section class="section reveal">
+  <div class="grid-2">
+    <div>
+      <h1 class="grad hl">{title}</h1>
+      <p style="opacity:.9">{subtitle}</p>
+      {badges.length && <div class="badges">{badges.map(b=><span class="badge">{b}</span>)}</div>}
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+        {ctas.map(c => <a class={`btn ${c.alt?'outline':''}`} href={c.href} {...c.attrs}>{c.label}</a>)}
+      </div>
+    </div>
+    <div class="parallax" data-parallax style="min-height:280px;position:relative">
+      <span class="orb a" style="left:-10%;top:-10%"></span>
+      <span class="orb b" style="right:-15%;bottom:-20%"></span>
+      <img data-d="1" src={image} alt="" style="position:absolute;inset:auto 0 0 0; margin:auto; max-width:92%; border-radius:var(--radius)" />
+      <img data-d="0.6" src="/images/placeholder.svg" alt="" style="position:absolute;top:6%;right:6%;width:38%;border-radius:12px;box-shadow:0 10px 30px #0008" />
+      <img data-d="0.9" src="/images/placeholder.svg" alt="" style="position:absolute;left:0;bottom:10%;width:42%;border-radius:12px;box-shadow:0 10px 30px #0008" />
+    </div>
+  </div>
+</section>

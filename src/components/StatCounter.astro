@@ -1,0 +1,7 @@
+---
+const { value, label, suffix="" } = Astro.props;
+---
+<div class="stat-counter">
+  <div class="count" data-count={value}>0</div>
+  <small class="muted">{label}</small>
+</div>

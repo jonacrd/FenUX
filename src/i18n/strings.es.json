@@ -1,0 +1,180 @@
+{
+  "landing": {
+    "meta": { "title":"Landing Page / Portfolio — rápido y bonito", "desc":"Landing o Portfolio en 7 días. 90+ Lighthouse, SEO técnico, Vercel. Desde USD 100.", "schemaName":"Landing/Portfolio" },
+    "hero": { "title":"Landing Pages y Portfolios que venden", "subtitle":"Mobile-first, 90+ Lighthouse, listas para anuncios.", "image":"/images/landing-hero.webp",
+      "badges":["Lighthouse 90+","Core Web Vitals","Astro + Vercel"],
+      "ctas":[{"label":"Pedir propuesta","href":"#lead","attrs":{"data-cta":"hero"}},{"label":"WhatsApp","href":"https://wa.me/WHATSAPP","attrs":{"data-whatsapp":""}}] },
+    "features": { "title":"Beneficios", "items":[
+      {"title":"Copy que convence","desc":"Qué/ Cómo/ Resultado, CTA claro."},
+      {"title":"Interacciones sutiles","desc":"Tilt, reveal, ripple sin librerías pesadas."},
+      {"title":"SEO técnico","desc":"Meta, schema, hreflang, sitemap."},
+      {"title":"Tracking pro","desc":"GA4, clic a WhatsApp, formulario y Calendly."}
+    ]},
+    "steps": { "title":"Cómo trabajo", "steps":[
+      {"k":"Brief 15 min","v":"definimos objetivo y oferta"},
+      {"k":"Wireframe + ref","v":"estructura y estilo visual"},
+      {"k":"Dev mobile-first","v":"Astro + Tailwind + Vercel"},
+      {"k":"QA & Performance","v":"Lighthouse 90+, a11y básica"},
+      {"k":"Entrega + video","v":"instrucciones y mejoras"}
+    ]},
+    "pricing": { "title":"Paquetes", "baseUSD":100,
+      "packs":[
+        {"name":"Starter","usd":100,"items":["1 página","hasta 5 secciones","1 formulario básico","Optimización ligera","Deploy en Vercel"],"cta":{"label":"Quiero este","href":"#lead","attrs":{}}},
+        {"name":"Pro","usd":160,"items":["1 página","hasta 8 secciones","Galería + lightbox","SEO técnico","Eventos GA4/Ads"],"cta":{"label":"Quiero este","href":"#lead","attrs":{}}},
+        {"name":"Premium","usd":220,"items":["Hasta 2 páginas","10 secciones","Animaciones avanzadas","Optimización CWV","Soporte 7 días"],"cta":{"label":"Quiero este","href":"#lead","attrs":{}}}
+      ]},
+    "extras": { "title":"Extras",
+      "items":[
+        {"name":"+3 secciones","desc":"Amplía tu landing/portfolio","usd":20},
+        {"name":"Integración blog","desc":"Listado y detalle de posts","usd":30},
+        {"name":"Sección casos","desc":"3 mini-casos con métricas","usd":25}
+      ]},
+    "faq": { "items":[
+      {"q":"¿Plazo?","a":"Usualmente 7 días, según contenidos."},
+      {"q":"¿Qué entregas?","a":"Repositorio, deploy y video explicativo."},
+      {"q":"¿Puedo escalar luego?","a":"Sí, secciones/páginas extra como add-on."}
+    ]},
+    "gallery": { "title":"Proyectos Destacados", "items":[
+      {"src":"/images/gallery-1.webp","alt":"E-commerce Moderno","title":"Tienda Online","desc":"+250% conversión • 90+ Lighthouse"},
+      {"src":"/images/gallery-2.webp","alt":"Portfolio Creativo","title":"Diseño Creativo","desc":"+180% engagement • Mobile-first"},
+      {"src":"/images/gallery-3.webp","alt":"Dashboard de Ventas","title":"Panel de Control","desc":"+320% productividad • Tiempo real"}
+    ]},
+    "testimonials": { "title":"Lo que dicen nuestros clientes", "items":[
+      {"name":"María González","role":"CEO, TechStart","text":"Excelente trabajo! La landing superó nuestras expectativas. +250% conversión en solo 2 semanas. Recomendado 100%","rating":5,"image":"/images/testimonial-1.webp"},
+      {"name":"Carlos Ruiz","role":"Director, DigitalPro","text":"Increíble resultado! El rediseño transformó completamente nuestro sitio. 90+ Lighthouse, perfecto!","rating":5,"image":"/images/testimonial-2.webp"},
+      {"name":"Ana Martínez","role":"Fundadora, E-commercePlus","text":"App perfecta! La app web funciona perfectamente. Stripe integrado sin problemas.","rating":5,"image":"/images/testimonial-3.webp"}
+    ]},
+    "process": { "title":"Nuestro Proceso de Trabajo", "image":"/images/process-workflow.webp", "steps":[
+      {"step":"1","title":"Brief","desc":"15 min","detail":"Definimos objetivo y oferta"},
+      {"step":"2","title":"Wireframe","desc":"1 día","detail":"Estructura y estilo visual"},
+      {"step":"3","title":"Desarrollo","desc":"3-4 días","detail":"Astro + Tailwind + Vercel"},
+      {"step":"4","title":"QA","desc":"1 día","detail":"Lighthouse 90+, a11y básica"},
+      {"step":"5","title":"Deploy","desc":"1 día","detail":"Vercel + dominio"},
+      {"step":"6","title":"Entrega","desc":"1 día","detail":"Video + soporte"}
+    ]},
+    "stats": { "title":"Métricas de Éxito", "image":"/images/stats-dashboard.webp", "items":[
+      {"value":"94","label":"Lighthouse Score","change":"+4 vs anterior"},
+      {"value":"1.2s","label":"Tiempo de Carga","change":"-0.8s vs anterior"},
+      {"value":"98","label":"SEO Score","change":"+12 vs anterior"},
+      {"value":"18%","label":"Conversión","change":"+3% vs anterior"}
+    ]}
+  },
+
+  "redesign": {
+    "meta": { "title":"Rediseño Web — moderno y rápido", "desc":"Convierte tu web antigua en moderna. 90+ Lighthouse. Desde USD 60.", "schemaName":"Website Redesign" },
+    "hero": { "title":"Rediseño de Web que convierte", "subtitle":"UI moderna, CWV 90+, migración sin perder SEO.", "image":"/images/placeholder.svg", "before":"/images/old.webp", "after":"/images/new.webp",
+      "badges":["Redirecciones 301","Canonical/hreflang","Astro + Vercel"],
+      "ctas":[{"label":"Pedir propuesta","href":"#lead","attrs":{"data-cta":"hero"}},{"label":"WhatsApp","href":"https://wa.me/WHATSAPP","attrs":{"data-whatsapp":""}}] },
+    "features": { "title":"Qué incluye", "items":[
+      {"title":"Auditoría UX + Rendimiento","desc":"Detecto fricción, LCP/CLS/INP."},
+      {"title":"Rediseño visual","desc":"Tipografía, espaciado, componentes."},
+      {"title":"Optimización técnica","desc":"WebP, lazy, preconnect, CSS crítico."},
+      {"title":"Migración sin caídas","desc":"Redirect 301, canonical y hreflang."}
+    ]},
+    "steps": { "title":"Proceso", "steps":[
+      {"k":"Auditoría inicial","v":"snapshot de métricas y UX"},
+      {"k":"UI Kit","v":"tokens y componentes claves"},
+      {"k":"Implementación","v":"sección por sección"},
+      {"k":"QA y SEO técnico","v":"sitemaps, metas, schema"},
+      {"k":"Entrega","v":"reporte Lighthouse antes/después"}
+    ]},
+    "pricing": { "title":"Paquetes", "baseUSD":60,
+      "packs":[
+        {"name":"Refresh","usd":60,"items":["Home + header/footer","Optimización básica","1 formulario","Deploy"],"cta":{"label":"Quiero este","href":"#lead","attrs":{}}},
+        {"name":"Modern","usd":120,"items":["Home + 2 secciones clave","Imágenes optimizadas","SEO técnico","Eventos GA4/Ads"],"cta":{"label":"Quiero este","href":"#lead","attrs":{}}},
+        {"name":"Rebuild","usd":180,"items":["Home completo",">4 secciones","Migración Astro","Reporte CWV 90+"],"cta":{"label":"Quiero este","href":"#lead","attrs":{}}}
+      ]},
+    "extras": { "title":"Extras",
+      "items":[
+        {"name":"Escalar a tienda","desc":"E-commerce básico listo para Stripe","usd":120},
+        {"name":"Más páginas","desc":"Secciones o páginas adicionales","usd":30}
+      ]},
+    "faq": { "items":[
+      {"q":"¿Se pierde SEO?","a":"No, plan de redirecciones y metas correcto."},
+      {"q":"¿Puedo agregar secciones?","a":"Sí, como extra."}
+    ]},
+    "gallery": { "title":"Transformaciones Exitosas", "items":[
+      {"src":"/images/redesign-comparison.webp","alt":"Antes y Después","title":"Transformación Completa","desc":"+250% conversión • +180% engagement"},
+      {"src":"/images/gallery-1.webp","alt":"E-commerce Moderno","title":"Tienda Online","desc":"+250% conversión • 90+ Lighthouse"},
+      {"src":"/images/gallery-2.webp","alt":"Portfolio Creativo","title":"Diseño Creativo","desc":"+180% engagement • Mobile-first"}
+    ]},
+    "testimonials": { "title":"Lo que dicen nuestros clientes", "items":[
+      {"name":"María González","role":"CEO, TechStart","text":"Excelente trabajo! La landing superó nuestras expectativas. +250% conversión en solo 2 semanas. Recomendado 100%","rating":5,"image":"/images/testimonial-1.webp"},
+      {"name":"Carlos Ruiz","role":"Director, DigitalPro","text":"Increíble resultado! El rediseño transformó completamente nuestro sitio. 90+ Lighthouse, perfecto!","rating":5,"image":"/images/testimonial-2.webp"},
+      {"name":"Ana Martínez","role":"Fundadora, E-commercePlus","text":"App perfecta! La app web funciona perfectamente. Stripe integrado sin problemas.","rating":5,"image":"/images/testimonial-3.webp"}
+    ]},
+    "process": { "title":"Nuestro Proceso de Trabajo", "image":"/images/process-workflow.webp", "steps":[
+      {"step":"1","title":"Brief","desc":"15 min","detail":"Definimos objetivo y oferta"},
+      {"step":"2","title":"Wireframe","desc":"1 día","detail":"Estructura y estilo visual"},
+      {"step":"3","title":"Desarrollo","desc":"3-4 días","detail":"Astro + Tailwind + Vercel"},
+      {"step":"4","title":"QA","desc":"1 día","detail":"Lighthouse 90+, a11y básica"},
+      {"step":"5","title":"Deploy","desc":"1 día","detail":"Vercel + dominio"},
+      {"step":"6","title":"Entrega","desc":"1 día","detail":"Video + soporte"}
+    ]},
+    "stats": { "title":"Métricas de Éxito", "image":"/images/stats-dashboard.webp", "items":[
+      {"value":"94","label":"Lighthouse Score","change":"+4 vs anterior"},
+      {"value":"1.2s","label":"Tiempo de Carga","change":"-0.8s vs anterior"},
+      {"value":"98","label":"SEO Score","change":"+12 vs anterior"},
+      {"value":"18%","label":"Conversión","change":"+3% vs anterior"}
+    ]}
+  },
+
+  "webapp": {
+    "meta": { "title":"App Web / E-commerce — lista para crecer", "desc":"Tienda, dashboard y base de datos. Desde USD 200+.", "schemaName":"Web App / E-commerce" },
+    "hero": { "title":"Apps Web que facturan", "subtitle":"Checkout seguro, panel básico y performance alto.", "image":"/images/webapp-hero.webp",
+      "badges":["Stripe Ready","SSR/ISG","Astro + React"],
+      "ctas":[{"label":"Pedir propuesta","href":"#lead","attrs":{"data-cta":"hero"}},{"label":"WhatsApp","href":"https://wa.me/WHATSAPP","attrs":{"data-whatsapp":""}}] },
+    "features": { "title":"Qué incluye", "items":[
+      {"title":"Arquitectura limpia","desc":"Rutas, estado y componentes claros."},
+      {"title":"Stripe Ready","desc":"Pagos, webhooks y recibos."},
+      {"title":"Base de datos","desc":"ORM y modelos básicos."},
+      {"title":"Métricas","desc":"Eventos de conversión listos."}
+    ]},
+    "steps": { "title":"Proceso", "steps":[
+      {"k":"Diseño funcional","v":"alcance y modelos"},
+      {"k":"MVP","v":"flujo crítico primero"},
+      {"k":"Integraciones","v":"Stripe / BD"},
+      {"k":"QA & Seguridad","v":"roles y validaciones"},
+      {"k":"Entrega","v":"documentación y video"}
+    ]},
+    "pricing": { "title":"Paquetes", "baseUSD":200,
+      "packs":[
+        {"name":"MVP","usd":200,"items":["Auth básica","1 flujo core","Panel básico"],"cta":{"label":"Quiero este","href":"#lead","attrs":{}}},
+        {"name":"Tienda","usd":320,"items":["Catálogo + carrito","Stripe básico","Pedidos"],"cta":{"label":"Quiero este","href":"#lead","attrs":{}}},
+        {"name":"Pro","usd":480,"items":["Módulos extra","Dashboards","Integraciones"],"cta":{"label":"Quiero este","href":"#lead","attrs":{}}}
+      ]},
+    "extras": { "title":"Extras",
+      "items":[
+        {"name":"Módulo admin","desc":"Gestión avanzada","usd":120},
+        {"name":"Integración externa","desc":"API de terceros","usd":80}
+      ]},
+    "faq": { "items":[
+      {"q":"¿Escalable?","a":"Sí, arquitectura modular y servicios."},
+      {"q":"¿Pasarela de pagos?","a":"Stripe listo y ampliable."}
+    ]},
+    "gallery": { "title":"Apps en Producción", "items":[
+      {"src":"/images/webapp-dashboard.webp","alt":"Dashboard de Ventas","title":"Panel de Control","desc":"+320% productividad • Tiempo real"},
+      {"src":"/images/payment-integration.webp","alt":"Integración de Pagos","title":"Stripe Ready","desc":"Pagos seguros • Webhooks"},
+      {"src":"/images/gallery-3.webp","alt":"Dashboard de Ventas","title":"Panel de Control","desc":"+320% productividad • Tiempo real"}
+    ]},
+    "testimonials": { "title":"Lo que dicen nuestros clientes", "items":[
+      {"name":"María González","role":"CEO, TechStart","text":"Excelente trabajo! La landing superó nuestras expectativas. +250% conversión en solo 2 semanas. Recomendado 100%","rating":5,"image":"/images/testimonial-1.webp"},
+      {"name":"Carlos Ruiz","role":"Director, DigitalPro","text":"Increíble resultado! El rediseño transformó completamente nuestro sitio. 90+ Lighthouse, perfecto!","rating":5,"image":"/images/testimonial-2.webp"},
+      {"name":"Ana Martínez","role":"Fundadora, E-commercePlus","text":"App perfecta! La app web funciona perfectamente. Stripe integrado sin problemas.","rating":5,"image":"/images/testimonial-3.webp"}
+    ]},
+    "process": { "title":"Nuestro Proceso de Trabajo", "image":"/images/process-workflow.webp", "steps":[
+      {"step":"1","title":"Brief","desc":"15 min","detail":"Definimos objetivo y oferta"},
+      {"step":"2","title":"Wireframe","desc":"1 día","detail":"Estructura y estilo visual"},
+      {"step":"3","title":"Desarrollo","desc":"3-4 días","detail":"Astro + Tailwind + Vercel"},
+      {"step":"4","title":"QA","desc":"1 día","detail":"Lighthouse 90+, a11y básica"},
+      {"step":"5","title":"Deploy","desc":"1 día","detail":"Vercel + dominio"},
+      {"step":"6","title":"Entrega","desc":"1 día","detail":"Video + soporte"}
+    ]},
+    "stats": { "title":"Métricas de Éxito", "image":"/images/stats-dashboard.webp", "items":[
+      {"value":"94","label":"Lighthouse Score","change":"+4 vs anterior"},
+      {"value":"1.2s","label":"Tiempo de Carga","change":"-0.8s vs anterior"},
+      {"value":"98","label":"SEO Score","change":"+12 vs anterior"},
+      {"value":"18%","label":"Conversión","change":"+3% vs anterior"}
+    ]}
+  }
+}

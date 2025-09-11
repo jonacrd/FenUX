@@ -1,0 +1,82 @@
+/* Tema específico para Rediseño Web */
+[data-theme="redesign"] {
+  --c1: #667eea;
+  --c2: #764ba2;
+  --ink: #1e293b;
+  --bg: #f8fafc;
+  --fg: #ffffff;
+}
+
+[data-theme="redesign"] .background-paths-container {
+  background: linear-gradient(135deg, var(--c1) 0%, var(--c2) 100%);
+}
+
+[data-theme="redesign"] .floating-path {
+  stroke: rgba(255, 255, 255, 0.1);
+}
+
+[data-theme="redesign"] .title {
+  background: linear-gradient(135deg, #ffffff 0%, rgba(255, 255, 255, 0.8) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+[data-theme="redesign"] .cta-button {
+  background: rgba(255, 255, 255, 0.95);
+  color: #1e293b;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="redesign"] .cta-button:hover {
+  background: rgba(255, 255, 255, 1);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Animaciones específicas para el tema de rediseño */
+[data-theme="redesign"] .floating-path {
+  animation: drawPathRedesign var(--duration, 20s) linear infinite;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes drawPathRedesign {
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0.1;
+  }
+  25% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+  75% {
+    opacity: 0.3;
+  }
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.1;
+  }
+}
+
+/* Efectos de hover mejorados */
+[data-theme="redesign"] .before-after-container:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
+}
+
+[data-theme="redesign"] .before-after-container {
+  transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+/* Responsive mejorado */
+@media (max-width: 768px) {
+  [data-theme="redesign"] .title {
+    font-size: clamp(2rem, 6vw, 4rem);
+  }
+  
+  [data-theme="redesign"] .cta-button {
+    padding: 1rem 1.5rem;
+    font-size: 1rem;
+  }
+}

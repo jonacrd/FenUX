@@ -1,0 +1,32 @@
+<svg width="300" height="200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="shot1Grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00E5FF;stop-opacity:0.9" />
+      <stop offset="100%" style="stop-color:#7C4DFF;stop-opacity:0.9" />
+    </linearGradient>
+    <filter id="cardShadow">
+      <feDropShadow dx="0" dy="4" stdDeviation="8" flood-color="#00000030"/>
+    </filter>
+  </defs>
+  
+  <!-- Card background -->
+  <rect width="100%" height="100%" fill="rgba(255,255,255,0.95)" rx="16" stroke="rgba(0,0,0,0.1)" stroke-width="1" filter="url(#cardShadow)"/>
+  
+  <!-- Header -->
+  <rect x="20" y="20" width="260" height="40" fill="url(#shot1Grad)" rx="8"/>
+  <text x="150" y="45" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Portfolio Moderno</text>
+  
+  <!-- Content -->
+  <rect x="30" y="80" width="240" height="20" fill="rgba(0,0,0,0.1)" rx="4"/>
+  <rect x="30" y="110" width="200" height="15" fill="rgba(0,0,0,0.08)" rx="3"/>
+  <rect x="30" y="135" width="180" height="15" fill="rgba(0,0,0,0.08)" rx="3"/>
+  
+  <!-- Stats -->
+  <rect x="30" y="160" width="80" height="25" fill="url(#shot1Grad)" rx="12"/>
+  <text x="70" y="177" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Ver Proyecto</text>
+  
+  <!-- Decorative elements -->
+  <circle cx="250" cy="50" r="8" fill="rgba(0,0,0,0.1)"/>
+  <circle cx="270" cy="50" r="6" fill="rgba(0,0,0,0.1)"/>
+  <circle cx="260" cy="70" r="4" fill="rgba(0,0,0,0.1)"/>
+</svg>

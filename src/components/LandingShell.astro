@@ -1,0 +1,82 @@
+---
+import HeroFancy from "./HeroFancy.astro";
+import FeatureGrid from "./FeatureGrid.astro";
+import ProcessSteps from "./ProcessSteps.astro";
+import Pricing from "./Pricing.astro";
+import Extras from "./Extras.astro";
+import Testimonials from "./Testimonials.astro";
+import Gallery from "./Gallery.astro";
+import FAQ from "./FAQ.astro";
+import LeadForm from "./LeadForm.astro";
+
+const {
+  lang="es", // "es" | "en"
+  meta, hero, features, steps, pricing, extras, testimonials, gallery, faq,
+  CONTACT_EMAIL="contacto@jonadevel.com", WHATSAPP="+580000000000",
+  DOMAIN="https://jonadevel-portfolio.vercel.app", GA4_ID="G-XXXXXXX", ADS_ID="AW-XXXXXXX",
+  altHref
+} = Astro.props;
+---
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{meta.title}</title>
+    <meta name="description" content={meta.desc} />
+    <link rel="canonical" href={meta.canonical || DOMAIN} />
+    <link rel="alternate" hrefLang={lang==='es'?'en':'es'} href={altHref || DOMAIN} />
+    <meta name="robots" content="index,follow" />
+    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
+    <script>
+      window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}
+      gtag('js', new Date()); gtag('config','{GA4_ID}');
+      window.ADS_ID='{ADS_ID}';
+    </script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="font" href="/fonts/inter.woff2" type="font/woff2" crossorigin>
+    <link rel="stylesheet" href="/src/styles/enhanced.css" />
+    <link rel="stylesheet" href="/src/styles/themes.css" />
+    <link rel="stylesheet" href="/src/styles/effects.css" />
+    <svg id="filters">
+      <defs>
+        <filter id="gooey">
+          <feGaussianBlur in="SourceGraphic" stdDeviation="3" result="blur" />
+          <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 19 -9" result="gooey" />
+          <feComposite in="SourceGraphic" in2="gooey" operator="atop"/>
+        </filter>
+      </defs>
+    </svg>
+    <script type="application/ld+json">
+      {JSON.stringify({
+        "@context":"https://schema.org",
+        "@type":"Service",
+        "name": meta.schemaName,
+        "description": meta.desc,
+        "areaServed": ["ES","MX","US","GB","CA","AU","DE","NL"],
+        "provider": {"@type":"Person","name":"Jonathan"},
+        "offers": {"@type":"Offer","priceCurrency":"USD","price": pricing?.baseUSD || "0", "availability":"https://schema.org/InStock"}
+      })}
+    </script>
+  </head>
+  <body>
+    <HeroFancy {...hero} />
+    <FeatureGrid {...features} />
+    <ProcessSteps {...steps} />
+    <Pricing {...pricing} lang={lang} />
+    {extras && <Extras {...extras} />}
+    {testimonials && <Testimonials {...testimonials} />}
+    {gallery && <Gallery {...gallery} />}
+    <FAQ {...faq} />
+    <LeadForm language={lang} email={CONTACT_EMAIL} whatsapp={WHATSAPP} />
+    <script type="module">
+      import { ripple, revealOnScroll, tilt, lightbox } from "/src/scripts/ux.js";
+      import { bindWhatsApp, bindCalendly } from "/src/scripts/conv.js";
+      import { setupCurrency } from "/src/scripts/currency.js";
+      import { onReveal, cursorSpotlight, magnetic, parallax, scrollBar } from "/src/scripts/effects.js";
+      ripple(); revealOnScroll(); tilt(); lightbox();
+      bindWhatsApp(); bindCalendly();
+      setupCurrency({});
+      onReveal(); cursorSpotlight(); magnetic(); parallax(); scrollBar();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,102 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="webappGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00e3a2;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#9be15d;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4fc3f7;stop-opacity:1" />
+    </linearGradient>
+    <filter id="webappGlow">
+      <feGaussianBlur stdDeviation="4" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="webappShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#00000040"/>
+    </filter>
+  </defs>
+  
+  <!-- Background with app gradient -->
+  <rect width="100%" height="100%" fill="url(#webappGrad)" rx="24"/>
+  
+  <!-- Main dashboard mockup -->
+  <rect x="100" y="80" width="600" height="340" fill="rgba(255,255,255,0.95)" rx="20" stroke="rgba(255,255,255,0.3)" stroke-width="2" filter="url(#webappShadow)"/>
+  
+  <!-- App header -->
+  <rect x="100" y="80" width="600" height="50" fill="rgba(248,250,252,0.9)" rx="20" rx="20" rx="0" rx="0"/>
+  <circle cx="130" cy="105" r="6" fill="#ff5f57"/>
+  <circle cx="150" cy="105" r="6" fill="#ffbd2e"/>
+  <circle cx="170" cy="105" r="6" fill="#28ca42"/>
+  
+  <!-- App title -->
+  <text x="400" y="115" font-family="Arial, sans-serif" font-size="16" font-weight="700" fill="#333" text-anchor="middle">Dashboard de Ventas</text>
+  
+  <!-- Sidebar -->
+  <rect x="120" y="150" width="120" height="250" fill="rgba(0,0,0,0.02)" rx="8"/>
+  <rect x="130" y="170" width="100" height="25" fill="url(#webappGrad)" rx="4"/>
+  <text x="180" y="185" font-family="Arial, sans-serif" font-size="11" font-weight="600" fill="white" text-anchor="middle">Dashboard</text>
+  
+  <rect x="130" y="205" width="100" height="20" fill="rgba(0,0,0,0.05)" rx="3"/>
+  <text x="180" y="218" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Ventas</text>
+  
+  <rect x="130" y="235" width="100" height="20" fill="rgba(0,0,0,0.05)" rx="3"/>
+  <text x="180" y="248" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Productos</text>
+  
+  <rect x="130" y="265" width="100" height="20" fill="rgba(0,0,0,0.05)" rx="3"/>
+  <text x="180" y="278" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Clientes</text>
+  
+  <rect x="130" y="295" width="100" height="20" fill="rgba(0,0,0,0.05)" rx="3"/>
+  <text x="180" y="308" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Reportes</text>
+  
+  <rect x="130" y="325" width="100" height="20" fill="rgba(0,0,0,0.05)" rx="3"/>
+  <text x="180" y="338" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Configuración</text>
+  
+  <!-- Main content area -->
+  <rect x="260" y="150" width="420" height="250" fill="rgba(0,0,0,0.01)" rx="8"/>
+  
+  <!-- Stats cards -->
+  <rect x="280" y="170" width="180" height="80" fill="rgba(255,255,255,0.8)" rx="8" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <text x="370" y="190" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333" text-anchor="middle">Ventas del Mes</text>
+  <text x="370" y="215" font-family="Arial, sans-serif" font-size="24" font-weight="800" fill="url(#webappGrad)" text-anchor="middle">$12,430</text>
+  <text x="370" y="235" font-family="Arial, sans-serif" font-size="10" fill="#28ca42" text-anchor="middle">↑ +18% vs mes anterior</text>
+  
+  <rect x="480" y="170" width="180" height="80" fill="rgba(255,255,255,0.8)" rx="8" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <text x="570" y="190" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333" text-anchor="middle">Conversión</text>
+  <text x="570" y="215" font-family="Arial, sans-serif" font-size="24" font-weight="800" fill="url(#webappGrad)" text-anchor="middle">18%</text>
+  <text x="570" y="235" font-family="Arial, sans-serif" font-size="10" fill="#28ca42" text-anchor="middle">↑ +3% vs mes anterior</text>
+  
+  <!-- Chart area -->
+  <rect x="280" y="270" width="380" height="120" fill="rgba(255,255,255,0.8)" rx="8" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <text x="470" y="290" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#333" text-anchor="middle">Tendencia de Ventas</text>
+  
+  <!-- Simple chart bars -->
+  <rect x="300" y="320" width="20" height="40" fill="url(#webappGrad)" rx="2"/>
+  <rect x="330" y="310" width="20" height="50" fill="url(#webappGrad)" rx="2"/>
+  <rect x="360" y="300" width="20" height="60" fill="url(#webappGrad)" rx="2"/>
+  <rect x="390" y="315" width="20" height="45" fill="url(#webappGrad)" rx="2"/>
+  <rect x="420" y="305" width="20" height="55" fill="url(#webappGrad)" rx="2"/>
+  <rect x="450" y="320" width="20" height="40" fill="url(#webappGrad)" rx="2"/>
+  <rect x="480" y="310" width="20" height="50" fill="url(#webappGrad)" rx="2"/>
+  <rect x="510" y="300" width="20" height="60" fill="url(#webappGrad)" rx="2"/>
+  <rect x="540" y="315" width="20" height="45" fill="url(#webappGrad)" rx="2"/>
+  <rect x="570" y="305" width="20" height="55" fill="url(#webappGrad)" rx="2"/>
+  <rect x="600" y="320" width="20" height="40" fill="url(#webappGrad)" rx="2"/>
+  
+  <!-- Action buttons -->
+  <rect x="280" y="400" width="100" height="35" fill="url(#webappGrad)" rx="17" filter="url(#webappGlow)"/>
+  <text x="330" y="422" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">Ver Reporte</text>
+  
+  <rect x="400" y="400" width="100" height="35" fill="rgba(0,0,0,0.05)" rx="17"/>
+  <text x="450" y="422" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333" text-anchor="middle">Exportar</text>
+  
+  <!-- Floating elements -->
+  <circle cx="50" cy="150" r="20" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="750" cy="200" r="15" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="80" cy="350" r="12" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="720" cy="400" r="18" fill="rgba(255,255,255,0.3)"/>
+  
+  <!-- Success indicators -->
+  <rect x="650" y="120" width="40" height="20" fill="#28ca42" rx="10"/>
+  <text x="670" y="133" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">LIVE</text>
+</svg>

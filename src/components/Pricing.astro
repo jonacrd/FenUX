@@ -1,0 +1,20 @@
+---
+const { title, baseUSD, packs=[], lang='es' } = Astro.props;
+const i18n = { es:{from:'Desde',currency:'Moneda',base:'Precio base'}, en:{from:'From',currency:'Currency',base:'Base price'} }[lang];
+---
+<section class="section">
+  <h2 class="hl">{title}</h2>
+  <div class="packs">
+    {packs.map(p => (
+      <article class="card reveal pack price-box" data-usd={p.usd} data-currency="">
+        <h3>{p.name}</h3>
+        <div><span class="price">—</span> <span class="currency">USD</span> <small class="muted">({i18n.from} USD {p.usd})</small></div>
+        <ul class="clean">
+          {p.items.map(li => <li>{li}</li>)}
+        </ul>
+        <a class="btn" href={p.cta.href} {...p.cta.attrs}>{p.cta.label}</a>
+      </article>
+    ))}
+  </div>
+  <p class="small muted" style="margin-top:8px">{i18n.base}: USD {baseUSD} — conversión aprox. según tu país.</p>
+</section>

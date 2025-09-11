@@ -1,0 +1,40 @@
+---
+const { language="es", email, whatsapp } = Astro.props;
+const T = {
+  es:{title:"Solicita una propuesta", name:"Tu nombre", email:"Tu email", msg:"Cuéntame del proyecto", send:"Enviar", ok:"¡Gracias! Te escribiré pronto.", or:"o"},
+  en:{title:"Request a proposal", name:"Your name", email:"Your email", msg:"Tell me about your project", send:"Send", ok:"Thanks! I'll get back to you.", or:"or"}
+}[language];
+---
+<section class="section">
+  <h2 class="hl">{T.title}</h2>
+  <div class="grid-2">
+    <form id="lead" class="card reveal" method="post" action="/api/lead" novalidate>
+      <input type="text" name="company" style="display:none" tabindex="-1" autocomplete="off" />
+      <label>{T.name}<input name="name" required /></label>
+      <label>{T.email}<input type="email" name="email" required /></label>
+      <label>{T.msg}<textarea name="message" rows="5" required></textarea></label>
+      <button class="btn" type="submit" data-cta="form">{T.send}</button>
+      <small class="muted">* Respondo en 24 h hábiles.</small>
+    </form>
+    <div class="card reveal">
+      <p><strong>WhatsApp</strong> {T.or} <strong>Email</strong></p>
+      <a class="btn" data-whatsapp href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener">WhatsApp</a>
+      <a class="btn alt" href={`mailto:${email}`}>Email</a>
+    </div>
+  </div>
+  <p id="lead-ok" style="display:none;margin-top:8px" role="status">{T.ok}</p>
+</section>
+
+<script>
+  import { fireLeadSubmit } from "../scripts/conv.js";
+  const f=document.getElementById('lead'); const ok=document.getElementById('lead-ok');
+  f?.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const fd=new FormData(f);
+    if(fd.get('company')) return;
+    // validación mínima
+    if(!fd.get('name')||!fd.get('email')||!fd.get('message')) return;
+    const res=await fetch(f.action,{method:'POST',body:fd});
+    if(res.ok){ f.reset(); ok.style.display='block'; fireLeadSubmit(); }
+  });
+</script>

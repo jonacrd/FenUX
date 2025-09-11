@@ -1,0 +1,67 @@
+<svg width="600" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="featuresGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00E5FF;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#7C4DFF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#E91E63;stop-opacity:1" />
+    </linearGradient>
+    <filter id="featuresShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#00000030"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="rgba(255,255,255,0.95)" rx="16" stroke="rgba(0,0,0,0.1)" stroke-width="1" filter="url(#featuresShadow)"/>
+  
+  <!-- Header -->
+  <text x="300" y="30" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#333" text-anchor="middle">Características Principales</text>
+  <text x="300" y="50" font-family="Arial, sans-serif" font-size="12" fill="#666" text-anchor="middle">Todo lo que necesitas para una landing exitosa</text>
+  
+  <!-- Feature 1 -->
+  <rect x="40" y="80" width="250" height="120" fill="rgba(0,0,0,0.02)" rx="8"/>
+  <circle cx="70" cy="110" r="20" fill="url(#featuresGrad)"/>
+  <text x="70" y="117" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">⚡</text>
+  <text x="110" y="105" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">Performance 90+</text>
+  <text x="110" y="125" font-family="Arial, sans-serif" font-size="11" fill="#666">Lighthouse optimizado</text>
+  <text x="110" y="140" font-family="Arial, sans-serif" font-size="11" fill="#666">Core Web Vitals</text>
+  <text x="110" y="155" font-family="Arial, sans-serif" font-size="11" fill="#666">Carga ultra rápida</text>
+  <text x="110" y="170" font-family="Arial, sans-serif" font-size="11" fill="#666">Mobile-first</text>
+  <text x="110" y="185" font-family="Arial, sans-serif" font-size="11" fill="#666">WebP + lazy loading</text>
+  
+  <!-- Feature 2 -->
+  <rect x="310" y="80" width="250" height="120" fill="rgba(0,0,0,0.02)" rx="8"/>
+  <circle cx="340" cy="110" r="20" fill="url(#featuresGrad)"/>
+  <text x="340" y="117" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">🔍</text>
+  <text x="380" y="105" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">SEO Técnico</text>
+  <text x="380" y="125" font-family="Arial, sans-serif" font-size="11" fill="#666">Meta tags optimizados</text>
+  <text x="380" y="140" font-family="Arial, sans-serif" font-size="11" fill="#666">Schema.org</text>
+  <text x="380" y="155" font-family="Arial, sans-serif" font-size="11" fill="#666">Hreflang + canonical</text>
+  <text x="380" y="170" font-family="Arial, sans-serif" font-size="11" fill="#666">Sitemap XML</text>
+  <text x="380" y="185" font-family="Arial, sans-serif" font-size="11" fill="#666">Robots.txt</text>
+  
+  <!-- Feature 3 -->
+  <rect x="40" y="220" width="250" height="120" fill="rgba(0,0,0,0.02)" rx="8"/>
+  <circle cx="70" cy="250" r="20" fill="url(#featuresGrad)"/>
+  <text x="70" y="257" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">📊</text>
+  <text x="110" y="245" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">Analytics Pro</text>
+  <text x="110" y="265" font-family="Arial, sans-serif" font-size="11" fill="#666">Google Analytics 4</text>
+  <text x="110" y="280" font-family="Arial, sans-serif" font-size="11" fill="#666">Google Ads events</text>
+  <text x="110" y="295" font-family="Arial, sans-serif" font-size="11" fill="#666">WhatsApp tracking</text>
+  <text x="110" y="310" font-family="Arial, sans-serif" font-size="11" fill="#666">Formulario tracking</text>
+  <text x="110" y="325" font-family="Arial, sans-serif" font-size="11" fill="#666">Calendly tracking</text>
+  
+  <!-- Feature 4 -->
+  <rect x="310" y="220" width="250" height="120" fill="rgba(0,0,0,0.02)" rx="8"/>
+  <circle cx="340" cy="250" r="20" fill="url(#featuresGrad)"/>
+  <text x="340" y="257" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">🎨</text>
+  <text x="380" y="245" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">UX Avanzado</text>
+  <text x="380" y="265" font-family="Arial, sans-serif" font-size="11" fill="#666">Micro-interacciones</text>
+  <text x="380" y="280" font-family="Arial, sans-serif" font-size="11" fill="#666">Animaciones fluidas</text>
+  <text x="380" y="295" font-family="Arial, sans-serif" font-size="11" fill="#666">Efectos parallax</text>
+  <text x="380" y="310" font-family="Arial, sans-serif" font-size="11" fill="#666">Lightbox gallery</text>
+  <text x="380" y="325" font-family="Arial, sans-serif" font-size="11" fill="#666">Responsive design</text>
+  
+  <!-- Bottom section -->
+  <rect x="40" y="360" width="520" height="30" fill="rgba(0,0,0,0.02)" rx="8"/>
+  <text x="300" y="380" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333" text-anchor="middle">Todo incluido en cada paquete • Sin costos ocultos • Soporte completo</text>
+</svg>

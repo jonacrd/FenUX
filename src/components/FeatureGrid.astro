@@ -1,0 +1,14 @@
+---
+const { title, items=[] } = Astro.props;
+---
+<section class="section">
+  {title && <h2 class="hl" style="margin-bottom:8px">{title}</h2>}
+  <div class="grid-2">
+    {items.map(f => (
+      <article class="card reveal" data-tilt>
+        <h3 style="margin:.2rem 0">{f.title}</h3>
+        <p style="opacity:.85">{f.desc}</p>
+      </article>
+    ))}
+  </div>
+</section>

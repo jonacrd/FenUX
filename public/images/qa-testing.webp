@@ -1,0 +1,85 @@
+<svg width="700" height="400" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="qaGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#00E5FF;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#7C4DFF;stop-opacity:1" />
+    </linearGradient>
+    <filter id="qaShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#00000030"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="rgba(255,255,255,0.95)" rx="16" stroke="rgba(0,0,0,0.1)" stroke-width="1" filter="url(#qaShadow)"/>
+  
+  <!-- Header -->
+  <text x="350" y="40" font-family="Arial, sans-serif" font-size="20" font-weight="700" fill="#333" text-anchor="middle">Testing y QA Completo</text>
+  <text x="350" y="65" font-family="Arial, sans-serif" font-size="12" fill="#666" text-anchor="middle">Cada proyecto pasa por rigurosas pruebas de calidad</text>
+  
+  <!-- Testing categories -->
+  <rect x="50" y="100" width="600" height="250" fill="rgba(0,0,0,0.02)" rx="12"/>
+  
+  <!-- Performance testing -->
+  <rect x="80" y="130" width="150" height="100" fill="rgba(255,255,255,0.8)" rx="8" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <circle cx="120" cy="150" r="15" fill="url(#qaGrad)"/>
+  <text x="120" y="157" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">⚡</text>
+  <text x="150" y="150" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333">Performance</text>
+  <text x="80" y="170" font-family="Arial, sans-serif" font-size="10" fill="#666">• Lighthouse 90+</text>
+  <text x="80" y="185" font-family="Arial, sans-serif" font-size="10" fill="#666">• Core Web Vitals</text>
+  <text x="80" y="200" font-family="Arial, sans-serif" font-size="10" fill="#666">• Mobile speed test</text>
+  <text x="80" y="215" font-family="Arial, sans-serif" font-size="10" fill="#666">• Load testing</text>
+  
+  <!-- Responsive testing -->
+  <rect x="250" y="130" width="150" height="100" fill="rgba(255,255,255,0.8)" rx="8" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <circle cx="290" cy="150" r="15" fill="url(#qaGrad)"/>
+  <text x="290" y="157" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">📱</text>
+  <text x="320" y="150" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333">Responsive</text>
+  <text x="250" y="170" font-family="Arial, sans-serif" font-size="10" fill="#666">• Mobile-first</text>
+  <text x="250" y="185" font-family="Arial, sans-serif" font-size="10" fill="#666">• Tablet testing</text>
+  <text x="250" y="200" font-family="Arial, sans-serif" font-size="10" fill="#666">• Desktop testing</text>
+  <text x="250" y="215" font-family="Arial, sans-serif" font-size="10" fill="#666">• Cross-browser</text>
+  
+  <!-- SEO testing -->
+  <rect x="420" y="130" width="150" height="100" fill="rgba(255,255,255,0.8)" rx="8" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <circle cx="460" cy="150" r="15" fill="url(#qaGrad)"/>
+  <text x="460" y="157" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">🔍</text>
+  <text x="490" y="150" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333">SEO</text>
+  <text x="420" y="170" font-family="Arial, sans-serif" font-size="10" fill="#666">• Meta tags</text>
+  <text x="420" y="185" font-family="Arial, sans-serif" font-size="10" fill="#666">• Schema.org</text>
+  <text x="420" y="200" font-family="Arial, sans-serif" font-size="10" fill="#666">• Hreflang</text>
+  <text x="420" y="215" font-family="Arial, sans-serif" font-size="10" fill="#666">• Sitemap</text>
+  
+  <!-- Functionality testing -->
+  <rect x="80" y="250" width="150" height="100" fill="rgba(255,255,255,0.8)" rx="8" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <circle cx="120" cy="270" r="15" fill="url(#qaGrad)"/>
+  <text x="120" y="277" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">⚙️</text>
+  <text x="150" y="270" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333">Funcionalidad</text>
+  <text x="80" y="290" font-family="Arial, sans-serif" font-size="10" fill="#666">• Formularios</text>
+  <text x="80" y="305" font-family="Arial, sans-serif" font-size="10" fill="#666">• Navegación</text>
+  <text x="80" y="320" font-family="Arial, sans-serif" font-size="10" fill="#666">• Links externos</text>
+  <text x="80" y="335" font-family="Arial, sans-serif" font-size="10" fill="#666">• CTAs</text>
+  
+  <!-- Security testing -->
+  <rect x="250" y="250" width="150" height="100" fill="rgba(255,255,255,0.8)" rx="8" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <circle cx="290" cy="270" r="15" fill="url(#qaGrad)"/>
+  <text x="290" y="277" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">🔒</text>
+  <text x="320" y="270" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333">Seguridad</text>
+  <text x="250" y="290" font-family="Arial, sans-serif" font-size="10" fill="#666">• HTTPS</text>
+  <text x="250" y="305" font-family="Arial, sans-serif" font-size="10" fill="#666">• Validación</text>
+  <text x="250" y="320" font-family="Arial, sans-serif" font-size="10" fill="#666">• Sanitización</text>
+  <text x="250" y="335" font-family="Arial, sans-serif" font-size="10" fill="#666">• Headers</text>
+  
+  <!-- Accessibility testing -->
+  <rect x="420" y="250" width="150" height="100" fill="rgba(255,255,255,0.8)" rx="8" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <circle cx="460" cy="270" r="15" fill="url(#qaGrad)"/>
+  <text x="460" y="277" font-family="Arial, sans-serif" font-size="12" font-weight="bold" fill="white" text-anchor="middle">♿</text>
+  <text x="490" y="270" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333">Accesibilidad</text>
+  <text x="420" y="290" font-family="Arial, sans-serif" font-size="10" fill="#666">• Contraste</text>
+  <text x="420" y="305" font-family="Arial, sans-serif" font-size="10" fill="#666">• Alt text</text>
+  <text x="420" y="320" font-family="Arial, sans-serif" font-size="10" fill="#666">• Navegación</text>
+  <text x="420" y="335" font-family="Arial, sans-serif" font-size="10" fill="#666">• Screen reader</text>
+  
+  <!-- Bottom section -->
+  <rect x="50" y="370" width="600" height="20" fill="rgba(0,0,0,0.02)" rx="8"/>
+  <text x="350" y="385" font-family="Arial, sans-serif" font-size="11" fill="#666" text-anchor="middle">✅ Todas las pruebas pasan • ✅ Calidad garantizada • ✅ Listo para producción</text>
+</svg>

@@ -1,0 +1,65 @@
+# Keywords negativas para Google Ads
+# Agregar estas palabras clave como negativas en las campañas
+
+# Competencia directa
+competencia
+competidor
+alternativa
+vs
+comparar
+mejor que
+más barato
+más económico
+
+# Palabras de búsqueda de empleo
+trabajo
+empleo
+vacante
+puesto
+contratar
+sueldo
+salario
+cv
+curriculum
+
+# Palabras de tutorial/aprendizaje
+tutorial
+como hacer
+aprender
+curso
+gratis
+gratuito
+sin costo
+DIY
+hazlo tu mismo
+
+# Palabras de software/herramientas
+software
+herramienta
+app
+aplicación
+programa
+descargar
+instalar
+crack
+pirata
+
+# Palabras de contenido
+blog
+artículo
+post
+noticia
+información
+guía
+manual
+documentación
+
+# Palabras de servicios no relacionados
+hosting
+dominio
+servidor
+vps
+cloud
+almacenamiento
+backup
+migración

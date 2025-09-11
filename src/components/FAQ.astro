@@ -1,0 +1,9 @@
+---
+const { items=[] } = Astro.props;
+---
+<section class="section">
+  <h2 class="hl">Preguntas frecuentes</h2>
+  {items.map(q=>(
+    <details class="card reveal"><summary><strong>{q.q}</strong></summary><div style="opacity:.85;margin-top:6px">{q.a}</div></details>
+  ))}
+</section>

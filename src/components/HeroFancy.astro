@@ -1,0 +1,18 @@
+---
+const { title, subtitle, image, ctas=[], badges=[] } = Astro.props;
+---
+<section class="section">
+  <div class="grid-2">
+    <div class="reveal">
+      <h1 class="grad-wobble" style="font-size:clamp(28px,6vw,48px)">{title}</h1>
+      <p style="opacity:.85;margin:.6rem 0 1rem">{subtitle}</p>
+      {badges?.length && <div class="badges">{badges.map(b => <span class="badge">{b}</span>)}</div>}
+      <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px">
+        {ctas.map((c)=> <a class={`btn ${c.alt?'alt':''}`} href={c.href} {...c.attrs}>{c.label}</a>)}
+      </div>
+    </div>
+    <div class="reveal">
+      <div class="skeleton"><img src={image} alt="" loading="eager" width="640" height="420" style="width:100%;border-radius:12px;display:block" onload="this.parentElement.classList.remove('skeleton')" /></div>
+    </div>
+  </div>
+</section>

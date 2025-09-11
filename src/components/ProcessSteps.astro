@@ -1,0 +1,9 @@
+---
+const { title, steps=[] } = Astro.props;
+---
+<section class="section">
+  <h2 class="hl">{title}</h2>
+  <ol class="card reveal" style="padding:12px 18px">
+    {steps.map(s => <li style="margin:.35rem 0"><strong>{s.k}</strong> — {s.v}</li>)}
+  </ol>
+</section>

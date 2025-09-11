@@ -1,0 +1,18 @@
+---
+const { items=[], speed="20s" } = Astro.props;
+---
+<div class="marquee" style="overflow:hidden;white-space:nowrap;position:relative">
+  <div class="marquee-content" style={`display:inline-block;animation:scroll ${speed} linear infinite`}>
+    {items.map(item => <span style="display:inline-block;margin-right:2rem;font-weight:600;opacity:.8">{item}</span>)}
+    {items.map(item => <span style="display:inline-block;margin-right:2rem;font-weight:600;opacity:.8">{item}</span>)}
+  </div>
+</div>
+<style>
+  @keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .marquee-content { animation: none; }
+  }
+</style>

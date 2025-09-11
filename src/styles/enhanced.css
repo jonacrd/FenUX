@@ -1,0 +1,8 @@
+/* Base styles */
+@import './base.css';
+
+/* Performance optimizations */
+@import './performance.css';
+
+/* Optimized styles to reduce glitch */
+@import './optimized.css';

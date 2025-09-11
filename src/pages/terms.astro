@@ -1,0 +1,60 @@
+---
+const DOMAIN = "https://jonadevel-portfolio.vercel.app";
+const CONTACT_EMAIL = "contacto@jonadevel.com";
+---
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Términos de Servicio - {DOMAIN}</title>
+  <meta name="description" content="Términos y condiciones de uso de nuestros servicios de desarrollo web." />
+  <link rel="canonical" href={`${DOMAIN}/terms`} />
+  <link rel="stylesheet" href="/src/styles/enhanced.css" />
+</head>
+<body>
+  <div class="section">
+    <h1>Términos de Servicio</h1>
+    <p><strong>Última actualización:</strong> {new Date().toLocaleDateString('es-ES')}</p>
+    
+    <h2>1. Aceptación de los términos</h2>
+    <p>Al acceder y utilizar nuestros servicios, aceptas estar sujeto a estos términos de servicio.</p>
+    
+    <h2>2. Descripción de servicios</h2>
+    <p>Ofrecemos servicios de desarrollo web, incluyendo:</p>
+    <ul>
+      <li>Desarrollo de landing pages y portfolios</li>
+      <li>Rediseño de sitios web</li>
+      <li>Desarrollo de aplicaciones web y e-commerce</li>
+    </ul>
+    
+    <h2>3. Proceso de trabajo</h2>
+    <p>Nuestro proceso incluye:</p>
+    <ul>
+      <li>Consulta inicial y definición de alcance</li>
+      <li>Desarrollo según especificaciones acordadas</li>
+      <li>Entrega y soporte post-entrega</li>
+    </ul>
+    
+    <h2>4. Pagos y facturación</h2>
+    <p>Los precios están expresados en USD y se convierten automáticamente a la moneda local del cliente. Los pagos se realizan según el cronograma acordado en el contrato.</p>
+    
+    <h2>5. Propiedad intelectual</h2>
+    <p>Una vez completado el pago, el cliente obtiene los derechos de uso del código y diseño desarrollado, excepto por librerías y frameworks de terceros.</p>
+    
+    <h2>6. Garantías y soporte</h2>
+    <p>Proporcionamos soporte técnico básico por 30 días después de la entrega. Las garantías cubren defectos en el código, no cambios en los requerimientos.</p>
+    
+    <h2>7. Limitación de responsabilidad</h2>
+    <p>Nuestra responsabilidad se limita al costo del proyecto. No somos responsables por pérdidas indirectas o consecuenciales.</p>
+    
+    <h2>8. Modificaciones</h2>
+    <p>Podemos modificar estos términos en cualquier momento. Los cambios entrarán en vigor inmediatamente después de su publicación.</p>
+    
+    <h2>9. Ley aplicable</h2>
+    <p>Estos términos se rigen por las leyes de España y cualquier disputa será resuelta en los tribunales competentes.</p>
+    
+    <h2>10. Contacto</h2>
+    <p>Para preguntas sobre estos términos, contáctanos en: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+  </div>
+</body>
+</html>

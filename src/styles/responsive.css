@@ -1,0 +1,89 @@
+/* Responsive styles for React components */
+
+@keyframes drift {
+  0% { transform: translate3d(-2%, 0, 0) scale(1); }
+  100% { transform: translate3d(2%, 2%, 0) scale(1.03); }
+}
+
+.mesh {
+  animation: drift 18s ease-in-out infinite alternate;
+}
+
+@media (min-width: 980px) {
+  .grid-2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  
+  .grid-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+  
+  .packs {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (min-width: 800px) {
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-content {
+    grid-template-columns: 1fr !important;
+    gap: 2rem !important;
+    padding: 1rem !important;
+  }
+
+  .hero-visual {
+    order: -1;
+  }
+
+  .image-container {
+    height: 300px !important;
+  }
+
+  .cta-buttons {
+    justify-content: center !important;
+  }
+
+  .btn {
+    padding: 0.875rem 1.5rem !important;
+    font-size: 0.875rem !important;
+  }
+  
+  .process-container {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  
+  .stats-container {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+  
+  .stats-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .mesh {
+    animation: none !important;
+  }
+  
+  .before-after-container,
+  .btn,
+  .after-image {
+    transition: none !important;
+  }
+  
+  .before-after-container:hover {
+    transform: none !important;
+  }
+  
+  .btn:hover {
+    transform: none !important;
+  }
+}

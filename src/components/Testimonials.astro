@@ -1,0 +1,70 @@
+---
+const { title, items } = Astro.props;
+---
+
+<section class="section reveal">
+  <h2 class="hl">{title}</h2>
+  <div class="grid-3">
+    {items.map(testimonial => (
+      <div class="card">
+        <div class="testimonial-header">
+          <img src={testimonial.image} alt={testimonial.name} class="avatar" />
+          <div>
+            <h4>{testimonial.name}</h4>
+            <p class="role">{testimonial.role}</p>
+          </div>
+        </div>
+        <p class="testimonial-text">"{testimonial.text}"</p>
+        <div class="rating">
+          {Array.from({length: testimonial.rating}).map(() => '★')}
+        </div>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .grid-3 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+    margin-top: 32px;
+  }
+  
+  .testimonial-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  
+  .avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .testimonial-header h4 {
+    font-size: 16px;
+    font-weight: 700;
+    margin: 0;
+  }
+  
+  .role {
+    font-size: 14px;
+    color: #666;
+    margin: 0;
+  }
+  
+  .testimonial-text {
+    font-size: 14px;
+    line-height: 1.6;
+    margin-bottom: 16px;
+  }
+  
+  .rating {
+    color: #ffa500;
+    font-size: 18px;
+  }
+</style>

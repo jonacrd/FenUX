@@ -1,0 +1,9 @@
+/* Texto con gradient vivo */
+.grad {background:linear-gradient(90deg,var(--c1),var(--c2),var(--c1));background-size:200% 200%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:flow 8s ease infinite}
+@keyframes flow{0%,100%{background-position:0% 50%}50%{background-position:100% 50%}}
+
+/* Progreso de scroll superior */
+#scrollbar{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--c1),var(--c2));z-index:40}
+
+/* Filtro gooey para botones */
+svg#filters{position:absolute;width:0;height:0}

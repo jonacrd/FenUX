@@ -1,0 +1,74 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="newGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4ecd;stop-opacity:1" />
+      <stop offset="50%" style="stop-color:#4fc3f7;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#00e3a2;stop-opacity:1" />
+    </linearGradient>
+    <filter id="newGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="newShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#00000050"/>
+    </filter>
+  </defs>
+  
+  <!-- Background with modern gradient -->
+  <rect width="100%" height="100%" fill="url(#newGrad)" rx="24"/>
+  
+  <!-- Main device mockup -->
+  <rect x="100" y="80" width="600" height="340" fill="rgba(255,255,255,0.98)" rx="20" stroke="rgba(255,255,255,0.4)" stroke-width="2" filter="url(#newShadow)"/>
+  
+  <!-- Modern browser header -->
+  <rect x="100" y="80" width="600" height="50" fill="rgba(248,250,252,0.95)" rx="20" rx="20" rx="0" rx="0"/>
+  <circle cx="130" cy="105" r="6" fill="#ff5f57"/>
+  <circle cx="150" cy="105" r="6" fill="#ffbd2e"/>
+  <circle cx="170" cy="105" r="6" fill="#28ca42"/>
+  
+  <!-- Modern navigation -->
+  <rect x="200" y="95" width="400" height="20" fill="rgba(0,0,0,0.05)" rx="10"/>
+  <text x="400" y="108" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#333" text-anchor="middle">www.ejemplo-moderno.com</text>
+  
+  <!-- Hero section with modern design -->
+  <rect x="120" y="150" width="560" height="100" fill="rgba(0,0,0,0.02)" rx="16"/>
+  <text x="400" y="180" font-family="Arial, sans-serif" font-size="32" font-weight="800" fill="#333" text-anchor="middle">Sitio Web Moderno</text>
+  <text x="400" y="210" font-family="Arial, sans-serif" font-size="18" fill="#666" text-anchor="middle">Diseño profesional que convierte</text>
+  <text x="400" y="235" font-family="Arial, sans-serif" font-size="14" fill="#888" text-anchor="middle">Mobile-first • SEO optimizado • 90+ Lighthouse</text>
+  
+  <!-- Modern CTA Button -->
+  <rect x="300" y="270" width="200" height="50" fill="url(#newGrad)" rx="25" filter="url(#newGlow)"/>
+  <text x="400" y="300" font-family="Arial, sans-serif" font-size="16" font-weight="bold" fill="white" text-anchor="middle">Ver Proyecto</text>
+  
+  <!-- Modern features grid -->
+  <rect x="120" y="340" width="180" height="70" fill="rgba(255,255,255,0.8)" rx="12" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <circle cx="150" cy="355" r="10" fill="url(#newGrad)"/>
+  <text x="170" y="360" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">Mobile First</text>
+  <text x="130" y="380" font-family="Arial, sans-serif" font-size="11" fill="#666">Diseño responsive</text>
+  <text x="130" y="395" font-family="Arial, sans-serif" font-size="11" fill="#666">optimizado para móviles</text>
+  
+  <rect x="320" y="340" width="180" height="70" fill="rgba(255,255,255,0.8)" rx="12" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <circle cx="350" cy="355" r="10" fill="url(#newGrad)"/>
+  <text x="370" y="360" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">SEO Optimizado</text>
+  <text x="330" y="380" font-family="Arial, sans-serif" font-size="11" fill="#666">Mejor posicionamiento</text>
+  <text x="330" y="395" font-family="Arial, sans-serif" font-size="11" fill="#666">en buscadores</text>
+  
+  <rect x="520" y="340" width="180" height="70" fill="rgba(255,255,255,0.8)" rx="12" stroke="rgba(0,0,0,0.05)" stroke-width="1"/>
+  <circle cx="550" cy="355" r="10" fill="url(#newGrad)"/>
+  <text x="570" y="360" font-family="Arial, sans-serif" font-size="14" font-weight="700" fill="#333">Ultra Rápido</text>
+  <text x="530" y="380" font-family="Arial, sans-serif" font-size="11" fill="#666">90+ Lighthouse</text>
+  <text x="530" y="395" font-family="Arial, sans-serif" font-size="11" fill="#666">Core Web Vitals</text>
+  
+  <!-- Modern floating elements -->
+  <circle cx="50" cy="150" r="25" fill="rgba(255,255,255,0.3)"/>
+  <circle cx="750" cy="200" r="20" fill="rgba(255,255,255,0.4)"/>
+  <circle cx="80" cy="350" r="15" fill="rgba(255,255,255,0.5)"/>
+  <circle cx="720" cy="400" r="22" fill="rgba(255,255,255,0.3)"/>
+  
+  <!-- Success indicator -->
+  <rect x="650" y="120" width="40" height="20" fill="#28ca42" rx="10"/>
+  <text x="670" y="133" font-family="Arial, sans-serif" font-size="10" font-weight="bold" fill="white" text-anchor="middle">LIVE</text>
+</svg>

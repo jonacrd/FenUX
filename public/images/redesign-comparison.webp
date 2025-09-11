@@ -1,0 +1,80 @@
+<svg width="800" height="500" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="redesignGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#ff4ecd;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#4fc3f7;stop-opacity:1" />
+    </linearGradient>
+    <filter id="redesignShadow">
+      <feDropShadow dx="0" dy="8" stdDeviation="16" flood-color="#00000040"/>
+    </filter>
+  </defs>
+  
+  <!-- Background -->
+  <rect width="100%" height="100%" fill="rgba(255,255,255,0.95)" rx="20" stroke="rgba(0,0,0,0.1)" stroke-width="1" filter="url(#redesignShadow)"/>
+  
+  <!-- Header -->
+  <text x="400" y="40" font-family="Arial, sans-serif" font-size="24" font-weight="700" fill="#333" text-anchor="middle">Transformación Completa</text>
+  <text x="400" y="65" font-family="Arial, sans-serif" font-size="14" fill="#666" text-anchor="middle">De sitio web obsoleto a experiencia moderna</text>
+  
+  <!-- Before section -->
+  <rect x="50" y="100" width="320" height="300" fill="rgba(200,200,200,0.1)" rx="12" stroke="rgba(0,0,0,0.1)" stroke-width="1"/>
+  <text x="210" y="125" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#666" text-anchor="middle">ANTES</text>
+  
+  <!-- Old design mockup -->
+  <rect x="70" y="150" width="280" height="200" fill="rgba(150,150,150,0.2)" rx="8"/>
+  <rect x="80" y="160" width="260" height="30" fill="rgba(100,100,100,0.3)" rx="4"/>
+  <text x="210" y="180" font-family="Arial, sans-serif" font-size="12" font-weight="normal" fill="#666" text-anchor="middle">Mi Sitio Web</text>
+  
+  <rect x="80" y="200" width="80" height="20" fill="rgba(100,100,100,0.2)" rx="2"/>
+  <rect x="170" y="200" width="80" height="20" fill="rgba(100,100,100,0.2)" rx="2"/>
+  <rect x="260" y="200" width="80" height="20" fill="rgba(100,100,100,0.2)" rx="2"/>
+  
+  <rect x="80" y="230" width="120" height="15" fill="rgba(100,100,100,0.2)" rx="2"/>
+  <rect x="80" y="250" width="100" height="15" fill="rgba(100,100,100,0.2)" rx="2"/>
+  <rect x="80" y="270" width="80" height="15" fill="rgba(100,100,100,0.2)" rx="2"/>
+  
+  <rect x="80" y="300" width="100" height="25" fill="rgba(100,100,100,0.3)" rx="4"/>
+  <text x="130" y="317" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">Contacto</text>
+  
+  <!-- Problems -->
+  <text x="210" y="370" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#e74c3c" text-anchor="middle">Problemas identificados</text>
+  <text x="210" y="385" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">• Diseño obsoleto</text>
+  <text x="210" y="400" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">• No responsive</text>
+  <text x="210" y="415" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">• Carga lenta</text>
+  
+  <!-- After section -->
+  <rect x="430" y="100" width="320" height="300" fill="rgba(0,0,0,0.02)" rx="12" stroke="url(#redesignGrad)" stroke-width="2"/>
+  <text x="590" y="125" font-family="Arial, sans-serif" font-size="16" font-weight="600" fill="#333" text-anchor="middle">DESPUÉS</text>
+  
+  <!-- New design mockup -->
+  <rect x="450" y="150" width="280" height="200" fill="rgba(255,255,255,0.9)" rx="8"/>
+  <rect x="460" y="160" width="260" height="40" fill="url(#redesignGrad)" rx="6"/>
+  <text x="590" y="185" font-family="Arial, sans-serif" font-size="14" font-weight="bold" fill="white" text-anchor="middle">Sitio Web Moderno</text>
+  
+  <rect x="470" y="210" width="60" height="25" fill="rgba(0,0,0,0.05)" rx="4"/>
+  <rect x="540" y="210" width="60" height="25" fill="rgba(0,0,0,0.05)" rx="4"/>
+  <rect x="610" y="210" width="60" height="25" fill="rgba(0,0,0,0.05)" rx="4"/>
+  <rect x="680" y="210" width="60" height="25" fill="rgba(0,0,0,0.05)" rx="4"/>
+  
+  <rect x="470" y="250" width="200" height="20" fill="rgba(0,0,0,0.05)" rx="3"/>
+  <rect x="470" y="280" width="150" height="20" fill="rgba(0,0,0,0.05)" rx="3"/>
+  <rect x="470" y="310" width="120" height="20" fill="rgba(0,0,0,0.05)" rx="3"/>
+  
+  <rect x="470" y="340" width="120" height="30" fill="url(#redesignGrad)" rx="15"/>
+  <text x="530" y="360" font-family="Arial, sans-serif" font-size="11" font-weight="bold" fill="white" text-anchor="middle">Ver Proyecto</text>
+  
+  <!-- Improvements -->
+  <text x="590" y="370" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#28ca42" text-anchor="middle">Mejoras implementadas</text>
+  <text x="590" y="385" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">• Diseño moderno</text>
+  <text x="590" y="400" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">• Mobile-first</text>
+  <text x="590" y="415" font-family="Arial, sans-serif" font-size="10" fill="#666" text-anchor="middle">• 90+ Lighthouse</text>
+  
+  <!-- Results -->
+  <rect x="50" y="420" width="700" height="60" fill="rgba(0,0,0,0.02)" rx="8"/>
+  <text x="400" y="440" font-family="Arial, sans-serif" font-size="14" font-weight="600" fill="#333" text-anchor="middle">Resultados obtenidos</text>
+  
+  <text x="150" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#28ca42" text-anchor="middle">+250% Conversión</text>
+  <text x="300" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#28ca42" text-anchor="middle">+180% Engagement</text>
+  <text x="450" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#28ca42" text-anchor="middle">+320% Performance</text>
+  <text x="600" y="460" font-family="Arial, sans-serif" font-size="12" font-weight="600" fill="#28ca42" text-anchor="middle">+150% SEO</text>
+</svg>

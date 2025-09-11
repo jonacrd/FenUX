@@ -1,0 +1,49 @@
+---
+const DOMAIN = "https://jonadevel-portfolio.vercel.app";
+const CONTACT_EMAIL = "contacto@jonadevel.com";
+---
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Política de Privacidad - {DOMAIN}</title>
+  <meta name="description" content="Política de privacidad y protección de datos personales." />
+  <link rel="canonical" href={`${DOMAIN}/privacy`} />
+  <link rel="stylesheet" href="/src/styles/enhanced.css" />
+</head>
+<body>
+  <div class="section">
+    <h1>Política de Privacidad</h1>
+    <p><strong>Última actualización:</strong> {new Date().toLocaleDateString('es-ES')}</p>
+    
+    <h2>1. Información que recopilamos</h2>
+    <p>Recopilamos información que nos proporcionas directamente, como tu nombre y dirección de correo electrónico cuando contactas con nosotros a través de nuestros formularios.</p>
+    
+    <h2>2. Cómo usamos tu información</h2>
+    <p>Utilizamos la información recopilada para:</p>
+    <ul>
+      <li>Responder a tus consultas y solicitudes</li>
+      <li>Proporcionar nuestros servicios</li>
+      <li>Mejorar nuestro sitio web y servicios</li>
+    </ul>
+    
+    <h2>3. Compartir información</h2>
+    <p>No vendemos, alquilamos ni compartimos tu información personal con terceros, excepto cuando sea necesario para proporcionar nuestros servicios o cuando la ley lo requiera.</p>
+    
+    <h2>4. Cookies y tecnologías similares</h2>
+    <p>Utilizamos Google Analytics para analizar el uso de nuestro sitio web. Puedes desactivar las cookies en la configuración de tu navegador.</p>
+    
+    <h2>5. Seguridad</h2>
+    <p>Implementamos medidas de seguridad apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción.</p>
+    
+    <h2>6. Tus derechos</h2>
+    <p>Tienes derecho a acceder, rectificar, eliminar o portar tus datos personales. Para ejercer estos derechos, contáctanos en: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+    
+    <h2>7. Cambios a esta política</h2>
+    <p>Podemos actualizar esta política de privacidad ocasionalmente. Te notificaremos de cualquier cambio significativo publicando la nueva política en esta página.</p>
+    
+    <h2>8. Contacto</h2>
+    <p>Si tienes preguntas sobre esta política de privacidad, contáctanos en: <a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></p>
+  </div>
+</body>
+</html>
