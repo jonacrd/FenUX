@@ -101,16 +101,20 @@ export default function HeroRedesignCarrusel() {
   }, []);
 
   useEffect(() => {
-    // Función para mover carrusel lentamente
+    // Función para mover carrusel lentamente con loop infinito suave
     const moveCarrusel = (element: HTMLDivElement, direction: 'left' | 'right', speed: number) => {
       let position = 0;
+      const totalWidth = element.scrollWidth / 2; // Dividido por 2 porque tenemos duplicados
+      
       const move = () => {
         if (!isPaused) {
           position += direction === 'left' ? -0.5 : 0.5;
           element.style.transform = `translateX(${position}px)`;
           
-          // Reset position when it goes too far
-          if (Math.abs(position) > element.scrollWidth / 2) {
+          // Reset position cuando llegamos al final del primer set de imágenes
+          if (direction === 'left' && position <= -totalWidth) {
+            position = 0;
+          } else if (direction === 'right' && position >= totalWidth) {
             position = 0;
           }
         }
@@ -158,7 +162,10 @@ export default function HeroRedesignCarrusel() {
           <div 
             ref={carrusel1Ref}
             className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
-            style={{ width: 'max-content' }}
+            style={{ 
+              width: 'max-content',
+              transition: isPaused ? 'transform 0.3s ease' : 'none'
+            }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
@@ -216,16 +223,19 @@ export default function HeroRedesignCarrusel() {
           
           {/* Carrusel a la derecha */}
           <div className="flex-1 overflow-hidden">
-            <div 
-              ref={carrusel2Ref}
-              className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
-              style={{ width: 'max-content' }}
-              onTouchStart={handleTouchStart}
-              onTouchMove={handleTouchMove}
-              onTouchEnd={handleTouchEnd}
-              onMouseEnter={handleMouseEnter}
-              onMouseLeave={handleMouseLeave}
-            >
+          <div 
+            ref={carrusel2Ref}
+            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
+            style={{ 
+              width: 'max-content',
+              transition: isPaused ? 'transform 0.3s ease' : 'none'
+            }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
+          >
               {products.slice(6, 12).map((product, index) => (
                 <div
                   key={product.title}
@@ -268,7 +278,10 @@ export default function HeroRedesignCarrusel() {
           <div 
             ref={carrusel3Ref}
             className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
-            style={{ width: 'max-content' }}
+            style={{ 
+              width: 'max-content',
+              transition: isPaused ? 'transform 0.3s ease' : 'none'
+            }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
             onTouchEnd={handleTouchEnd}
