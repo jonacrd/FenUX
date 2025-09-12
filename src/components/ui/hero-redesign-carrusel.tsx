@@ -188,7 +188,22 @@ export default function HeroRedesignCarrusel() {
     
     if (carrusel2Dragging && dragStart !== null) {
       const deltaX = e.targetTouches[0].clientX - dragStart;
-      const newPosition = manualPosition.carrusel2 + deltaX; // Usar posición guardada como base
+      let newPosition = manualPosition.carrusel2 + deltaX;
+      
+      // Calcular límites para el segundo carrusel
+      const itemWidth = 320; // w-80 + gap aproximado
+      const totalItems = 6; // 6 imágenes por carrusel
+      const setWidth = itemWidth * totalItems;
+      const maxRight = 0; // No puede ir más a la derecha que la posición inicial
+      const maxLeft = -setWidth + itemWidth; // Debe mantener al menos una imagen visible
+      
+      // Aplicar límites con rebote suave
+      if (newPosition > maxRight) {
+        newPosition = maxRight + (newPosition - maxRight) * 0.3; // Rebote suave hacia la derecha
+      } else if (newPosition < maxLeft) {
+        newPosition = maxLeft + (newPosition - maxLeft) * 0.3; // Rebote suave hacia la izquierda
+      }
+      
       if (carrusel2Ref.current) {
         carrusel2Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
@@ -351,7 +366,22 @@ export default function HeroRedesignCarrusel() {
     if (carrusel2Dragging && dragStart !== null) {
       e.stopPropagation(); // Evitar propagación
       const deltaX = e.clientX - dragStart;
-      const newPosition = manualPosition.carrusel2 + deltaX; // Usar posición guardada como base
+      let newPosition = manualPosition.carrusel2 + deltaX;
+      
+      // Calcular límites para el segundo carrusel
+      const itemWidth = 320; // w-80 + gap aproximado
+      const totalItems = 6; // 6 imágenes por carrusel
+      const setWidth = itemWidth * totalItems;
+      const maxRight = 0; // No puede ir más a la derecha que la posición inicial
+      const maxLeft = -setWidth + itemWidth; // Debe mantener al menos una imagen visible
+      
+      // Aplicar límites con rebote suave
+      if (newPosition > maxRight) {
+        newPosition = maxRight + (newPosition - maxRight) * 0.3; // Rebote suave hacia la derecha
+      } else if (newPosition < maxLeft) {
+        newPosition = maxLeft + (newPosition - maxLeft) * 0.3; // Rebote suave hacia la izquierda
+      }
+      
       if (carrusel2Ref.current) {
         carrusel2Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
@@ -452,29 +482,32 @@ export default function HeroRedesignCarrusel() {
             const totalItems = 6; // 6 imágenes por carrusel
             const setWidth = itemWidth * totalItems;
             
-            // Lógica especial para el segundo carrusel (efecto Pacman)
+            // Lógica especial para el segundo carrusel con límites
             if (carruselId === 'carrusel2') {
               // Para el segundo carrusel que va hacia la derecha
-              if (position >= setWidth) {
-                position = 0; // Resetear a 0 para mantener continuidad
+              const maxRight = 0; // No puede ir más a la derecha que la posición inicial
+              const maxLeft = -setWidth + itemWidth; // Debe mantener al menos una imagen visible
+              
+              // Aplicar límites
+              if (position > maxRight) {
+                position = maxRight; // Límite derecho
+              } else if (position < maxLeft) {
+                position = maxLeft; // Límite izquierdo
               }
-              // Asegurar que nunca esté vacío el viewport
-              if (position < 0) {
-                position = 0; // Si se va a la izquierda, resetear
+              
+              // Si llega al límite derecho, cambiar dirección
+              if (position >= maxRight) {
+                // Cambiar a movimiento hacia la izquierda
+                position = maxRight - 0.3;
+              } else if (position <= maxLeft) {
+                // Cambiar a movimiento hacia la derecha
+                position = maxLeft + 0.3;
               }
             } else {
               // Para los otros carruseles (izquierda)
               if (direction === 'left' && position <= -setWidth) {
                 position = 0;
               } else if (direction === 'right' && position >= setWidth) {
-                position = 0;
-              }
-            }
-            
-            // Validación adicional: asegurar que siempre haya contenido visible
-            if (carruselId === 'carrusel2') {
-              // Para el segundo carrusel, asegurar que siempre esté en un rango visible
-              if (position < 0 || position > setWidth) {
                 position = 0;
               }
             }
