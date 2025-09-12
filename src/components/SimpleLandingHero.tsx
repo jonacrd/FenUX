@@ -41,122 +41,117 @@ const cn = (...classes: any[]) => {
 
 export default function SimpleLandingHero() {
   return (
-    <main style={{ padding: '20px', background: '#1a1a1a', color: 'white', minHeight: '100vh' }}>
-      <h1 style={{ textAlign: 'center', marginBottom: '30px', fontSize: '2rem' }}>
-        Landing Pages que Convierten
-      </h1>
-      
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', 
-        gap: '20px',
-        maxWidth: '1200px',
-        margin: '0 auto'
-      }}>
-        {/* Main large image */}
-        <div style={{ 
-          gridColumn: 'span 2',
-          background: '#333',
-          borderRadius: '10px',
-          overflow: 'hidden',
-          minHeight: '300px'
-        }}>
-          <img
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block'
-            }}
-            src="/images/landing-hero.webp"
-            alt="Landing Page Hero"
-            onLoad={() => console.log('✅ Landing Hero loaded')}
-            onError={(e) => console.error('❌ Landing Hero error:', e)}
-          />
-        </div>
-        
-        {/* Small images */}
-        <div style={{ 
-          background: '#333',
-          borderRadius: '10px',
-          overflow: 'hidden',
-          minHeight: '300px'
-        }}>
-          <img
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block'
-            }}
-            src="/images/landing-shot-1.webp"
-            alt="Landing Page Shot 1"
-            onLoad={() => console.log('✅ Landing Shot 1 loaded')}
-            onError={(e) => console.error('❌ Landing Shot 1 error:', e)}
-          />
-        </div>
-        
-        <div style={{ 
-          background: '#333',
-          borderRadius: '10px',
-          overflow: 'hidden',
-          minHeight: '300px'
-        }}>
-          <img
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block'
-            }}
-            src="/images/landing-shot-2.webp"
-            alt="Landing Page Shot 2"
-            onLoad={() => console.log('✅ Landing Shot 2 loaded')}
-            onError={(e) => console.error('❌ Landing Shot 2 error:', e)}
-          />
-        </div>
-        
-        <div style={{ 
-          background: '#333',
-          borderRadius: '10px',
-          overflow: 'hidden',
-          minHeight: '300px'
-        }}>
-          <img
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block'
-            }}
-            src="/images/portfolio-showcase.webp"
-            alt="Portfolio Showcase"
-            onLoad={() => console.log('✅ Portfolio Showcase loaded')}
-            onError={(e) => console.error('❌ Portfolio Showcase error:', e)}
-          />
-        </div>
-        
-        <div style={{ 
-          background: '#333',
-          borderRadius: '10px',
-          overflow: 'hidden',
-          minHeight: '300px'
-        }}>
-          <img
-            style={{
-              width: '100%',
-              height: '100%',
-              objectFit: 'cover',
-              display: 'block'
-            }}
-            src="/images/features-showcase.webp"
-            alt="Features Showcase"
-            onLoad={() => console.log('✅ Features Showcase loaded')}
-            onError={(e) => console.error('❌ Features Showcase error:', e)}
-          />
-        </div>
-      </div>
-    </main>
+    <>
+      <ReusableHeader />
+      <main className="overflow-hidden">
+        {/* Hero Section with Gallery */}
+        <section className="relative min-h-screen w-full">
+          <div className="relative h-screen w-full p-4">
+            <div className="grid grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr] gap-4 h-full">
+              {/* Main large image */}
+              <div className="col-span-8 md:col-span-6 row-span-3 overflow-hidden rounded-xl shadow-xl">
+                <img
+                  className="w-full h-full object-cover object-center"
+                  src="/images/landing-hero.webp"
+                  alt="Landing Page Hero"
+                />
+              </div>
+              
+              {/* Small images */}
+              <div className="col-span-2 md:col-span-2 row-span-2 hidden md:block overflow-hidden rounded-xl shadow-xl">
+                <img
+                  className="w-full h-full object-cover object-center"
+                  src="/images/landing-shot-1.webp"
+                  alt="Landing Page Shot 1"
+                />
+              </div>
+              
+              <div className="col-span-2 md:col-span-2 row-span-2 hidden md:block overflow-hidden rounded-xl shadow-xl">
+                <img
+                  className="w-full h-full object-cover object-center"
+                  src="/images/landing-shot-2.webp"
+                  alt="Landing Page Shot 2"
+                />
+              </div>
+              
+              <div className="col-span-4 md:col-span-3 overflow-hidden rounded-xl shadow-xl">
+                <img
+                  className="w-full h-full object-cover object-center"
+                  src="/images/portfolio-showcase.webp"
+                  alt="Portfolio Showcase"
+                />
+              </div>
+              
+              <div className="col-span-4 md:col-span-3 overflow-hidden rounded-xl shadow-xl">
+                <img
+                  className="w-full h-full object-cover object-center"
+                  src="/images/features-showcase.webp"
+                  alt="Features Showcase"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Overlay Content */}
+          <div className="absolute inset-0 flex items-center justify-center z-10">
+            <div className="text-center">
+              <h1 className="max-w-xl text-5xl font-bold tracking-tighter text-white">
+                Landing Pages que Convierten
+              </h1>
+              <p className="my-6 max-w-xl text-sm text-gray-200 md:text-base">
+                Diseñamos landing pages y portfolios profesionales que capturan la atención de tus clientes y generan más conversiones para tu negocio.
+              </p>
+              <div className="flex items-center justify-center gap-4">
+                <button className="bg-indigo-500 px-4 py-2 font-medium hover:bg-indigo-400 rounded-md text-white">
+                  Ver Portfolio
+                </button>
+                <button className="bg-transparent border border-white px-4 py-2 font-medium text-white hover:bg-white hover:text-black rounded-md">
+                  Solicitar Cotización
+                </button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Features Section */}
+        <section className="bg-gray-900 pb-16 pt-16 md:pb-32">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold mb-4 text-white">¿Por qué elegir nuestros servicios?</h2>
+              <p className="text-lg text-gray-300 max-w-2xl mx-auto">
+                Creamos landing pages y portfolios que no solo se ven increíbles, sino que también generan resultados reales
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+              <div className="text-center p-6 rounded-lg border border-gray-700 bg-gray-800">
+                <Palette className="w-12 h-12 mx-auto mb-4 text-indigo-400" />
+                <h3 className="text-xl font-semibold mb-2 text-white">Diseño Único</h3>
+                <p className="text-gray-300">Cada proyecto es único y personalizado para tu marca</p>
+              </div>
+              
+              <div className="text-center p-6 rounded-lg border border-gray-700 bg-gray-800">
+                <Zap className="w-12 h-12 mx-auto mb-4 text-indigo-400" />
+                <h3 className="text-xl font-semibold mb-2 text-white">Alto Rendimiento</h3>
+                <p className="text-gray-300">Optimizado para velocidad y conversión</p>
+              </div>
+              
+              <div className="text-center p-6 rounded-lg border border-gray-700 bg-gray-800">
+                <Globe className="w-12 h-12 mx-auto mb-4 text-indigo-400" />
+                <h3 className="text-xl font-semibold mb-2 text-white">Responsive</h3>
+                <p className="text-gray-300">Perfecto en todos los dispositivos</p>
+              </div>
+              
+              <div className="text-center p-6 rounded-lg border border-gray-700 bg-gray-800">
+                <Target className="w-12 h-12 mx-auto mb-4 text-indigo-400" />
+                <h3 className="text-xl font-semibold mb-2 text-white">SEO Optimizado</h3>
+                <p className="text-gray-300">Mejor posicionamiento en Google</p>
+              </div>
+            </div>
+          </div>
+        </section>
+      </main>
+    </>
   )
 }
 
