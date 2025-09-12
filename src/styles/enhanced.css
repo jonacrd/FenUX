@@ -1,8 +1,8 @@
-/* Base styles */
+/* Enhanced styles - consolidated for better performance */
 @import './base.css';
-
-/* Performance optimizations */
 @import './performance.css';
-
-/* Optimized styles to reduce glitch */
-@import './optimized.css';
+@import './themes.css';
+@import './effects.css';
+@import './wow.css';
+@import './responsive.css';
+@import './redesign-theme.css';

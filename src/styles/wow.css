@@ -1,47 +1,55 @@
-:root{--r:20px}
-@media (prefers-reduced-motion:no-preference){
-  .mesh {
-    position:absolute; inset:-20vmax; z-index:-1; filter:blur(60px) saturate(120%);
-    background:
-      radial-gradient(35vmax 35vmax at 10% 20%, var(--c1) 0%, transparent 60%),
-      radial-gradient(40vmax 40vmax at 80% 30%, var(--c2) 0%, transparent 60%),
-      radial-gradient(30vmax 30vmax at 50% 80%, color-mix(in oklab, var(--c1) 60%, white) 0%, transparent 60%);
-    animation: drift 18s ease-in-out infinite alternate;
-  }
-  @keyframes drift { 0%{transform:translate3d(-2%,0,0) scale(1)} 100%{transform:translate3d(2%,2%,0) scale(1.03)} }
+/* WOW CSS - Animation library styles */
+.wow {
+  visibility: hidden;
 }
-.noise:before{content:"";position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  .6 .6 .6 0 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.04'/%3E%3C/svg%3E");mix-blend-mode:soft-light}
 
-.section{max-width:1180px;margin:0 auto;padding:64px 16px}
-h1{font-size:clamp(34px,6.5vw,62px);line-height:1.02;margin:0 0 .5rem}
-.kick{font-weight:800; letter-spacing:-.02em; display:inline-block; background:linear-gradient(90deg,var(--c1),var(--c2)); -webkit-background-clip:text; background-clip:text; color:transparent}
+.wow.animated {
+  visibility: visible;
+}
 
-.card{background:linear-gradient(180deg,#ffffff10,#ffffff05); border:1px solid #ffffff22; border-radius:var(--r); padding:18px; backdrop-filter:blur(10px); transition:.35s}
-.card:hover{transform:translateY(-2px); box-shadow:0 24px 60px #00000040}
+/* Fade animations */
+.fadeIn {
+  animation-name: fadeIn;
+}
 
-.btn{position:relative;display:inline-flex;align-items:center;gap:8px;padding:.9rem 1.1rem;border-radius:14px;border:0;font-weight:800;background:linear-gradient(90deg,var(--c1),var(--c2));color:#041015;transform:translateZ(0)}
-.btn.outline{background:transparent;color:var(--fg);outline:1px solid #ffffff33}
-.btn.mag:hover{filter:brightness(1.05)}
-.btn::after{content:"";position:absolute;inset:0;opacity:0;background:radial-gradient(160px 160px at var(--mx,50%) var(--my,50%),#fff6,transparent 60%);transition:.25s}
-.btn.ripple:active::after{opacity:.95}
+.fadeInUp {
+  animation-name: fadeInUp;
+}
 
-.reveal{opacity:0;transform:translateY(18px) scale(.985)}
-.reveal.in{opacity:1;transform:none;transition:.7s cubic-bezier(.22,.61,.36,1)}
+.fadeInDown {
+  animation-name: fadeInDown;
+}
 
-.split > span{display:inline-block; transform:translateY(18px); opacity:0}
-.split.in > span{transform:none; opacity:1; transition:.7s cubic-bezier(.22,.61,.36,1)}
-.split.in > span:nth-child(n){transition-delay:calc(var(--i)*.03s)}
+.fadeInLeft {
+  animation-name: fadeInLeft;
+}
 
-.parallax{position:relative; isolation:isolate; overflow:hidden; border-radius:var(--r)}
-.layer{position:absolute; inset:auto; will-change:transform; filter:drop-shadow(0 10px 20px #0006)}
-.hero-media{border-radius:var(--r); width:100%; display:block}
+.fadeInRight {
+  animation-name: fadeInRight;
+}
 
-.sticky-price{position:sticky; bottom:12px; display:flex; gap:8px; justify-content:center; z-index:3}
-.sticky-price .btn{box-shadow:0 10px 30px #0006}
+/* Keyframes */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-.slider{display:grid; grid-auto-flow:column; grid-auto-columns:80%; overflow-x:auto; gap:12px; scroll-snap-type:x mandatory; padding:8px}
-.slider > *{scroll-snap-align:start}
-@media(min-width:980px){.slider{grid-auto-columns:33%}}
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translate3d(0, 40px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
 
-.count{font-weight:900; font-size:clamp(26px,5vw,40px)}
-.sep{height:1px;background:linear-gradient(90deg,transparent,#ffffff25,transparent);margin:18px 0}
+@keyframes fadeInDown {
+  from { opacity: 0; transform: translate3d(0, -40px, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translate3d(-40px, 0, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}
+
+@keyframes fadeInRight {
+  from { opacity: 0; transform: translate3d(40px, 0, 0); }
+  to { opacity: 1; transform: translate3d(0, 0, 0); }
+}

@@ -1,18 +1,60 @@
-/* Performance optimizations */
+/* Performance CSS - Optimizations */
+.hero-redesign,
+.hero-landing,
+.hero-webapp {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
 
-/* Reduce animations for users who prefer it */
+.hero-content {
+  contain: layout style paint;
+}
+
+.card {
+  contain: layout style;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  text-rendering: optimizeSpeed;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Loading states */
+.loading .background-paths-container {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.loaded .background-paths-container {
+  opacity: 1;
+}
+
+/* Reduced motion optimizations */
 @media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
+  * {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
   }
+  
+  .btn:hover,
+  .card:hover {
+    transform: none !important;
+  }
+  
+  .mesh {
+    animation: none !important;
+  }
 }
 
-/* Optimize for low-end devices */
+/* Mobile optimizations */
 @media (max-width: 768px) {
   .background-paths-container {
     display: none;
@@ -25,65 +67,4 @@
   .floating-paths {
     display: none;
   }
-}
-
-/* GPU acceleration for smooth animations */
-.hero-redesign,
-.hero-landing,
-.hero-webapp {
-  transform: translateZ(0);
-  backface-visibility: hidden;
-  perspective: 1000px;
-}
-
-/* Optimize images */
-img {
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: crisp-edges;
-}
-
-/* Critical above-the-fold styles */
-.hero-content {
-  contain: layout style paint;
-}
-
-/* Reduce repaints */
-.card {
-  contain: layout style;
-}
-
-/* Optimize scroll performance */
-html {
-  scroll-behavior: smooth;
-}
-
-/* Reduce layout thrashing */
-.section {
-  contain: layout;
-}
-
-/* Optimize text rendering */
-body {
-  text-rendering: optimizeSpeed;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-/* Critical loading states */
-.hero-redesign::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--c1, #667eea) 0%, var(--c2, #764ba2) 100%);
-  z-index: 1;
-}
-
-/* Hide non-critical elements during load */
-.loading .background-paths-container {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.loaded .background-paths-container {
-  opacity: 1;
 }
