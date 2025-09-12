@@ -41,9 +41,7 @@ const cn = (...classes: any[]) => {
 
 export default function SimpleLandingHero() {
   return (
-    <>
-      <ReusableHeader />
-      <main className="overflow-hidden">
+    <main className="overflow-hidden">
         {/* Hero Section with Gallery */}
         <section className="relative min-h-screen w-full">
           <div className="relative h-screen w-full p-4">
@@ -150,8 +148,7 @@ export default function SimpleLandingHero() {
             </div>
           </div>
         </section>
-      </main>
-    </>
+    </main>
   )
 }
 
