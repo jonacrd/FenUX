@@ -210,38 +210,83 @@ export default function HeroRedesignCarrusel() {
     // No reanudar en hover, solo en drag real
   }, []);
 
-  // Función para manejar mouse down (drag manual)
-  const handleMouseDown = useCallback((e: React.MouseEvent) => {
+  // Manejadores de mouse específicos para cada carrusel
+  const handleCarrusel1MouseDown = useCallback((e: React.MouseEvent) => {
     if (e.button !== 0) return; // Solo botón izquierdo
     setDragStart(e.clientX);
-    setIsDragging(true);
-    setIsPaused(true);
+    setCarrusel1Dragging(true);
     e.preventDefault();
   }, []);
 
-  // Función para manejar mouse move (drag manual)
-  const handleMouseMove = useCallback((e: React.MouseEvent) => {
-    if (isDragging && dragStart !== null) {
-      const deltaX = (e.clientX - dragStart) * 0.8; // Sensibilidad reducida para control más preciso
-      const target = e.currentTarget as HTMLDivElement;
-      const carruselId = target.getAttribute('data-carrusel-id');
-      
-      if (carruselId) {
-        const newPosition = manualPosition[carruselId] + deltaX;
-        setManualPosition(prev => ({
-          ...prev,
-          [carruselId]: newPosition
-        }));
-        target.style.transform = `translateX(${newPosition}px)`;
+  const handleCarrusel1MouseMove = useCallback((e: React.MouseEvent) => {
+    if (carrusel1Dragging && dragStart !== null) {
+      const deltaX = (e.clientX - dragStart) * 0.8;
+      const newPosition = manualPosition.carrusel1 + deltaX;
+      setManualPosition(prev => ({
+        ...prev,
+        carrusel1: newPosition
+      }));
+      if (carrusel1Ref.current) {
+        carrusel1Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [isDragging, dragStart, manualPosition]);
+  }, [carrusel1Dragging, dragStart, manualPosition.carrusel1]);
 
-  // Función para manejar mouse up (fin del drag)
-  const handleMouseUp = useCallback(() => {
-    setIsDragging(false);
+  const handleCarrusel1MouseUp = useCallback(() => {
+    setCarrusel1Dragging(false);
     setDragStart(null);
-    setIsPaused(false);
+  }, []);
+
+  const handleCarrusel2MouseDown = useCallback((e: React.MouseEvent) => {
+    if (e.button !== 0) return; // Solo botón izquierdo
+    setDragStart(e.clientX);
+    setCarrusel2Dragging(true);
+    e.preventDefault();
+  }, []);
+
+  const handleCarrusel2MouseMove = useCallback((e: React.MouseEvent) => {
+    if (carrusel2Dragging && dragStart !== null) {
+      const deltaX = (e.clientX - dragStart) * 0.8;
+      const newPosition = manualPosition.carrusel2 + deltaX;
+      setManualPosition(prev => ({
+        ...prev,
+        carrusel2: newPosition
+      }));
+      if (carrusel2Ref.current) {
+        carrusel2Ref.current.style.transform = `translateX(${newPosition}px)`;
+      }
+    }
+  }, [carrusel2Dragging, dragStart, manualPosition.carrusel2]);
+
+  const handleCarrusel2MouseUp = useCallback(() => {
+    setCarrusel2Dragging(false);
+    setDragStart(null);
+  }, []);
+
+  const handleCarrusel3MouseDown = useCallback((e: React.MouseEvent) => {
+    if (e.button !== 0) return; // Solo botón izquierdo
+    setDragStart(e.clientX);
+    setCarrusel3Dragging(true);
+    e.preventDefault();
+  }, []);
+
+  const handleCarrusel3MouseMove = useCallback((e: React.MouseEvent) => {
+    if (carrusel3Dragging && dragStart !== null) {
+      const deltaX = (e.clientX - dragStart) * 0.8;
+      const newPosition = manualPosition.carrusel3 + deltaX;
+      setManualPosition(prev => ({
+        ...prev,
+        carrusel3: newPosition
+      }));
+      if (carrusel3Ref.current) {
+        carrusel3Ref.current.style.transform = `translateX(${newPosition}px)`;
+      }
+    }
+  }, [carrusel3Dragging, dragStart, manualPosition.carrusel3]);
+
+  const handleCarrusel3MouseUp = useCallback(() => {
+    setCarrusel3Dragging(false);
+    setDragStart(null);
   }, []);
 
   useEffect(() => {
@@ -331,9 +376,9 @@ export default function HeroRedesignCarrusel() {
             onTouchEnd={handleCarrusel1TouchEnd}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
+            onMouseDown={handleCarrusel1MouseDown}
+            onMouseMove={handleCarrusel1MouseMove}
+            onMouseUp={handleCarrusel1MouseUp}
           >
             {products.slice(0, 6).map((product, index) => (
               <div
@@ -399,9 +444,9 @@ export default function HeroRedesignCarrusel() {
             onTouchEnd={handleCarrusel2TouchEnd}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
+            onMouseDown={handleCarrusel2MouseDown}
+            onMouseMove={handleCarrusel2MouseMove}
+            onMouseUp={handleCarrusel2MouseUp}
           >
               {products.slice(6, 12).map((product, index) => (
                 <div
@@ -455,9 +500,9 @@ export default function HeroRedesignCarrusel() {
             onTouchEnd={handleCarrusel3TouchEnd}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
-            onMouseDown={handleMouseDown}
-            onMouseMove={handleMouseMove}
-            onMouseUp={handleMouseUp}
+            onMouseDown={handleCarrusel3MouseDown}
+            onMouseMove={handleCarrusel3MouseMove}
+            onMouseUp={handleCarrusel3MouseUp}
           >
             {products.slice(0, 6).map((product, index) => (
               <div
