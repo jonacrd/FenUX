@@ -75,19 +75,21 @@ const Process: React.FC<ProcessProps> = ({ title, image, steps = [] }) => {
           animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -30 }}
           transition={{ duration: 0.6, delay: 0.5 }}
         >
-          <motion.img
-            src={image}
-            alt="Proceso de trabajo"
-            loading="lazy"
-            whileHover={{ scale: 1.05 }}
-            transition={{ duration: 0.3 }}
-            style={{
-              width: '100%',
-              height: 'auto',
-              borderRadius: '12px',
-              boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
-            }}
-          />
+          {image && (
+            <motion.img
+              src={image}
+              alt="Proceso de trabajo"
+              loading="lazy"
+              whileHover={{ scale: 1.05 }}
+              transition={{ duration: 0.3 }}
+              style={{
+                width: '100%',
+                height: 'auto',
+                borderRadius: '12px',
+                boxShadow: '0 20px 40px rgba(0,0,0,0.1)'
+              }}
+            />
+          )}
         </motion.div>
 
         <motion.div
