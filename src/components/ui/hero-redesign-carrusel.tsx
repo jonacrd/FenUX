@@ -7,28 +7,28 @@ export default function HeroRedesignCarrusel() {
 
   const products = [
     {
-      title: "E-commerce Moderno",
-      thumbnail: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop&crop=center",
+      title: "Barbería Moderna",
+      thumbnail: "/barberia 1.png",
     },
     {
-      title: "Portfolio Creativo",
-      thumbnail: "https://images.unsplash.com/photo-1551650975-87deedd944c3?w=600&h=400&fit=crop&crop=center",
+      title: "Estilo Profesional",
+      thumbnail: "/barberia 2.png",
     },
     {
-      title: "Landing Page",
-      thumbnail: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&crop=center",
+      title: "Corte Premium",
+      thumbnail: "/barberia 3.png",
     },
     {
-      title: "Dashboard Admin",
-      thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center",
+      title: "Atención Personalizada",
+      thumbnail: "/barberia 4.png",
     },
     {
-      title: "Blog Personal",
-      thumbnail: "https://images.unsplash.com/photo-1497486751825-1233686d5d80?w=600&h=400&fit=crop&crop=center",
+      title: "Ambiente Clásico",
+      thumbnail: "/barberia 5.png",
     },
     {
-      title: "Sitio Corporativo",
-      thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=center",
+      title: "Servicio de Calidad",
+      thumbnail: "/barberia 6.png",
     },
     {
       title: "App Web Móvil",
