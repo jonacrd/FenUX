@@ -16,6 +16,11 @@ export default function HeroRedesignCarrusel() {
     carrusel3: 0
   });
 
+  // Estados individuales para cada carrusel
+  const [carrusel1Dragging, setCarrusel1Dragging] = useState(false);
+  const [carrusel2Dragging, setCarrusel2Dragging] = useState(false);
+  const [carrusel3Dragging, setCarrusel3Dragging] = useState(false);
+
   const products = [
     {
       title: "Barbería Moderna",
@@ -105,6 +110,97 @@ export default function HeroRedesignCarrusel() {
     setIsPaused(false);
   }, []);
 
+  // Manejadores específicos para cada carrusel
+  const handleCarrusel1TouchStart = useCallback((e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setDragStart(e.targetTouches[0].clientX);
+    setCarrusel1Dragging(true);
+  }, []);
+
+  const handleCarrusel1TouchMove = useCallback((e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+    
+    if (carrusel1Dragging && dragStart !== null) {
+      const deltaX = (e.targetTouches[0].clientX - dragStart) * 0.8;
+      const newPosition = manualPosition.carrusel1 + deltaX;
+      setManualPosition(prev => ({
+        ...prev,
+        carrusel1: newPosition
+      }));
+      if (carrusel1Ref.current) {
+        carrusel1Ref.current.style.transform = `translateX(${newPosition}px)`;
+      }
+    }
+  }, [carrusel1Dragging, dragStart, manualPosition.carrusel1]);
+
+  const handleCarrusel1TouchEnd = useCallback(() => {
+    setTouchStart(null);
+    setTouchEnd(null);
+    setCarrusel1Dragging(false);
+    setDragStart(null);
+  }, []);
+
+  const handleCarrusel2TouchStart = useCallback((e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setDragStart(e.targetTouches[0].clientX);
+    setCarrusel2Dragging(true);
+  }, []);
+
+  const handleCarrusel2TouchMove = useCallback((e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+    
+    if (carrusel2Dragging && dragStart !== null) {
+      const deltaX = (e.targetTouches[0].clientX - dragStart) * 0.8;
+      const newPosition = manualPosition.carrusel2 + deltaX;
+      setManualPosition(prev => ({
+        ...prev,
+        carrusel2: newPosition
+      }));
+      if (carrusel2Ref.current) {
+        carrusel2Ref.current.style.transform = `translateX(${newPosition}px)`;
+      }
+    }
+  }, [carrusel2Dragging, dragStart, manualPosition.carrusel2]);
+
+  const handleCarrusel2TouchEnd = useCallback(() => {
+    setTouchStart(null);
+    setTouchEnd(null);
+    setCarrusel2Dragging(false);
+    setDragStart(null);
+  }, []);
+
+  const handleCarrusel3TouchStart = useCallback((e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setDragStart(e.targetTouches[0].clientX);
+    setCarrusel3Dragging(true);
+  }, []);
+
+  const handleCarrusel3TouchMove = useCallback((e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+    
+    if (carrusel3Dragging && dragStart !== null) {
+      const deltaX = (e.targetTouches[0].clientX - dragStart) * 0.8;
+      const newPosition = manualPosition.carrusel3 + deltaX;
+      setManualPosition(prev => ({
+        ...prev,
+        carrusel3: newPosition
+      }));
+      if (carrusel3Ref.current) {
+        carrusel3Ref.current.style.transform = `translateX(${newPosition}px)`;
+      }
+    }
+  }, [carrusel3Dragging, dragStart, manualPosition.carrusel3]);
+
+  const handleCarrusel3TouchEnd = useCallback(() => {
+    setTouchStart(null);
+    setTouchEnd(null);
+    setCarrusel3Dragging(false);
+    setDragStart(null);
+  }, []);
+
   // Función para manejar hover (mouse) - removido para evitar scroll agresivo
   const handleMouseEnter = useCallback(() => {
     // No pausar en hover, solo en drag real
@@ -154,7 +250,12 @@ export default function HeroRedesignCarrusel() {
       let position = manualPosition[carruselId] || 0;
       
       const move = () => {
-        if (!isDragging) {
+        const isThisCarruselDragging = 
+          (carruselId === 'carrusel1' && carrusel1Dragging) ||
+          (carruselId === 'carrusel2' && carrusel2Dragging) ||
+          (carruselId === 'carrusel3' && carrusel3Dragging);
+          
+        if (!isThisCarruselDragging) {
           position += direction === 'left' ? -0.3 : 0.3; // Velocidad más lenta y suave
           element.style.transform = `translateX(${position}px)`;
           
@@ -192,7 +293,7 @@ export default function HeroRedesignCarrusel() {
       if (interval2) clearInterval(interval2);
       if (interval3) clearInterval(interval3);
     };
-  }, [isPaused, isDragging, manualPosition]);
+  }, [carrusel1Dragging, carrusel2Dragging, carrusel3Dragging, manualPosition]);
 
   return (
     <div className="w-full relative bg-black pb-20 pt-20">
@@ -225,9 +326,9 @@ export default function HeroRedesignCarrusel() {
               width: 'max-content',
               transition: 'none' // Sin transiciones para control manual preciso
             }}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+            onTouchStart={handleCarrusel1TouchStart}
+            onTouchMove={handleCarrusel1TouchMove}
+            onTouchEnd={handleCarrusel1TouchEnd}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onMouseDown={handleMouseDown}
@@ -293,9 +394,9 @@ export default function HeroRedesignCarrusel() {
               width: 'max-content',
               transition: 'none' // Sin transiciones para control manual preciso
             }}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+            onTouchStart={handleCarrusel2TouchStart}
+            onTouchMove={handleCarrusel2TouchMove}
+            onTouchEnd={handleCarrusel2TouchEnd}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onMouseDown={handleMouseDown}
@@ -349,9 +450,9 @@ export default function HeroRedesignCarrusel() {
               width: 'max-content',
               transition: 'none' // Sin transiciones para control manual preciso
             }}
-            onTouchStart={handleTouchStart}
-            onTouchMove={handleTouchMove}
-            onTouchEnd={handleTouchEnd}
+            onTouchStart={handleCarrusel3TouchStart}
+            onTouchMove={handleCarrusel3TouchMove}
+            onTouchEnd={handleCarrusel3TouchEnd}
             onMouseEnter={handleMouseEnter}
             onMouseLeave={handleMouseLeave}
             onMouseDown={handleMouseDown}
