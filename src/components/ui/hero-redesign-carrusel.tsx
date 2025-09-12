@@ -135,6 +135,19 @@ export default function HeroRedesignCarrusel() {
     setTouchEnd(null);
     setCarrusel1Dragging(false);
     setDragStart(null);
+    
+    // Guardar la posición final para continuar desde ahí
+    if (carrusel1Ref.current) {
+      const currentTransform = carrusel1Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const finalPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel1: finalPosition
+        }));
+      }
+    }
   }, []);
 
   const handleCarrusel2TouchStart = useCallback((e: React.TouchEvent) => {
@@ -161,6 +174,19 @@ export default function HeroRedesignCarrusel() {
     setTouchEnd(null);
     setCarrusel2Dragging(false);
     setDragStart(null);
+    
+    // Guardar la posición final para continuar desde ahí
+    if (carrusel2Ref.current) {
+      const currentTransform = carrusel2Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const finalPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel2: finalPosition
+        }));
+      }
+    }
   }, []);
 
   const handleCarrusel3TouchStart = useCallback((e: React.TouchEvent) => {
@@ -187,6 +213,19 @@ export default function HeroRedesignCarrusel() {
     setTouchEnd(null);
     setCarrusel3Dragging(false);
     setDragStart(null);
+    
+    // Guardar la posición final para continuar desde ahí
+    if (carrusel3Ref.current) {
+      const currentTransform = carrusel3Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const finalPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel3: finalPosition
+        }));
+      }
+    }
   }, []);
 
   // Función para manejar hover (mouse) - removido para evitar scroll agresivo
@@ -221,6 +260,19 @@ export default function HeroRedesignCarrusel() {
     e.stopPropagation(); // Evitar propagación
     setCarrusel1Dragging(false);
     setDragStart(null);
+    
+    // Guardar la posición final para continuar desde ahí
+    if (carrusel1Ref.current) {
+      const currentTransform = carrusel1Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const finalPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel1: finalPosition
+        }));
+      }
+    }
   }, []);
 
   const handleCarrusel2MouseDown = useCallback((e: React.MouseEvent) => {
@@ -245,6 +297,19 @@ export default function HeroRedesignCarrusel() {
     e.stopPropagation(); // Evitar propagación
     setCarrusel2Dragging(false);
     setDragStart(null);
+    
+    // Guardar la posición final para continuar desde ahí
+    if (carrusel2Ref.current) {
+      const currentTransform = carrusel2Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const finalPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel2: finalPosition
+        }));
+      }
+    }
   }, []);
 
   const handleCarrusel3MouseDown = useCallback((e: React.MouseEvent) => {
@@ -269,12 +334,26 @@ export default function HeroRedesignCarrusel() {
     e.stopPropagation(); // Evitar propagación
     setCarrusel3Dragging(false);
     setDragStart(null);
+    
+    // Guardar la posición final para continuar desde ahí
+    if (carrusel3Ref.current) {
+      const currentTransform = carrusel3Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const finalPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel3: finalPosition
+        }));
+      }
+    }
   }, []);
 
   useEffect(() => {
     // Función para mover carrusel lentamente con loop infinito suave
     const moveCarrusel = (element: HTMLDivElement, direction: 'left' | 'right', speed: number, carruselId: string) => {
-      let position = 0; // Empezar desde 0, no desde manualPosition
+      let position = manualPosition[carruselId] || 0; // Empezar desde la posición guardada
+      let lastDragTime = 0;
       
       const move = () => {
         const isThisCarruselDragging = 
@@ -283,20 +362,28 @@ export default function HeroRedesignCarrusel() {
           (carruselId === 'carrusel3' && carrusel3Dragging);
           
         if (!isThisCarruselDragging) {
-          position += direction === 'left' ? -0.3 : 0.3; // Velocidad más lenta y suave
-          element.style.transform = `translateX(${position}px)`;
+          const now = Date.now();
           
-          // Calcular el ancho de un set completo de imágenes (sin duplicados)
-          const itemWidth = 320; // w-80 + gap aproximado
-          const totalItems = 6; // 6 imágenes por carrusel
-          const setWidth = itemWidth * totalItems;
-          
-          // Reset position cuando una imagen completa del primer set haya salido
-          if (direction === 'left' && position <= -setWidth) {
-            position = 0;
-          } else if (direction === 'right' && position >= setWidth) {
-            position = 0;
+          // Esperar 1 segundo después del último drag antes de continuar
+          if (now - lastDragTime > 1000) {
+            position += direction === 'left' ? -0.3 : 0.3; // Velocidad más lenta y suave
+            element.style.transform = `translateX(${position}px)`;
+            
+            // Calcular el ancho de un set completo de imágenes (sin duplicados)
+            const itemWidth = 320; // w-80 + gap aproximado
+            const totalItems = 6; // 6 imágenes por carrusel
+            const setWidth = itemWidth * totalItems;
+            
+            // Reset position cuando una imagen completa del primer set haya salido
+            if (direction === 'left' && position <= -setWidth) {
+              position = 0;
+            } else if (direction === 'right' && position >= setWidth) {
+              position = 0;
+            }
           }
+        } else {
+          // Actualizar el tiempo del último drag
+          lastDragTime = Date.now();
         }
       };
       
@@ -314,7 +401,7 @@ export default function HeroRedesignCarrusel() {
       if (interval2) clearInterval(interval2);
       if (interval3) clearInterval(interval3);
     };
-  }, [carrusel1Dragging, carrusel2Dragging, carrusel3Dragging]);
+  }, [carrusel1Dragging, carrusel2Dragging, carrusel3Dragging, manualPosition]);
 
   // Listener global para mouse up para liberar el drag
   useEffect(() => {
