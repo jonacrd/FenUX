@@ -34,6 +34,15 @@ D.hero.ctas = D.hero.ctas.map(c => ({...c, href: c.href.replace("WHATSAPP", WHAT
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- CSS Crítico para evitar FOUC -->
+    <style>
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html, body { margin: 0 !important; padding: 0 !important; background: #0b0d10 !important; color: #e5e7eb !important; }
+      body { min-height: 100vh; font-family: Inter, sans-serif; }
+      .astro-root { margin: 0; padding: 0; }
+    </style>
+    
     <link rel="stylesheet" href="/src/styles/enhanced.css" />
     <link rel="preload" as="image" href="/images/landing-shot-1.webp">
     <link rel="preload" as="image" href="/images/landing-shot-2.webp">

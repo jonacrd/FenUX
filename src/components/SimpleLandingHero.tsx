@@ -52,8 +52,8 @@ export default function SimpleLandingHero() {
               <div className="col-span-8 md:col-span-6 row-span-3 overflow-hidden rounded-xl shadow-xl">
                 <img
                   className="size-full object-cover object-center"
-                  src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2388&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Portfolio 1"
+                  src="/images/landing-hero.webp"
+                  alt="Landing Page Hero"
                 />
               </div>
               
@@ -61,32 +61,32 @@ export default function SimpleLandingHero() {
               <div className="col-span-2 md:col-span-2 row-span-2 hidden md:block overflow-hidden rounded-xl shadow-xl">
                 <img
                   className="size-full object-cover object-center"
-                  src="https://images.unsplash.com/photo-1498036882173-b41c28a8ba34?q=80&w=2264&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Portfolio 2"
+                  src="/images/landing-shot-1.webp"
+                  alt="Landing Page Shot 1"
                 />
               </div>
               
               <div className="col-span-2 md:col-span-2 row-span-2 hidden md:block overflow-hidden rounded-xl shadow-xl">
                 <img
                   className="size-full object-cover object-center"
-                  src="https://images.unsplash.com/photo-1551641506-ee5bf4cb45f1?q=80&w=2368&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
-                  alt="Portfolio 3"
+                  src="/images/landing-shot-2.webp"
+                  alt="Landing Page Shot 2"
                 />
               </div>
               
               <div className="col-span-4 md:col-span-3 overflow-hidden rounded-xl shadow-xl">
                 <img
                   className="size-full object-cover object-center"
-                  src="https://images.unsplash.com/photo-1503899036084-c55cdd92da26?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8dG9reW98ZW58MHx8MHx8fDA%3D"
-                  alt="Portfolio 4"
+                  src="/images/portfolio-showcase.webp"
+                  alt="Portfolio Showcase"
                 />
               </div>
               
               <div className="col-span-4 md:col-span-3 overflow-hidden rounded-xl shadow-xl">
                 <img
                   className="size-full object-cover object-center"
-                  src="https://images.unsplash.com/photo-1536098561742-ca998e48cbcc?w=700&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTV8fHRva3lvfGVufDB8fDB8fHww"
-                  alt="Portfolio 5"
+                  src="/images/features-showcase.webp"
+                  alt="Features Showcase"
                 />
               </div>
             </div>

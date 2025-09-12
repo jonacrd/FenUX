@@ -171,14 +171,16 @@ const Testimonials: React.FC<TestimonialsProps> = ({ title, items = [] }) => {
         ))}
       </motion.div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (max-width: 768px) {
           .grid-3 {
             grid-template-columns: 1fr !important;
             gap: 16px !important;
           }
         }
-      `}</style>
+        `
+      }} />
     </motion.section>
   );
 };

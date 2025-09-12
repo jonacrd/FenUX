@@ -121,13 +121,15 @@ const Extras: React.FC<ExtrasProps> = ({ title, items = [] }) => {
         ))}
       </motion.div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (min-width: 980px) {
           .grid-2 {
             grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
           }
         }
-      `}</style>
+        `
+      }} />
     </motion.section>
   );
 };

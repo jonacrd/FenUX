@@ -197,7 +197,8 @@ const Stats: React.FC<StatsProps> = ({ title, image, items = [] }) => {
         </motion.div>
       </motion.div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (max-width: 768px) {
           .stats-container {
             grid-template-columns: 1fr !important;
@@ -208,7 +209,8 @@ const Stats: React.FC<StatsProps> = ({ title, image, items = [] }) => {
             grid-template-columns: 1fr !important;
           }
         }
-      `}</style>
+        `
+      }} />
     </motion.section>
   );
 };

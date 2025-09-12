@@ -187,14 +187,16 @@ const Process: React.FC<ProcessProps> = ({ title, image, steps = [] }) => {
         </motion.div>
       </motion.div>
 
-      <style jsx>{`
+      <style dangerouslySetInnerHTML={{
+        __html: `
         @media (max-width: 768px) {
           .process-container {
             grid-template-columns: 1fr !important;
             gap: 32px !important;
           }
         }
-      `}</style>
+        `
+      }} />
     </motion.section>
   );
 };
