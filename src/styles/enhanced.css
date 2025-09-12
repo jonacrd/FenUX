@@ -27,9 +27,16 @@
   padding: 0;
 }
 
-html, body {
+*::before,
+*::after {
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+html, body {
+  margin: 0 !important;
+  padding: 0 !important;
   background: var(--bg) !important;
   color: var(--fg) !important;
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
@@ -38,6 +45,32 @@ html, body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   scroll-behavior: smooth;
+  width: 100%;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+/* Eliminar espacios en blanco */
+html {
+  font-size: 16px;
+}
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Eliminar espacios en elementos específicos */
+main, section, article, aside, nav, header, footer {
+  margin: 0;
+  padding: 0;
+}
+
+/* Asegurar que no hay espacios en el top */
+#__next, #root, .astro-root {
+  margin: 0 !important;
+  padding: 0 !important;
 }
 
 /* ===== TYPOGRAPHY ===== */

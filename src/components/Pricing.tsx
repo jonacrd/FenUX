@@ -244,13 +244,15 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
         {i18n.base}: USD {baseUSD} — conversión aprox. según tu país.
       </motion.p>
 
-      <style jsx={true}>{`
-        @media (min-width: 980px) {
-          .packs {
-            grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          @media (min-width: 980px) {
+            .packs {
+              grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+            }
           }
-        }
-      `}</style>
+        `
+      }} />
     </motion.section>
   );
 };
