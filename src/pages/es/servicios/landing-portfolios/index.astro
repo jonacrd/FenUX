@@ -35,9 +35,6 @@ D.hero.ctas = D.hero.ctas.map(c => ({...c, href: c.href.replace("WHATSAPP", WHAT
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/src/styles/enhanced.css" />
-    <link rel="stylesheet" href="/src/styles/themes.css" />
-    <link rel="stylesheet" href="/src/styles/effects.css" />
-    <link rel="stylesheet" href="/src/styles/wow.css" />
     <link rel="preload" as="image" href="/images/landing-shot-1.webp">
     <link rel="preload" as="image" href="/images/landing-shot-2.webp">
     <svg id="filters">
@@ -89,11 +86,7 @@ D.hero.ctas = D.hero.ctas.map(c => ({...c, href: c.href.replace("WHATSAPP", WHAT
       </a>
     </div>
     <script type="module">
-      import { ripple, revealOnScroll, tilt, lightbox } from "/src/scripts/ux.js";
-      import { bindWhatsApp, bindCalendly } from "/src/scripts/conv.js";
-      import { setupCurrency } from "/src/scripts/currency.js";
-      import { onReveal, cursorSpotlight, magnetic, parallax, scrollBar } from "/src/scripts/effects.js";
-      import { attach } from "/src/scripts/wow.js";
+      import { ripple, revealOnScroll, tilt, lightbox, bindWhatsApp, bindCalendly, setupCurrency, onReveal, cursorSpotlight, magnetic, parallax, scrollBar, attach } from "/src/scripts/basic-effects.js";
       ripple(); revealOnScroll(); tilt(); lightbox();
       bindWhatsApp(); bindCalendly();
       setupCurrency({});
