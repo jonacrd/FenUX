@@ -8,51 +8,51 @@ export default function HeroRedesignCarrusel() {
   const products = [
     {
       title: "Barbería Moderna",
-      thumbnail: "/barberia 1.png",
+      thumbnail: "/portfolio/barberia/barberia 1.png",
     },
     {
       title: "Estilo Profesional",
-      thumbnail: "/barberia 2.png",
+      thumbnail: "/portfolio/barberia/barberia 2.png",
     },
     {
       title: "Corte Premium",
-      thumbnail: "/barberia 3.png",
+      thumbnail: "/portfolio/barberia/barberia 3.png",
     },
     {
       title: "Atención Personalizada",
-      thumbnail: "/barberia 4.png",
+      thumbnail: "/portfolio/barberia/barberia 4.png",
     },
     {
       title: "Ambiente Clásico",
-      thumbnail: "/barberia 5.png",
+      thumbnail: "/portfolio/barberia/barberia 5.png",
     },
     {
       title: "Servicio de Calidad",
-      thumbnail: "/barberia 6.png",
+      thumbnail: "/portfolio/barberia/barberia 6.png",
     },
     {
-      title: "App Web Móvil",
-      thumbnail: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=600&h=400&fit=crop&crop=center",
+      title: "Muestra 1",
+      thumbnail: "/portfolio/muestras/muestras 1.png",
     },
     {
-      title: "Tienda Online",
-      thumbnail: "https://images.unsplash.com/photo-1556742111-a301076d9d18?w=600&h=400&fit=crop&crop=center",
+      title: "Muestra 2",
+      thumbnail: "/portfolio/muestras/muestras 2.png",
     },
     {
-      title: "Sitio de Noticias",
-      thumbnail: "https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=600&h=400&fit=crop&crop=center",
+      title: "Muestra 3",
+      thumbnail: "/portfolio/muestras/muestras 3.png",
     },
     {
-      title: "Portal Educativo",
-      thumbnail: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=600&h=400&fit=crop&crop=center",
+      title: "Muestra 4",
+      thumbnail: "/portfolio/muestras/muestras 4 (1).png",
     },
     {
-      title: "Plataforma SaaS",
-      thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop&crop=center",
+      title: "Muestra 5",
+      thumbnail: "/portfolio/muestras/muestras 5.png",
     },
     {
-      title: "Sitio de Servicios",
-      thumbnail: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&h=400&fit=crop&crop=center",
+      title: "Muestra 6",
+      thumbnail: "/portfolio/muestras/muestras 6.png",
     },
   ];
 
