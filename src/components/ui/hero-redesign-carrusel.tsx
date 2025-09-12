@@ -122,17 +122,13 @@ export default function HeroRedesignCarrusel() {
     setTouchEnd(e.targetTouches[0].clientX);
     
     if (carrusel1Dragging && dragStart !== null) {
-      const deltaX = (e.targetTouches[0].clientX - dragStart) * 0.8;
-      const newPosition = manualPosition.carrusel1 + deltaX;
-      setManualPosition(prev => ({
-        ...prev,
-        carrusel1: newPosition
-      }));
+      const deltaX = e.targetTouches[0].clientX - dragStart;
+      const newPosition = deltaX; // Usar directamente el delta, no acumular
       if (carrusel1Ref.current) {
         carrusel1Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel1Dragging, dragStart, manualPosition.carrusel1]);
+  }, [carrusel1Dragging, dragStart]);
 
   const handleCarrusel1TouchEnd = useCallback(() => {
     setTouchStart(null);
@@ -152,17 +148,13 @@ export default function HeroRedesignCarrusel() {
     setTouchEnd(e.targetTouches[0].clientX);
     
     if (carrusel2Dragging && dragStart !== null) {
-      const deltaX = (e.targetTouches[0].clientX - dragStart) * 0.8;
-      const newPosition = manualPosition.carrusel2 + deltaX;
-      setManualPosition(prev => ({
-        ...prev,
-        carrusel2: newPosition
-      }));
+      const deltaX = e.targetTouches[0].clientX - dragStart;
+      const newPosition = deltaX; // Usar directamente el delta, no acumular
       if (carrusel2Ref.current) {
         carrusel2Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel2Dragging, dragStart, manualPosition.carrusel2]);
+  }, [carrusel2Dragging, dragStart]);
 
   const handleCarrusel2TouchEnd = useCallback(() => {
     setTouchStart(null);
@@ -182,17 +174,13 @@ export default function HeroRedesignCarrusel() {
     setTouchEnd(e.targetTouches[0].clientX);
     
     if (carrusel3Dragging && dragStart !== null) {
-      const deltaX = (e.targetTouches[0].clientX - dragStart) * 0.8;
-      const newPosition = manualPosition.carrusel3 + deltaX;
-      setManualPosition(prev => ({
-        ...prev,
-        carrusel3: newPosition
-      }));
+      const deltaX = e.targetTouches[0].clientX - dragStart;
+      const newPosition = deltaX; // Usar directamente el delta, no acumular
       if (carrusel3Ref.current) {
         carrusel3Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel3Dragging, dragStart, manualPosition.carrusel3]);
+  }, [carrusel3Dragging, dragStart]);
 
   const handleCarrusel3TouchEnd = useCallback(() => {
     setTouchStart(null);
@@ -221,17 +209,13 @@ export default function HeroRedesignCarrusel() {
   const handleCarrusel1MouseMove = useCallback((e: React.MouseEvent) => {
     if (carrusel1Dragging && dragStart !== null) {
       e.stopPropagation(); // Evitar propagación
-      const deltaX = (e.clientX - dragStart) * 0.8;
-      const newPosition = manualPosition.carrusel1 + deltaX;
-      setManualPosition(prev => ({
-        ...prev,
-        carrusel1: newPosition
-      }));
+      const deltaX = e.clientX - dragStart;
+      const newPosition = deltaX; // Usar directamente el delta, no acumular
       if (carrusel1Ref.current) {
         carrusel1Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel1Dragging, dragStart, manualPosition.carrusel1]);
+  }, [carrusel1Dragging, dragStart]);
 
   const handleCarrusel1MouseUp = useCallback((e: React.MouseEvent) => {
     e.stopPropagation(); // Evitar propagación
@@ -249,17 +233,13 @@ export default function HeroRedesignCarrusel() {
   const handleCarrusel2MouseMove = useCallback((e: React.MouseEvent) => {
     if (carrusel2Dragging && dragStart !== null) {
       e.stopPropagation(); // Evitar propagación
-      const deltaX = (e.clientX - dragStart) * 0.8;
-      const newPosition = manualPosition.carrusel2 + deltaX;
-      setManualPosition(prev => ({
-        ...prev,
-        carrusel2: newPosition
-      }));
+      const deltaX = e.clientX - dragStart;
+      const newPosition = deltaX; // Usar directamente el delta, no acumular
       if (carrusel2Ref.current) {
         carrusel2Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel2Dragging, dragStart, manualPosition.carrusel2]);
+  }, [carrusel2Dragging, dragStart]);
 
   const handleCarrusel2MouseUp = useCallback((e: React.MouseEvent) => {
     e.stopPropagation(); // Evitar propagación
@@ -277,17 +257,13 @@ export default function HeroRedesignCarrusel() {
   const handleCarrusel3MouseMove = useCallback((e: React.MouseEvent) => {
     if (carrusel3Dragging && dragStart !== null) {
       e.stopPropagation(); // Evitar propagación
-      const deltaX = (e.clientX - dragStart) * 0.8;
-      const newPosition = manualPosition.carrusel3 + deltaX;
-      setManualPosition(prev => ({
-        ...prev,
-        carrusel3: newPosition
-      }));
+      const deltaX = e.clientX - dragStart;
+      const newPosition = deltaX; // Usar directamente el delta, no acumular
       if (carrusel3Ref.current) {
         carrusel3Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel3Dragging, dragStart, manualPosition.carrusel3]);
+  }, [carrusel3Dragging, dragStart]);
 
   const handleCarrusel3MouseUp = useCallback((e: React.MouseEvent) => {
     e.stopPropagation(); // Evitar propagación
@@ -298,7 +274,7 @@ export default function HeroRedesignCarrusel() {
   useEffect(() => {
     // Función para mover carrusel lentamente con loop infinito suave
     const moveCarrusel = (element: HTMLDivElement, direction: 'left' | 'right', speed: number, carruselId: string) => {
-      let position = manualPosition[carruselId] || 0;
+      let position = 0; // Empezar desde 0, no desde manualPosition
       
       const move = () => {
         const isThisCarruselDragging = 
@@ -321,12 +297,6 @@ export default function HeroRedesignCarrusel() {
           } else if (direction === 'right' && position >= setWidth) {
             position = 0;
           }
-          
-          // Actualizar la posición manual
-          setManualPosition(prev => ({
-            ...prev,
-            [carruselId]: position
-          }));
         }
       };
       
@@ -344,7 +314,7 @@ export default function HeroRedesignCarrusel() {
       if (interval2) clearInterval(interval2);
       if (interval3) clearInterval(interval3);
     };
-  }, [carrusel1Dragging, carrusel2Dragging, carrusel3Dragging, manualPosition]);
+  }, [carrusel1Dragging, carrusel2Dragging, carrusel3Dragging]);
 
   // Listener global para mouse up para liberar el drag
   useEffect(() => {
