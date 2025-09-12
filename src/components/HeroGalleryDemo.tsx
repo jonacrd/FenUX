@@ -4,11 +4,11 @@ import { BentoCell, BentoGrid, ContainerScale, ContainerScroll } from "./ui/hero
 import { Button } from "./ui/button";
 
 const IMAGES = [
-  "/images/landing-hero.webp",
-  "/images/landing-shot-1.webp", 
-  "/images/landing-shot-2.webp",
-  "/images/portfolio-showcase.webp",
-  "/images/features-showcase.webp",
+  "/images/landing-hero.webp",           // Imagen principal - Hero de landing
+  "/images/landing-shot-1.webp",         // Imagen lateral 1 - Shot de landing
+  "/images/landing-shot-2.webp",         // Imagen lateral 2 - Shot de landing
+  "/images/portfolio-showcase.webp",     // Imagen inferior 1 - Portfolio
+  "/images/features-showcase.webp",      // Imagen inferior 2 - Features
 ];
 
 export default function HeroGalleryDemo() {
