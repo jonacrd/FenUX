@@ -116,6 +116,19 @@ export default function HeroRedesignCarrusel() {
     setTouchStart(e.targetTouches[0].clientX);
     setDragStart(e.targetTouches[0].clientX);
     setCarrusel1Dragging(true);
+    
+    // Ajustar la posición inicial para que el drag sea continuo
+    if (carrusel1Ref.current) {
+      const currentTransform = carrusel1Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const currentPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel1: currentPosition
+        }));
+      }
+    }
   }, []);
 
   const handleCarrusel1TouchMove = useCallback((e: React.TouchEvent) => {
@@ -123,12 +136,12 @@ export default function HeroRedesignCarrusel() {
     
     if (carrusel1Dragging && dragStart !== null) {
       const deltaX = e.targetTouches[0].clientX - dragStart;
-      const newPosition = deltaX; // Usar directamente el delta, no acumular
+      const newPosition = manualPosition.carrusel1 + deltaX; // Usar posición guardada como base
       if (carrusel1Ref.current) {
         carrusel1Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel1Dragging, dragStart]);
+  }, [carrusel1Dragging, dragStart, manualPosition.carrusel1]);
 
   const handleCarrusel1TouchEnd = useCallback(() => {
     setTouchStart(null);
@@ -155,6 +168,19 @@ export default function HeroRedesignCarrusel() {
     setTouchStart(e.targetTouches[0].clientX);
     setDragStart(e.targetTouches[0].clientX);
     setCarrusel2Dragging(true);
+    
+    // Ajustar la posición inicial para que el drag sea continuo
+    if (carrusel2Ref.current) {
+      const currentTransform = carrusel2Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const currentPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel2: currentPosition
+        }));
+      }
+    }
   }, []);
 
   const handleCarrusel2TouchMove = useCallback((e: React.TouchEvent) => {
@@ -162,12 +188,12 @@ export default function HeroRedesignCarrusel() {
     
     if (carrusel2Dragging && dragStart !== null) {
       const deltaX = e.targetTouches[0].clientX - dragStart;
-      const newPosition = deltaX; // Usar directamente el delta, no acumular
+      const newPosition = manualPosition.carrusel2 + deltaX; // Usar posición guardada como base
       if (carrusel2Ref.current) {
         carrusel2Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel2Dragging, dragStart]);
+  }, [carrusel2Dragging, dragStart, manualPosition.carrusel2]);
 
   const handleCarrusel2TouchEnd = useCallback(() => {
     setTouchStart(null);
@@ -194,6 +220,19 @@ export default function HeroRedesignCarrusel() {
     setTouchStart(e.targetTouches[0].clientX);
     setDragStart(e.targetTouches[0].clientX);
     setCarrusel3Dragging(true);
+    
+    // Ajustar la posición inicial para que el drag sea continuo
+    if (carrusel3Ref.current) {
+      const currentTransform = carrusel3Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const currentPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel3: currentPosition
+        }));
+      }
+    }
   }, []);
 
   const handleCarrusel3TouchMove = useCallback((e: React.TouchEvent) => {
@@ -201,12 +240,12 @@ export default function HeroRedesignCarrusel() {
     
     if (carrusel3Dragging && dragStart !== null) {
       const deltaX = e.targetTouches[0].clientX - dragStart;
-      const newPosition = deltaX; // Usar directamente el delta, no acumular
+      const newPosition = manualPosition.carrusel3 + deltaX; // Usar posición guardada como base
       if (carrusel3Ref.current) {
         carrusel3Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel3Dragging, dragStart]);
+  }, [carrusel3Dragging, dragStart, manualPosition.carrusel3]);
 
   const handleCarrusel3TouchEnd = useCallback(() => {
     setTouchStart(null);
@@ -243,18 +282,31 @@ export default function HeroRedesignCarrusel() {
     e.stopPropagation(); // Evitar propagación a otros elementos
     setDragStart(e.clientX);
     setCarrusel1Dragging(true);
+    
+    // Ajustar la posición inicial para que el drag sea continuo
+    if (carrusel1Ref.current) {
+      const currentTransform = carrusel1Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const currentPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel1: currentPosition
+        }));
+      }
+    }
   }, []);
 
   const handleCarrusel1MouseMove = useCallback((e: React.MouseEvent) => {
     if (carrusel1Dragging && dragStart !== null) {
       e.stopPropagation(); // Evitar propagación
       const deltaX = e.clientX - dragStart;
-      const newPosition = deltaX; // Usar directamente el delta, no acumular
+      const newPosition = manualPosition.carrusel1 + deltaX; // Usar posición guardada como base
       if (carrusel1Ref.current) {
         carrusel1Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel1Dragging, dragStart]);
+  }, [carrusel1Dragging, dragStart, manualPosition.carrusel1]);
 
   const handleCarrusel1MouseUp = useCallback((e: React.MouseEvent) => {
     e.stopPropagation(); // Evitar propagación
@@ -280,18 +332,31 @@ export default function HeroRedesignCarrusel() {
     e.stopPropagation(); // Evitar propagación a otros elementos
     setDragStart(e.clientX);
     setCarrusel2Dragging(true);
+    
+    // Ajustar la posición inicial para que el drag sea continuo
+    if (carrusel2Ref.current) {
+      const currentTransform = carrusel2Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const currentPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel2: currentPosition
+        }));
+      }
+    }
   }, []);
 
   const handleCarrusel2MouseMove = useCallback((e: React.MouseEvent) => {
     if (carrusel2Dragging && dragStart !== null) {
       e.stopPropagation(); // Evitar propagación
       const deltaX = e.clientX - dragStart;
-      const newPosition = deltaX; // Usar directamente el delta, no acumular
+      const newPosition = manualPosition.carrusel2 + deltaX; // Usar posición guardada como base
       if (carrusel2Ref.current) {
         carrusel2Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel2Dragging, dragStart]);
+  }, [carrusel2Dragging, dragStart, manualPosition.carrusel2]);
 
   const handleCarrusel2MouseUp = useCallback((e: React.MouseEvent) => {
     e.stopPropagation(); // Evitar propagación
@@ -317,18 +382,31 @@ export default function HeroRedesignCarrusel() {
     e.stopPropagation(); // Evitar propagación a otros elementos
     setDragStart(e.clientX);
     setCarrusel3Dragging(true);
+    
+    // Ajustar la posición inicial para que el drag sea continuo
+    if (carrusel3Ref.current) {
+      const currentTransform = carrusel3Ref.current.style.transform;
+      const match = currentTransform.match(/translateX\(([^)]+)\)/);
+      if (match) {
+        const currentPosition = parseFloat(match[1]);
+        setManualPosition(prev => ({
+          ...prev,
+          carrusel3: currentPosition
+        }));
+      }
+    }
   }, []);
 
   const handleCarrusel3MouseMove = useCallback((e: React.MouseEvent) => {
     if (carrusel3Dragging && dragStart !== null) {
       e.stopPropagation(); // Evitar propagación
       const deltaX = e.clientX - dragStart;
-      const newPosition = deltaX; // Usar directamente el delta, no acumular
+      const newPosition = manualPosition.carrusel3 + deltaX; // Usar posición guardada como base
       if (carrusel3Ref.current) {
         carrusel3Ref.current.style.transform = `translateX(${newPosition}px)`;
       }
     }
-  }, [carrusel3Dragging, dragStart]);
+  }, [carrusel3Dragging, dragStart, manualPosition.carrusel3]);
 
   const handleCarrusel3MouseUp = useCallback((e: React.MouseEvent) => {
     e.stopPropagation(); // Evitar propagación
