@@ -45,46 +45,76 @@ export default function SimpleLandingHero() {
       <ReusableHeader />
       <main className="overflow-hidden">
         {/* Hero Section with Gallery */}
-        <section className="relative min-h-screen w-full">
+        <section className="relative min-h-screen w-full bg-gray-900">
           <div className="relative h-screen w-full p-4">
-            <div className="grid grid-cols-8 grid-rows-[1fr_0.5fr_0.5fr_1fr] gap-4 h-full">
+            <div className="hero-gallery grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 h-full">
               {/* Main large image */}
-              <div className="col-span-8 md:col-span-6 row-span-3 overflow-hidden rounded-xl shadow-xl">
+              <div className="md:col-span-2 lg:col-span-2 overflow-hidden rounded-xl shadow-xl bg-gray-800">
                 <img
-                  className="size-full object-cover object-center"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    display: 'block'
+                  }}
                   src="/images/landing-hero.webp"
                   alt="Landing Page Hero"
                 />
               </div>
               
               {/* Small images */}
-              <div className="col-span-2 md:col-span-2 row-span-2 hidden md:block overflow-hidden rounded-xl shadow-xl">
+              <div className="overflow-hidden rounded-xl shadow-xl bg-gray-800">
                 <img
-                  className="size-full object-cover object-center"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    display: 'block'
+                  }}
                   src="/images/landing-shot-1.webp"
                   alt="Landing Page Shot 1"
                 />
               </div>
               
-              <div className="col-span-2 md:col-span-2 row-span-2 hidden md:block overflow-hidden rounded-xl shadow-xl">
+              <div className="overflow-hidden rounded-xl shadow-xl bg-gray-800">
                 <img
-                  className="size-full object-cover object-center"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    display: 'block'
+                  }}
                   src="/images/landing-shot-2.webp"
                   alt="Landing Page Shot 2"
                 />
               </div>
               
-              <div className="col-span-4 md:col-span-3 overflow-hidden rounded-xl shadow-xl">
+              <div className="overflow-hidden rounded-xl shadow-xl bg-gray-800">
                 <img
-                  className="size-full object-cover object-center"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    display: 'block'
+                  }}
                   src="/images/portfolio-showcase.webp"
                   alt="Portfolio Showcase"
                 />
               </div>
               
-              <div className="col-span-4 md:col-span-3 overflow-hidden rounded-xl shadow-xl">
+              <div className="overflow-hidden rounded-xl shadow-xl bg-gray-800">
                 <img
-                  className="size-full object-cover object-center"
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                    objectPosition: 'center',
+                    display: 'block'
+                  }}
                   src="/images/features-showcase.webp"
                   alt="Features Showcase"
                 />
@@ -154,6 +184,34 @@ export default function SimpleLandingHero() {
           </div>
         </section>
       </main>
+      
+      <style dangerouslySetInnerHTML={{
+        __html: `
+          .hero-gallery img {
+            display: block !important;
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover !important;
+            object-position: center !important;
+          }
+          
+          .hero-gallery > div {
+            position: relative;
+            overflow: hidden;
+          }
+          
+          @media (max-width: 768px) {
+            .hero-gallery {
+              grid-template-columns: 1fr !important;
+              grid-template-rows: 1fr 1fr 1fr 1fr 1fr !important;
+            }
+            
+            .hero-gallery > div {
+              grid-column: 1 !important;
+            }
+          }
+        `
+      }} />
     </>
   )
 }
