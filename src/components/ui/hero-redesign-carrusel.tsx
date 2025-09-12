@@ -101,16 +101,16 @@ export default function HeroRedesignCarrusel() {
       {/* Carruseles automáticos lentos e interactivos con diseño dinámico */}
       <div className="relative z-10">
         {/* Primer carrusel - más arriba, se mueve hacia la izquierda */}
-        <div className="flex space-x-8 mb-8 overflow-hidden pb-4">
+        <div className="flex space-x-4 sm:space-x-6 lg:space-x-8 mb-4 sm:mb-6 lg:mb-8 overflow-hidden pb-2 sm:pb-3 lg:pb-4">
           <div 
             ref={carrusel1Ref}
-            className="flex space-x-8 cursor-grab active:cursor-grabbing"
+            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing"
             style={{ width: 'max-content' }}
           >
             {products.slice(0, 6).map((product, index) => (
               <div
                 key={product.title}
-                className="flex-shrink-0 w-80 h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
+                className="flex-shrink-0 w-60 h-48 sm:w-72 sm:h-56 lg:w-80 lg:h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
               >
                 <img
                   src={product.thumbnail}
@@ -127,7 +127,7 @@ export default function HeroRedesignCarrusel() {
             {products.slice(0, 6).map((product, index) => (
               <div
                 key={`duplicate-1-${product.title}`}
-                className="flex-shrink-0 w-80 h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
+                className="flex-shrink-0 w-60 h-48 sm:w-72 sm:h-56 lg:w-80 lg:h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
               >
                 <img
                   src={product.thumbnail}
@@ -144,13 +144,13 @@ export default function HeroRedesignCarrusel() {
         </div>
 
         {/* Segundo carrusel con título a la izquierda - se mueve hacia la derecha */}
-        <div className="flex items-center space-x-8 mb-8 overflow-hidden pb-4">
+        <div className="flex flex-col lg:flex-row lg:items-center space-y-4 sm:space-y-6 lg:space-y-0 lg:space-x-8 mb-4 sm:mb-6 lg:mb-8 overflow-hidden pb-2 sm:pb-3 lg:pb-4">
           {/* Título a la izquierda */}
-          <div className="flex-shrink-0 w-96 px-4">
-            <h1 className="text-3xl md:text-6xl font-bold text-white leading-tight">
-              Rediseño Web que <br /> Convierte
+          <div className="flex-shrink-0 w-full lg:w-96 px-4 text-center lg:text-left">
+            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white leading-tight">
+              Rediseño Web que <br className="hidden sm:block" /> Convierte
             </h1>
-            <p className="text-base md:text-lg mt-6 text-neutral-200 leading-relaxed">
+            <p className="text-sm sm:text-base md:text-lg mt-4 lg:mt-6 text-neutral-200 leading-relaxed">
               Transformamos tu sitio web obsoleto en una experiencia moderna y funcional. 
               Diseños únicos, responsive y optimizados para conversión.
             </p>
@@ -160,13 +160,13 @@ export default function HeroRedesignCarrusel() {
           <div className="flex-1 overflow-hidden">
             <div 
               ref={carrusel2Ref}
-              className="flex space-x-8 cursor-grab active:cursor-grabbing"
+              className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing"
               style={{ width: 'max-content' }}
             >
               {products.slice(6, 12).map((product, index) => (
                 <div
                   key={product.title}
-                  className="flex-shrink-0 w-80 h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
+                  className="flex-shrink-0 w-60 h-48 sm:w-72 sm:h-56 lg:w-80 lg:h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
                 >
                   <img
                     src={product.thumbnail}
@@ -183,7 +183,7 @@ export default function HeroRedesignCarrusel() {
               {products.slice(6, 12).map((product, index) => (
                 <div
                   key={`duplicate-2-${product.title}`}
-                  className="flex-shrink-0 w-80 h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
+                  className="flex-shrink-0 w-60 h-48 sm:w-72 sm:h-56 lg:w-80 lg:h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
                 >
                   <img
                     src={product.thumbnail}
@@ -201,16 +201,16 @@ export default function HeroRedesignCarrusel() {
         </div>
 
         {/* Tercer carrusel - se mueve hacia la izquierda */}
-        <div className="flex space-x-8 mb-0 overflow-hidden pb-4">
+        <div className="flex space-x-4 sm:space-x-6 lg:space-x-8 mb-0 overflow-hidden pb-2 sm:pb-3 lg:pb-4">
           <div 
             ref={carrusel3Ref}
-            className="flex space-x-8 cursor-grab active:cursor-grabbing"
+            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing"
             style={{ width: 'max-content' }}
           >
             {products.slice(0, 6).map((product, index) => (
               <div
                 key={`third-${product.title}`}
-                className="flex-shrink-0 w-80 h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
+                className="flex-shrink-0 w-60 h-48 sm:w-72 sm:h-56 lg:w-80 lg:h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
               >
                 <img
                   src={product.thumbnail}
@@ -227,7 +227,7 @@ export default function HeroRedesignCarrusel() {
             {products.slice(0, 6).map((product, index) => (
               <div
                 key={`duplicate-3-${product.title}`}
-                className="flex-shrink-0 w-80 h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
+                className="flex-shrink-0 w-60 h-48 sm:w-72 sm:h-56 lg:w-80 lg:h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
               >
                 <img
                   src={product.thumbnail}
