@@ -452,11 +452,19 @@ export default function HeroRedesignCarrusel() {
             const totalItems = 6; // 6 imágenes por carrusel
             const setWidth = itemWidth * totalItems;
             
-            // Reset position cuando una imagen completa del primer set haya salido
-            if (direction === 'left' && position <= -setWidth) {
-              position = 0;
-            } else if (direction === 'right' && position >= setWidth) {
-              position = 0;
+            // Lógica especial para el segundo carrusel (efecto Pacman)
+            if (carruselId === 'carrusel2') {
+              // Para el segundo carrusel que va hacia la derecha
+              if (position >= setWidth) {
+                position = -setWidth; // Teletransportarse a la izquierda (efecto Pacman)
+              }
+            } else {
+              // Para los otros carruseles (izquierda)
+              if (direction === 'left' && position <= -setWidth) {
+                position = 0;
+              } else if (direction === 'right' && position >= setWidth) {
+                position = 0;
+              }
             }
           }
         } else {
