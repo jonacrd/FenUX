@@ -1,9 +1,13 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState, useCallback } from 'react';
 
 export default function HeroRedesignCarrusel() {
   const carrusel1Ref = useRef<HTMLDivElement>(null);
   const carrusel2Ref = useRef<HTMLDivElement>(null);
   const carrusel3Ref = useRef<HTMLDivElement>(null);
+  
+  const [isPaused, setIsPaused] = useState(false);
+  const [touchStart, setTouchStart] = useState<number | null>(null);
+  const [touchEnd, setTouchEnd] = useState<number | null>(null);
 
   const products = [
     {
@@ -56,17 +60,59 @@ export default function HeroRedesignCarrusel() {
     },
   ];
 
+  // Función para manejar el toque inicial
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    setTouchEnd(null);
+    setTouchStart(e.targetTouches[0].clientX);
+    setIsPaused(true);
+  }, []);
+
+  // Función para manejar el toque final
+  const handleTouchMove = useCallback((e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  }, []);
+
+  // Función para manejar el final del toque
+  const handleTouchEnd = useCallback(() => {
+    if (!touchStart || !touchEnd) return;
+    
+    const distance = touchStart - touchEnd;
+    const isLeftSwipe = distance > 50;
+    const isRightSwipe = distance < -50;
+
+    if (isLeftSwipe || isRightSwipe) {
+      // Aquí podrías agregar lógica adicional si necesitas cambiar la dirección
+      console.log('Swipe detected:', isLeftSwipe ? 'left' : 'right');
+    }
+    
+    // Reanudar después de un breve delay
+    setTimeout(() => {
+      setIsPaused(false);
+    }, 1000);
+  }, [touchStart, touchEnd]);
+
+  // Función para manejar hover (mouse)
+  const handleMouseEnter = useCallback(() => {
+    setIsPaused(true);
+  }, []);
+
+  const handleMouseLeave = useCallback(() => {
+    setIsPaused(false);
+  }, []);
+
   useEffect(() => {
     // Función para mover carrusel lentamente
     const moveCarrusel = (element: HTMLDivElement, direction: 'left' | 'right', speed: number) => {
       let position = 0;
       const move = () => {
-        position += direction === 'left' ? -0.5 : 0.5;
-        element.style.transform = `translateX(${position}px)`;
-        
-        // Reset position when it goes too far
-        if (Math.abs(position) > element.scrollWidth / 2) {
-          position = 0;
+        if (!isPaused) {
+          position += direction === 'left' ? -0.5 : 0.5;
+          element.style.transform = `translateX(${position}px)`;
+          
+          // Reset position when it goes too far
+          if (Math.abs(position) > element.scrollWidth / 2) {
+            position = 0;
+          }
         }
       };
       
@@ -84,7 +130,7 @@ export default function HeroRedesignCarrusel() {
       if (interval2) clearInterval(interval2);
       if (interval3) clearInterval(interval3);
     };
-  }, []);
+  }, [isPaused]);
 
   return (
     <div className="w-full relative bg-black pb-20 pt-20">
@@ -98,14 +144,26 @@ export default function HeroRedesignCarrusel() {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-black/20 to-black/40"></div>
       </div>
       
+      {/* Indicador de estado del carrusel */}
+      {isPaused && (
+        <div className="absolute top-4 right-4 z-20 bg-black/50 backdrop-blur-sm rounded-full px-3 py-1 text-white text-xs font-medium">
+          ⏸️ Pausado
+        </div>
+      )}
+
       {/* Carruseles automáticos lentos e interactivos con diseño dinámico */}
       <div className="relative z-10">
         {/* Primer carrusel - más arriba, se mueve hacia la izquierda */}
         <div className="flex space-x-4 sm:space-x-6 lg:space-x-8 mb-4 sm:mb-6 lg:mb-8 overflow-hidden pb-2 sm:pb-3 lg:pb-4">
           <div 
             ref={carrusel1Ref}
-            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing"
+            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
             style={{ width: 'max-content' }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             {products.slice(0, 6).map((product, index) => (
               <div
@@ -160,8 +218,13 @@ export default function HeroRedesignCarrusel() {
           <div className="flex-1 overflow-hidden">
             <div 
               ref={carrusel2Ref}
-              className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing"
+              className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
               style={{ width: 'max-content' }}
+              onTouchStart={handleTouchStart}
+              onTouchMove={handleTouchMove}
+              onTouchEnd={handleTouchEnd}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
             >
               {products.slice(6, 12).map((product, index) => (
                 <div
@@ -204,8 +267,13 @@ export default function HeroRedesignCarrusel() {
         <div className="flex space-x-4 sm:space-x-6 lg:space-x-8 mb-0 overflow-hidden pb-2 sm:pb-3 lg:pb-4">
           <div 
             ref={carrusel3Ref}
-            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing"
+            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
             style={{ width: 'max-content' }}
+            onTouchStart={handleTouchStart}
+            onTouchMove={handleTouchMove}
+            onTouchEnd={handleTouchEnd}
+            onMouseEnter={handleMouseEnter}
+            onMouseLeave={handleMouseLeave}
           >
             {products.slice(0, 6).map((product, index) => (
               <div
