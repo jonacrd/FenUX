@@ -1,7 +1,7 @@
 "use client"
 
 import * as React from "react"
-import { VariantProps, cva } from "class-variance-authority"
+import { cva } from "class-variance-authority"
 import {
   HTMLMotionProps,
   MotionValue,
@@ -11,6 +11,8 @@ import {
 } from "motion/react"
 
 import { cn } from "@/lib/utils"
+
+type VariantProps<T> = T extends (...args: any) => any ? Parameters<T>[0] : never
 
 const bentoGridVariants = cva(
   "relative grid gap-4 [&>*:first-child]:origin-top-right [&>*:nth-child(3)]:origin-bottom-right [&>*:nth-child(4)]:origin-top-right",
