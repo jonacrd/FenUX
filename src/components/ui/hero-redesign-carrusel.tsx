@@ -457,82 +457,104 @@ export default function HeroRedesignCarrusel() {
     }
   }, []);
 
+  // useEffect separado para cada carrusel para evitar interferencia
   useEffect(() => {
-    // Función para mover carrusel lentamente con loop infinito suave
-    const moveCarrusel = (element: HTMLDivElement, direction: 'left' | 'right', speed: number, carruselId: string) => {
-      let position = manualPosition[carruselId] || 0; // Empezar desde la posición guardada
-      let lastDragTime = 0;
-      
-      const move = () => {
-        const isThisCarruselDragging = 
-          (carruselId === 'carrusel1' && carrusel1Dragging) ||
-          (carruselId === 'carrusel2' && carrusel2Dragging) ||
-          (carruselId === 'carrusel3' && carrusel3Dragging);
+    if (!carrusel1Ref.current) return;
+    
+    let position = manualPosition.carrusel1 || 0;
+    let lastDragTime = 0;
+    
+    const move = () => {
+      if (!carrusel1Dragging) {
+        const now = Date.now();
+        
+        if (now - lastDragTime > 1000) {
+          position += -0.3; // Movimiento hacia la izquierda
+          carrusel1Ref.current!.style.transform = `translateX(${position}px)`;
           
-        if (!isThisCarruselDragging) {
-          const now = Date.now();
+          const itemWidth = 320;
+          const totalItems = 6;
+          const setWidth = itemWidth * totalItems;
           
-          // Esperar 1 segundo después del último drag antes de continuar
-          if (now - lastDragTime > 1000) {
-            position += direction === 'left' ? -0.3 : 0.3; // Velocidad más lenta y suave
-            element.style.transform = `translateX(${position}px)`;
-            
-            // Calcular el ancho de un set completo de imágenes (sin duplicados)
-            const itemWidth = 320; // w-80 + gap aproximado
-            const totalItems = 6; // 6 imágenes por carrusel
-            const setWidth = itemWidth * totalItems;
-            
-            // Lógica especial para el segundo carrusel con límites
-            if (carruselId === 'carrusel2') {
-              // Para el segundo carrusel que va hacia la derecha
-              const maxRight = 0; // No puede ir más a la derecha que la posición inicial
-              const maxLeft = -setWidth + itemWidth; // Debe mantener al menos una imagen visible
-              
-              // Aplicar límites
-              if (position > maxRight) {
-                position = maxRight; // Límite derecho
-              } else if (position < maxLeft) {
-                position = maxLeft; // Límite izquierdo
-              }
-              
-              // Si llega al límite derecho, cambiar dirección
-              if (position >= maxRight) {
-                // Cambiar a movimiento hacia la izquierda
-                position = maxRight - 0.3;
-              } else if (position <= maxLeft) {
-                // Cambiar a movimiento hacia la derecha
-                position = maxLeft + 0.3;
-              }
-            } else {
-              // Para los otros carruseles (izquierda)
-              if (direction === 'left' && position <= -setWidth) {
-                position = 0;
-              } else if (direction === 'right' && position >= setWidth) {
-                position = 0;
-              }
-            }
+          if (position <= -setWidth) {
+            position = 0;
           }
-        } else {
-          // Actualizar el tiempo del último drag
-          lastDragTime = Date.now();
         }
-      };
-      
-      return setInterval(move, speed);
+      } else {
+        lastDragTime = Date.now();
+      }
     };
+    
+    const interval = setInterval(move, 50);
+    return () => clearInterval(interval);
+  }, [carrusel1Dragging, manualPosition.carrusel1]);
 
-    // Iniciar movimientos lentos
-    const interval1 = carrusel1Ref.current ? moveCarrusel(carrusel1Ref.current, 'left', 50, 'carrusel1') : null;
-    const interval2 = carrusel2Ref.current ? moveCarrusel(carrusel2Ref.current, 'right', 60, 'carrusel2') : null;
-    const interval3 = carrusel3Ref.current ? moveCarrusel(carrusel3Ref.current, 'left', 45, 'carrusel3') : null;
-
-    // Cleanup
-    return () => {
-      if (interval1) clearInterval(interval1);
-      if (interval2) clearInterval(interval2);
-      if (interval3) clearInterval(interval3);
+  useEffect(() => {
+    if (!carrusel2Ref.current) return;
+    
+    let position = manualPosition.carrusel2 || 0;
+    let lastDragTime = 0;
+    
+    const move = () => {
+      if (!carrusel2Dragging) {
+        const now = Date.now();
+        
+        if (now - lastDragTime > 1000) {
+          position += 0.3; // Movimiento hacia la derecha
+          carrusel2Ref.current!.style.transform = `translateX(${position}px)`;
+          
+          const itemWidth = 320;
+          const totalItems = 6;
+          const setWidth = itemWidth * totalItems;
+          const maxRight = 0;
+          const maxLeft = -setWidth + itemWidth;
+          
+          // Aplicar límites
+          if (position > maxRight) {
+            position = maxRight;
+          } else if (position < maxLeft) {
+            position = maxLeft;
+          }
+        }
+      } else {
+        lastDragTime = Date.now();
+      }
     };
-  }, [carrusel1Dragging, carrusel2Dragging, carrusel3Dragging, manualPosition]);
+    
+    const interval = setInterval(move, 60);
+    return () => clearInterval(interval);
+  }, [carrusel2Dragging, manualPosition.carrusel2]);
+
+  useEffect(() => {
+    if (!carrusel3Ref.current) return;
+    
+    let position = manualPosition.carrusel3 || 0;
+    let lastDragTime = 0;
+    
+    const move = () => {
+      if (!carrusel3Dragging) {
+        const now = Date.now();
+        
+        if (now - lastDragTime > 1000) {
+          position += -0.3; // Movimiento hacia la izquierda
+          carrusel3Ref.current!.style.transform = `translateX(${position}px)`;
+          
+          const itemWidth = 320;
+          const totalItems = 6;
+          const setWidth = itemWidth * totalItems;
+          
+          if (position <= -setWidth) {
+            position = 0;
+          }
+        }
+      } else {
+        lastDragTime = Date.now();
+      }
+    };
+    
+    const interval = setInterval(move, 45);
+    return () => clearInterval(interval);
+  }, [carrusel3Dragging, manualPosition.carrusel3]);
 
   // Listener global para mouse up para liberar el drag
   useEffect(() => {
