@@ -104,17 +104,21 @@ export default function HeroRedesignCarrusel() {
     // Función para mover carrusel lentamente con loop infinito suave
     const moveCarrusel = (element: HTMLDivElement, direction: 'left' | 'right', speed: number) => {
       let position = 0;
-      const totalWidth = element.scrollWidth / 2; // Dividido por 2 porque tenemos duplicados
       
       const move = () => {
         if (!isPaused) {
           position += direction === 'left' ? -0.5 : 0.5;
           element.style.transform = `translateX(${position}px)`;
           
-          // Reset position cuando llegamos al final del primer set de imágenes
-          if (direction === 'left' && position <= -totalWidth) {
+          // Calcular el ancho de un set completo de imágenes (sin duplicados)
+          const itemWidth = 320; // w-80 + gap aproximado
+          const totalItems = 6; // 6 imágenes por carrusel
+          const setWidth = itemWidth * totalItems;
+          
+          // Reset position cuando una imagen completa del primer set haya salido
+          if (direction === 'left' && position <= -setWidth) {
             position = 0;
-          } else if (direction === 'right' && position >= totalWidth) {
+          } else if (direction === 'right' && position >= setWidth) {
             position = 0;
           }
         }
