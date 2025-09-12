@@ -456,13 +456,25 @@ export default function HeroRedesignCarrusel() {
             if (carruselId === 'carrusel2') {
               // Para el segundo carrusel que va hacia la derecha
               if (position >= setWidth) {
-                position = -setWidth; // Teletransportarse a la izquierda (efecto Pacman)
+                position = 0; // Resetear a 0 para mantener continuidad
+              }
+              // Asegurar que nunca esté vacío el viewport
+              if (position < 0) {
+                position = 0; // Si se va a la izquierda, resetear
               }
             } else {
               // Para los otros carruseles (izquierda)
               if (direction === 'left' && position <= -setWidth) {
                 position = 0;
               } else if (direction === 'right' && position >= setWidth) {
+                position = 0;
+              }
+            }
+            
+            // Validación adicional: asegurar que siempre haya contenido visible
+            if (carruselId === 'carrusel2') {
+              // Para el segundo carrusel, asegurar que siempre esté en un rango visible
+              if (position < 0 || position > setWidth) {
                 position = 0;
               }
             }
