@@ -3,12 +3,12 @@
 import * as React from "react"
 import { cva } from "class-variance-authority"
 import {
-  HTMLMotionProps,
-  MotionValue,
   motion,
   useScroll,
   useTransform,
-} from "motion/react"
+  type MotionValue,
+  type HTMLMotionProps,
+} from "framer-motion"
 
 import { cn } from "@/lib/utils"
 
