@@ -81,7 +81,7 @@ export default function HeroRedesignCarrusel() {
     setTouchEnd(e.targetTouches[0].clientX);
     
     if (isDragging && dragStart !== null) {
-      const deltaX = e.targetTouches[0].clientX - dragStart;
+      const deltaX = (e.targetTouches[0].clientX - dragStart) * 0.8; // Sensibilidad reducida para control más preciso
       const target = e.currentTarget as HTMLDivElement;
       const carruselId = target.getAttribute('data-carrusel-id');
       
@@ -105,13 +105,13 @@ export default function HeroRedesignCarrusel() {
     setIsPaused(false);
   }, []);
 
-  // Función para manejar hover (mouse)
+  // Función para manejar hover (mouse) - removido para evitar scroll agresivo
   const handleMouseEnter = useCallback(() => {
-    setIsPaused(true);
+    // No pausar en hover, solo en drag real
   }, []);
 
   const handleMouseLeave = useCallback(() => {
-    setIsPaused(false);
+    // No reanudar en hover, solo en drag real
   }, []);
 
   // Función para manejar mouse down (drag manual)
@@ -126,7 +126,7 @@ export default function HeroRedesignCarrusel() {
   // Función para manejar mouse move (drag manual)
   const handleMouseMove = useCallback((e: React.MouseEvent) => {
     if (isDragging && dragStart !== null) {
-      const deltaX = e.clientX - dragStart;
+      const deltaX = (e.clientX - dragStart) * 0.8; // Sensibilidad reducida para control más preciso
       const target = e.currentTarget as HTMLDivElement;
       const carruselId = target.getAttribute('data-carrusel-id');
       
@@ -154,8 +154,8 @@ export default function HeroRedesignCarrusel() {
       let position = manualPosition[carruselId] || 0;
       
       const move = () => {
-        if (!isPaused && !isDragging) {
-          position += direction === 'left' ? -0.5 : 0.5;
+        if (!isDragging) {
+          position += direction === 'left' ? -0.3 : 0.3; // Velocidad más lenta y suave
           element.style.transform = `translateX(${position}px)`;
           
           // Calcular el ancho de un set completo de imágenes (sin duplicados)
@@ -223,7 +223,7 @@ export default function HeroRedesignCarrusel() {
             className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
             style={{ 
               width: 'max-content',
-              transition: isPaused ? 'transform 0.3s ease' : 'none'
+              transition: 'none' // Sin transiciones para control manual preciso
             }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -291,7 +291,7 @@ export default function HeroRedesignCarrusel() {
             className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
             style={{ 
               width: 'max-content',
-              transition: isPaused ? 'transform 0.3s ease' : 'none'
+              transition: 'none' // Sin transiciones para control manual preciso
             }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
@@ -347,7 +347,7 @@ export default function HeroRedesignCarrusel() {
             className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
             style={{ 
               width: 'max-content',
-              transition: isPaused ? 'transform 0.3s ease' : 'none'
+              transition: 'none' // Sin transiciones para control manual preciso
             }}
             onTouchStart={handleTouchStart}
             onTouchMove={handleTouchMove}
