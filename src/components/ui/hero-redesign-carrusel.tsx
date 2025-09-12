@@ -213,13 +213,14 @@ export default function HeroRedesignCarrusel() {
   // Manejadores de mouse específicos para cada carrusel
   const handleCarrusel1MouseDown = useCallback((e: React.MouseEvent) => {
     if (e.button !== 0) return; // Solo botón izquierdo
+    e.stopPropagation(); // Evitar propagación a otros elementos
     setDragStart(e.clientX);
     setCarrusel1Dragging(true);
-    e.preventDefault();
   }, []);
 
   const handleCarrusel1MouseMove = useCallback((e: React.MouseEvent) => {
     if (carrusel1Dragging && dragStart !== null) {
+      e.stopPropagation(); // Evitar propagación
       const deltaX = (e.clientX - dragStart) * 0.8;
       const newPosition = manualPosition.carrusel1 + deltaX;
       setManualPosition(prev => ({
@@ -232,20 +233,22 @@ export default function HeroRedesignCarrusel() {
     }
   }, [carrusel1Dragging, dragStart, manualPosition.carrusel1]);
 
-  const handleCarrusel1MouseUp = useCallback(() => {
+  const handleCarrusel1MouseUp = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation(); // Evitar propagación
     setCarrusel1Dragging(false);
     setDragStart(null);
   }, []);
 
   const handleCarrusel2MouseDown = useCallback((e: React.MouseEvent) => {
     if (e.button !== 0) return; // Solo botón izquierdo
+    e.stopPropagation(); // Evitar propagación a otros elementos
     setDragStart(e.clientX);
     setCarrusel2Dragging(true);
-    e.preventDefault();
   }, []);
 
   const handleCarrusel2MouseMove = useCallback((e: React.MouseEvent) => {
     if (carrusel2Dragging && dragStart !== null) {
+      e.stopPropagation(); // Evitar propagación
       const deltaX = (e.clientX - dragStart) * 0.8;
       const newPosition = manualPosition.carrusel2 + deltaX;
       setManualPosition(prev => ({
@@ -258,20 +261,22 @@ export default function HeroRedesignCarrusel() {
     }
   }, [carrusel2Dragging, dragStart, manualPosition.carrusel2]);
 
-  const handleCarrusel2MouseUp = useCallback(() => {
+  const handleCarrusel2MouseUp = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation(); // Evitar propagación
     setCarrusel2Dragging(false);
     setDragStart(null);
   }, []);
 
   const handleCarrusel3MouseDown = useCallback((e: React.MouseEvent) => {
     if (e.button !== 0) return; // Solo botón izquierdo
+    e.stopPropagation(); // Evitar propagación a otros elementos
     setDragStart(e.clientX);
     setCarrusel3Dragging(true);
-    e.preventDefault();
   }, []);
 
   const handleCarrusel3MouseMove = useCallback((e: React.MouseEvent) => {
     if (carrusel3Dragging && dragStart !== null) {
+      e.stopPropagation(); // Evitar propagación
       const deltaX = (e.clientX - dragStart) * 0.8;
       const newPosition = manualPosition.carrusel3 + deltaX;
       setManualPosition(prev => ({
@@ -284,7 +289,8 @@ export default function HeroRedesignCarrusel() {
     }
   }, [carrusel3Dragging, dragStart, manualPosition.carrusel3]);
 
-  const handleCarrusel3MouseUp = useCallback(() => {
+  const handleCarrusel3MouseUp = useCallback((e: React.MouseEvent) => {
+    e.stopPropagation(); // Evitar propagación
     setCarrusel3Dragging(false);
     setDragStart(null);
   }, []);
@@ -340,6 +346,19 @@ export default function HeroRedesignCarrusel() {
     };
   }, [carrusel1Dragging, carrusel2Dragging, carrusel3Dragging, manualPosition]);
 
+  // Listener global para mouse up para liberar el drag
+  useEffect(() => {
+    const handleGlobalMouseUp = () => {
+      setCarrusel1Dragging(false);
+      setCarrusel2Dragging(false);
+      setCarrusel3Dragging(false);
+      setDragStart(null);
+    };
+
+    document.addEventListener('mouseup', handleGlobalMouseUp);
+    return () => document.removeEventListener('mouseup', handleGlobalMouseUp);
+  }, []);
+
   return (
     <div className="w-full relative bg-black pb-20 pt-20">
       {/* Background con web vieja opaca */}
@@ -366,7 +385,7 @@ export default function HeroRedesignCarrusel() {
           <div 
             ref={carrusel1Ref}
             data-carrusel-id="carrusel1"
-            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
+            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-pointer select-none"
             style={{ 
               width: 'max-content',
               transition: 'none' // Sin transiciones para control manual preciso
@@ -434,7 +453,7 @@ export default function HeroRedesignCarrusel() {
           <div 
             ref={carrusel2Ref}
             data-carrusel-id="carrusel2"
-            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
+            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-pointer select-none"
             style={{ 
               width: 'max-content',
               transition: 'none' // Sin transiciones para control manual preciso
@@ -490,7 +509,7 @@ export default function HeroRedesignCarrusel() {
           <div 
             ref={carrusel3Ref}
             data-carrusel-id="carrusel3"
-            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-grab active:cursor-grabbing select-none"
+            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-pointer select-none"
             style={{ 
               width: 'max-content',
               transition: 'none' // Sin transiciones para control manual preciso
