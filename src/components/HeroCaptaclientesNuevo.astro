@@ -53,49 +53,36 @@ const whatsappUrl = "https://wa.me/580000000000?text=Hola%20vengo%20del%20anunci
           </a>
         </div>
 
-        <!-- Mini-formulario -->
+        <!-- Mini-formulario minimalista -->
         <div class="mt-6 animate-[slideInLeft_0.6s_ease-out_0.3s_backwards]">
-          <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 max-w-md border border-white/10">
-            <form id="hero-demo-form" class="space-y-4" novalidate>
+          <div class="max-w-lg mx-auto">
+            <form id="hero-demo-form" class="space-y-6" novalidate>
               <!-- Nombre -->
-              <div>
+              <div class="relative">
                 <input 
                   type="text" 
                   id="hero-name" 
                   name="name" 
                   required
-                  class="w-full rounded-lg p-3 bg-white/20 text-white placeholder-white/60 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#FF8A00]/40 focus:border-[#FF8A00]/60 transition-all duration-300"
+                  class="w-full bg-transparent text-white placeholder-white/40 border-0 border-b border-white/20 focus:border-purple-400 focus:outline-none py-3 text-center text-lg transition-colors duration-300"
                   placeholder="Tu nombre completo"
                   aria-label="Nombre completo"
                 />
                 <div id="hero-name-error" class="text-red-200 text-xs mt-1 hidden" role="alert"></div>
               </div>
 
-              <!-- Email -->
-              <div>
+              <!-- Email/WhatsApp -->
+              <div class="relative">
                 <input 
-                  type="email" 
+                  type="text" 
                   id="hero-email" 
                   name="email" 
                   required
-                  class="w-full rounded-lg p-3 bg-white/20 text-white placeholder-white/60 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#FF8A00]/40 focus:border-[#FF8A00]/60 transition-all duration-300"
-                  placeholder="tu@email.com"
-                  aria-label="Correo electrónico"
+                  class="w-full bg-transparent text-white placeholder-white/40 border-0 border-b border-white/20 focus:border-purple-400 focus:outline-none py-3 text-center text-lg transition-colors duration-300"
+                  placeholder="Email / WhatsApp"
+                  aria-label="Email o WhatsApp"
                 />
                 <div id="hero-email-error" class="text-red-200 text-xs mt-1 hidden" role="alert"></div>
-              </div>
-
-              <!-- Teléfono/WhatsApp -->
-              <div>
-                <input 
-                  type="tel" 
-                  id="hero-phone" 
-                  name="phone"
-                  class="w-full rounded-lg p-3 bg-white/20 text-white placeholder-white/60 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#FF8A00]/40 focus:border-[#FF8A00]/60 transition-all duration-300"
-                  placeholder="+56 9 1234 5678 (opcional)"
-                  aria-label="Teléfono o WhatsApp (opcional)"
-                />
-                <div id="hero-phone-error" class="text-red-200 text-xs mt-1 hidden" role="alert"></div>
               </div>
 
               <!-- Campo oculto para source -->
@@ -116,26 +103,26 @@ const whatsappUrl = "https://wa.me/580000000000?text=Hola%20vengo%20del%20anunci
               />
 
               <!-- Botón de envío -->
-              <button 
-                type="submit" 
-                class="w-full py-3 rounded-lg bg-gradient-to-r from-[#C0176C] to-[#FF8A00] font-semibold text-white
-                       hover:opacity-95 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#FF8A00]/60
-                       transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
-                data-analytics="cta-hero-form"
-                aria-label="Reservar demo gratuita"
-              >
-                <span class="btn-text">Reservar demo gratuita</span>
-                <span class="btn-loading hidden">
-                  <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                  </svg>
-                  Enviando...
-                </span>
-              </button>
+              <div class="text-center">
+                <button 
+                  type="submit" 
+                  class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-full hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none"
+                  data-analytics="cta-hero-form"
+                  aria-label="Reservar demo gratuita"
+                >
+                  <span class="btn-text">Reservar Demo</span>
+                  <span class="btn-loading hidden">
+                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                    Enviando...
+                  </span>
+                </button>
+              </div>
 
               <!-- Texto pequeño -->
-              <p class="text-xs text-white/50 mt-3 text-center">
+              <p class="text-sm text-white/60 mt-6 text-center">
                 Sin compromiso. Te mostramos cómo funciona antes de pagar.
               </p>
 
@@ -233,16 +220,15 @@ const whatsappUrl = "https://wa.me/580000000000?text=Hola%20vengo%20del%20anunci
       errors.name = 'El nombre debe tener al menos 2 caracteres';
     }
     
-    // Validar email
+    // Validar email/whatsapp (puede ser email o teléfono)
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.get('email') || !emailRegex.test(formData.get('email'))) {
-      errors.email = 'Ingresa un email válido';
-    }
-    
-    // Validar teléfono (opcional pero si se proporciona debe ser válido)
     const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
-    if (formData.get('phone') && !phoneRegex.test(formData.get('phone').replace(/\s/g, ''))) {
-      errors.phone = 'Ingresa un teléfono válido';
+    const contactValue = formData.get('email');
+    
+    if (!contactValue || contactValue.trim().length < 3) {
+      errors.email = 'Ingresa un email o WhatsApp válido';
+    } else if (!emailRegex.test(contactValue) && !phoneRegex.test(contactValue.replace(/\s/g, ''))) {
+      errors.email = 'Ingresa un email o WhatsApp válido';
     }
     
     return errors;
@@ -303,7 +289,6 @@ const whatsappUrl = "https://wa.me/580000000000?text=Hola%20vengo%20del%20anunci
         body: JSON.stringify({
           name: formData.get('name'),
           email: formData.get('email'),
-          phone: formData.get('phone'),
           message: 'Solicitud de demo desde hero - Sistema Captaclientes Ágil',
           source: formData.get('source'),
           company: formData.get('company') // honeypot
