@@ -304,58 +304,60 @@ const testimonials = [
         Reserva tu demo gratuita y descubre cómo podemos transformar tu presencia digital.
       </p>
       
-      <div class="max-w-md mx-auto">
-        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
-          <h3 class="text-xl font-semibold text-white mb-6">Reserva tu demo gratuita</h3>
-          <form 
-            action="/api/lead" 
-            method="POST" 
-            class="space-y-4"
-            data-source="home-final"
-          >
-            <div>
+      <div class="max-w-lg mx-auto">
+        <form 
+          action="/api/lead" 
+          method="POST" 
+          class="space-y-6"
+          data-source="home-final"
+        >
+          <div class="space-y-4">
+            <div class="relative">
               <input 
                 name="name" 
                 type="text" 
                 required 
                 placeholder="Tu nombre"
-                class="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm text-white placeholder-white/50 border-0 focus:outline-none focus:ring-2 focus:ring-purple-400/50 transition-all duration-300 text-center"
+                class="w-full bg-transparent text-white placeholder-white/40 border-0 border-b border-white/20 focus:border-purple-400 focus:outline-none py-3 text-center text-lg transition-colors duration-300"
                 aria-label="Nombre completo"
               />
             </div>
             
-            <div>
+            <div class="relative">
               <input 
                 name="email" 
                 type="email" 
                 required 
-                placeholder="Tu email"
-                class="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm text-white placeholder-white/50 border-0 focus:outline-none focus:ring-2 focus:ring-purple-400/50 transition-all duration-300 text-center"
-                aria-label="Dirección de email"
+                placeholder="Email / WhatsApp"
+                class="w-full bg-transparent text-white placeholder-white/40 border-0 border-b border-white/20 focus:border-purple-400 focus:outline-none py-3 text-center text-lg transition-colors duration-300"
+                aria-label="Email o WhatsApp"
               />
             </div>
-            
-            <input type="hidden" name="source" value="home-final" />
-            <input type="hidden" name="company" value="" />
-            
+          </div>
+          
+          <input type="hidden" name="source" value="home-final" />
+          <input type="hidden" name="company" value="" />
+          
+          <div class="text-center">
             <button 
               type="submit" 
-              class="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400/50"
+              class="inline-flex items-center px-8 py-3 bg-gradient-to-r from-purple-500 to-pink-500 text-white font-medium rounded-full hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400/50"
             >
               Reservar Demo
             </button>
-          </form>
-          <p class="text-sm text-white/90 mt-4">
-            Sin compromiso. Te mostramos funcionando antes de pagar.
-          </p>
-        </div>
+          </div>
+        </form>
+        
+        <p class="text-sm text-white/60 mt-6 text-center">
+          Sin compromiso. Te mostramos funcionando antes de pagar.
+        </p>
       </div>
     </div>
   </section>
 </Base>
 
     <script>
-  // Manejar envío del formulario simplificado
+  // Manejar envío del formulario minimalista
   document.addEventListener('DOMContentLoaded', function() {
     const form = document.querySelector('form[data-source="home-final"]');
     
@@ -366,10 +368,12 @@ const testimonials = [
         const formData = new FormData(form);
         const button = form.querySelector('button[type="submit"]');
         const originalText = button.textContent;
+        const originalClasses = button.className;
         
         // Mostrar estado de carga
         button.disabled = true;
         button.textContent = 'Enviando...';
+        button.className = originalClasses.replace('from-purple-500 to-pink-500', 'from-gray-500 to-gray-600');
         
         try {
           const response = await fetch('/api/lead', {
@@ -380,7 +384,7 @@ const testimonials = [
           if (response.ok) {
             // Éxito
             button.textContent = '¡Enviado!';
-            button.classList.add('bg-green-500');
+            button.className = originalClasses.replace('from-purple-500 to-pink-500', 'from-green-500 to-green-600');
             form.reset();
             
             // Analytics
@@ -399,7 +403,7 @@ const testimonials = [
             // Resetear después de 3 segundos
             setTimeout(() => {
               button.textContent = originalText;
-              button.classList.remove('bg-green-500');
+              button.className = originalClasses;
               button.disabled = false;
             }, 3000);
             
@@ -410,12 +414,12 @@ const testimonials = [
         } catch (error) {
           console.error('Error enviando formulario:', error);
           button.textContent = 'Error - Intenta de nuevo';
-          button.classList.add('bg-red-500');
+          button.className = originalClasses.replace('from-purple-500 to-pink-500', 'from-red-500 to-red-600');
           
           // Resetear después de 3 segundos
           setTimeout(() => {
             button.textContent = originalText;
-            button.classList.remove('bg-red-500');
+            button.className = originalClasses;
             button.disabled = false;
           }, 3000);
         }
