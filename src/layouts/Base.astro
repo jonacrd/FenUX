@@ -113,26 +113,29 @@ const BRAND_CONFIG = {
   <body class="font-sans antialiased">
     <slot />
     
-    <!-- Landbot Script Corregido -->
+    <!-- Landbot Script Simplificado -->
     <script>
-      window.addEventListener('mouseover', initLandbot, { once: true });
-      window.addEventListener('touchstart', initLandbot, { once: true });
-      var myLandbot;
-      function initLandbot() {
-        if (!myLandbot) {
-          var s = document.createElement('script');
-          s.type = "module"
-          s.async = true;
-          s.addEventListener('load', function() {
-            myLandbot = new Landbot.Livechat({
+      // Cargar Landbot inmediatamente
+      document.addEventListener('DOMContentLoaded', function() {
+        var s = document.createElement('script');
+        s.type = "module";
+        s.async = true;
+        s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
+        s.onload = function() {
+          try {
+            window.myLandbot = new Landbot.Livechat({
               configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3131692-XMRW5AQKBIILVQQU/index.json',
             });
-          });
-          s.src = 'https://cdn.landbot.io/landbot-3/landbot-3.0.0.mjs';
-          var x = document.getElementsByTagName('script')[0];
-          x.parentNode.insertBefore(s, x);
-        }
-      }
+            console.log('Landbot cargado correctamente');
+          } catch (error) {
+            console.error('Error al cargar Landbot:', error);
+          }
+        };
+        s.onerror = function() {
+          console.error('Error al cargar el script de Landbot');
+        };
+        document.head.appendChild(s);
+      });
     </script>
     
     <!-- UTM Capture Script -->
