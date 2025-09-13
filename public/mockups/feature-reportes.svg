@@ -1,0 +1,30 @@
+<svg width="120" height="80" viewBox="0 0 120 80" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Background -->
+  <rect width="120" height="80" rx="8" fill="#1a1a1a" stroke="#374151" stroke-width="1"/>
+  
+  <!-- Header -->
+  <rect x="8" y="8" width="104" height="16" fill="#166534"/>
+  <rect x="12" y="12" width="60" height="8" rx="2" fill="#22c55e"/>
+  
+  <!-- Chart area -->
+  <rect x="8" y="28" width="104" height="44" fill="#111" rx="4"/>
+  
+  <!-- Chart bars -->
+  <rect x="16" y="50" width="8" height="16" rx="2" fill="#6366f1"/>
+  <rect x="28" y="45" width="8" height="21" rx="2" fill="#f97316"/>
+  <rect x="40" y="40" width="8" height="26" rx="2" fill="#22c55e"/>
+  <rect x="52" y="48" width="8" height="18" rx="2" fill="#8b5cf6"/>
+  <rect x="64" y="42" width="8" height="24" rx="2" fill="#ec4899"/>
+  <rect x="76" y="46" width="8" height="20" rx="2" fill="#06b6d4"/>
+  
+  <!-- Chart line -->
+  <path d="M20 55 L32 50 L44 45 L56 53 L68 47 L80 51" stroke="#f97316" stroke-width="2" fill="none"/>
+  
+  <!-- Data points -->
+  <circle cx="20" cy="55" r="2" fill="#f97316"/>
+  <circle cx="32" cy="50" r="2" fill="#f97316"/>
+  <circle cx="44" cy="45" r="2" fill="#f97316"/>
+  <circle cx="56" cy="53" r="2" fill="#f97316"/>
+  <circle cx="68" cy="47" r="2" fill="#f97316"/>
+  <circle cx="80" cy="51" r="2" fill="#f97316"/>
+</svg>

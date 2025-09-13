@@ -1,0 +1,59 @@
+<svg width="200" height="350" viewBox="0 0 200 350" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- Phone frame -->
+  <rect x="20" y="20" width="160" height="310" rx="25" fill="#1a1a1a" stroke="#333" stroke-width="3"/>
+  
+  <!-- Screen -->
+  <rect x="30" y="40" width="140" height="270" rx="15" fill="#0f0f0f"/>
+  
+  <!-- Status bar -->
+  <rect x="30" y="40" width="140" height="25" fill="#111" rx="15"/>
+  <circle cx="45" cy="52" r="3" fill="#22c55e"/>
+  <rect x="55" y="48" width="60" height="8" rx="4" fill="#374151"/>
+  <rect x="120" y="48" width="40" height="8" rx="4" fill="#374151"/>
+  
+  <!-- Header -->
+  <rect x="30" y="70" width="140" height="40" fill="#1a1a1a"/>
+  <rect x="40" y="80" width="80" height="12" rx="4" fill="#8b5cf6"/>
+  <rect x="40" y="100" width="60" height="8" rx="4" fill="#6b7280"/>
+  
+  <!-- Task list -->
+  <rect x="30" y="120" width="140" height="180" fill="#111"/>
+  
+  <!-- Task items -->
+  <rect x="40" y="130" width="120" height="30" rx="6" fill="#1e1b4b" stroke="#6366f1" stroke-width="1"/>
+  <circle cx="50" cy="145" r="4" fill="#6366f1"/>
+  <rect x="60" y="140" width="80" height="8" rx="4" fill="#a5b4fc"/>
+  <rect x="60" y="150" width="60" height="6" rx="3" fill="#a5b4fc"/>
+  
+  <rect x="40" y="170" width="120" height="30" rx="6" fill="#7c2d12" stroke="#f97316" stroke-width="1"/>
+  <circle cx="50" cy="185" r="4" fill="#f97316"/>
+  <rect x="60" y="180" width="80" height="8" rx="4" fill="#fed7aa"/>
+  <rect x="60" y="190" width="60" height="6" rx="3" fill="#fed7aa"/>
+  
+  <rect x="40" y="210" width="120" height="30" rx="6" fill="#166534" stroke="#22c55e" stroke-width="1"/>
+  <circle cx="50" cy="225" r="4" fill="#22c55e"/>
+  <rect x="60" y="220" width="80" height="8" rx="4" fill="#86efac"/>
+  <rect x="60" y="230" width="60" height="6" rx="3" fill="#86efac"/>
+  
+  <rect x="40" y="250" width="120" height="30" rx="6" fill="#374151"/>
+  <circle cx="50" cy="265" r="4" fill="#6b7280"/>
+  <rect x="60" y="260" width="80" height="8" rx="4" fill="#9ca3af"/>
+  <rect x="60" y="270" width="60" height="6" rx="3" fill="#9ca3af"/>
+  
+  <!-- Bottom navigation -->
+  <rect x="30" y="300" width="140" height="10" fill="#1a1a1a"/>
+  
+  <!-- Glow effect -->
+  <defs>
+    <filter id="mobileGlow">
+      <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+      <feMerge> 
+        <feMergeNode in="coloredBlur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+  
+  <!-- Phone glow -->
+  <rect x="20" y="20" width="160" height="310" rx="25" fill="none" stroke="#8b5cf6" stroke-width="2" opacity="0.4" filter="url(#mobileGlow)"/>
+</svg>

@@ -1,39 +1,235 @@
 ---
-const { language="es", email, whatsapp } = Astro.props;
-const T = {
-  es:{title:"Solicita una propuesta", name:"Tu nombre", email:"Tu email", msg:"Cuéntame del proyecto", send:"Enviar", ok:"¡Gracias! Te escribiré pronto.", or:"o"},
-  en:{title:"Request a proposal", name:"Your name", email:"Your email", msg:"Tell me about your project", send:"Send", ok:"Thanks! I'll get back to you.", or:"or"}
-}[language];
+// LeadForm.astro - Formulario de leads reutilizable
+export interface Props {
+  source?: string;
+  showPhone?: boolean;
+  showMessage?: boolean;
+  buttonText?: string;
+  className?: string;
+  inline?: boolean;
+}
+
+const { 
+  source = "general",
+  showPhone = true,
+  showMessage = false,
+  buttonText = "Reservar demo gratuita",
+  className = "",
+  inline = false
+} = Astro.props;
 ---
-<section class="section">
-  <h2 class="hl">{T.title}</h2>
-  <div class="grid-2">
-    <form id="lead" class="card reveal" method="post" action="/api/lead" novalidate>
-      <input type="text" name="company" style="display:none" tabindex="-1" autocomplete="off" />
-      <label>{T.name}<input name="name" required /></label>
-      <label>{T.email}<input type="email" name="email" required /></label>
-      <label>{T.msg}<textarea name="message" rows="5" required></textarea></label>
-      <button class="btn" type="submit" data-cta="form">{T.send}</button>
-      <small class="muted">* Respondo en 24 h hábiles.</small>
-    </form>
-    <div class="card reveal">
-      <p><strong>WhatsApp</strong> {T.or} <strong>Email</strong></p>
-      <a class="btn" data-whatsapp href={`https://wa.me/${whatsapp}`} target="_blank" rel="noopener">WhatsApp</a>
-      <a class="btn alt" href={`mailto:${email}`}>Email</a>
+
+<form 
+  action="/api/lead" 
+  method="POST" 
+  class={`lead-form ${inline ? 'inline-form' : 'stacked-form'} ${className}`}
+  data-source={source}
+>
+  <div class="form-grid">
+    <div class="form-group">
+      <label for={`name-${source}`} class="sr-only">Nombre</label>
+      <input 
+        id={`name-${source}`}
+        name="name" 
+        type="text" 
+        required 
+        placeholder="Tu nombre"
+        class="form-input"
+        aria-label="Nombre completo"
+      />
     </div>
+    
+    <div class="form-group">
+      <label for={`email-${source}`} class="sr-only">Email</label>
+      <input 
+        id={`email-${source}`}
+        name="email" 
+        type="email" 
+        required 
+        placeholder="Tu email"
+        class="form-input"
+        aria-label="Dirección de email"
+      />
+    </div>
+    
+    {showPhone && (
+      <div class="form-group">
+        <label for={`phone-${source}`} class="sr-only">WhatsApp</label>
+        <input 
+          id={`phone-${source}`}
+          name="phone" 
+          type="tel" 
+          placeholder="Tu WhatsApp (opcional)"
+          class="form-input"
+          aria-label="Número de WhatsApp"
+        />
+      </div>
+    )}
+    
+    {showMessage && (
+      <div class="form-group full-width">
+        <label for={`message-${source}`} class="sr-only">Mensaje</label>
+        <textarea 
+          id={`message-${source}`}
+          name="message" 
+          placeholder="Cuéntanos sobre tu proyecto (opcional)"
+          class="form-textarea"
+          rows="3"
+          aria-label="Mensaje adicional"
+        ></textarea>
+      </div>
+    )}
   </div>
-  <p id="lead-ok" style="display:none;margin-top:8px" role="status">{T.ok}</p>
-</section>
+  
+  <input type="hidden" name="source" value={source} />
+  <input type="hidden" name="company" value="" /> <!-- honeypot -->
+  
+  <button type="submit" class="form-button">
+    <span class="button-text">{buttonText}</span>
+    <span class="button-loading hidden">Enviando...</span>
+  </button>
+  
+  <div class="form-message success-message hidden">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+    </svg>
+    <span>¡Gracias! Te contactaremos pronto.</span>
+  </div>
+  
+  <div class="form-message error-message hidden">
+    <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"/>
+    </svg>
+    <span>Error al enviar. Inténtalo de nuevo.</span>
+  </div>
+</form>
 
 <script>
-  const f=document.getElementById('lead'); const ok=document.getElementById('lead-ok');
-  f?.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    const fd=new FormData(f);
-    if(fd.get('company')) return;
-    // validación mínima
-    if(!fd.get('name')||!fd.get('email')||!fd.get('message')) return;
-    const res=await fetch(f.action,{method:'POST',body:fd});
-    if(res.ok){ f.reset(); ok.style.display='block'; fireLeadSubmit(); }
+  // Manejar envío del formulario
+  document.addEventListener('DOMContentLoaded', function() {
+    const forms = document.querySelectorAll('.lead-form');
+    
+    forms.forEach(form => {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const button = form.querySelector('.form-button');
+        const buttonText = form.querySelector('.button-text');
+        const buttonLoading = form.querySelector('.button-loading');
+        const successMessage = form.querySelector('.success-message');
+        const errorMessage = form.querySelector('.error-message');
+        
+        // Mostrar estado de carga
+        button.disabled = true;
+        buttonText.classList.add('hidden');
+        buttonLoading.classList.remove('hidden');
+        
+        // Ocultar mensajes previos
+        successMessage.classList.add('hidden');
+        errorMessage.classList.add('hidden');
+        
+        try {
+          const response = await fetch('/api/lead', {
+            method: 'POST',
+            body: formData
+          });
+          
+          if (response.ok) {
+            // Éxito
+            successMessage.classList.remove('hidden');
+            form.reset();
+            
+            // Analytics
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'lead_submit', {
+                event_category: 'Form',
+                event_label: form.dataset.source
+              });
+            }
+            
+            // Meta Pixel
+            if (typeof window !== 'undefined' && window.fbq) {
+              window.fbq('track', 'Lead', { source: form.dataset.source });
+            }
+            
+          } else {
+            throw new Error('Error en el servidor');
+          }
+          
+        } catch (error) {
+          console.error('Error enviando formulario:', error);
+          errorMessage.classList.remove('hidden');
+        } finally {
+          // Restaurar botón
+          button.disabled = false;
+          buttonText.classList.remove('hidden');
+          buttonLoading.classList.add('hidden');
+        }
+      });
+    });
   });
 </script>
+
+<style>
+  .lead-form {
+    @apply w-full;
+  }
+  
+  .inline-form .form-grid {
+    @apply grid grid-cols-1 sm:grid-cols-3 gap-3;
+  }
+  
+  .stacked-form .form-grid {
+    @apply grid grid-cols-1 gap-4;
+  }
+  
+  .form-group {
+    @apply relative;
+  }
+  
+  .form-group.full-width {
+    @apply sm:col-span-3;
+  }
+  
+  .form-input,
+  .form-textarea {
+    @apply w-full px-4 py-3 rounded-lg border border-white/20 bg-white/10 backdrop-blur-sm text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/50 focus:border-fuchsia-500/50 transition-all duration-300;
+  }
+  
+  .form-textarea {
+    @apply resize-none;
+  }
+  
+  .form-button {
+    @apply w-full sm:w-auto px-6 py-3 rounded-lg bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-semibold hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-fuchsia-500/50 disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none;
+  }
+  
+  .inline-form .form-button {
+    @apply sm:col-span-3 md:col-span-1;
+  }
+  
+  .button-loading {
+    @apply flex items-center justify-center gap-2;
+  }
+  
+  .form-message {
+    @apply flex items-center gap-2 mt-3 px-4 py-3 rounded-lg text-sm font-medium;
+  }
+  
+  .success-message {
+    @apply bg-green-500/10 border border-green-500/30 text-green-200;
+  }
+  
+  .error-message {
+    @apply bg-red-500/10 border border-red-500/30 text-red-200;
+  }
+  
+  .hidden {
+    @apply hidden;
+  }
+  
+  .sr-only {
+    @apply absolute w-px h-px p-0 -m-px overflow-hidden whitespace-nowrap border-0;
+  }
+</style>
