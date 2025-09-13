@@ -1,181 +1,90 @@
 ---
-// Home Premium - Fenux
+// Home WOW - Fenux
 import Base from '../layouts/Base.astro';
 import LeadForm from '../components/LeadForm.astro';
 
 // Configuración de la página
 const pageConfig = {
-  title: "Fenux — Apps Web & Landing Pages que convierten",
-  description: "Construimos apps web y landing pages con automatizaciones listas. Demo real sin pago adelantado.",
+  title: "Fenux — Soluciones Web y Apps que Impulsan tu Negocio",
+  description: "Diseño premium, automatización y ventas en un solo lugar. Demo sin pago adelantado.",
   canonical: "https://fenux.com",
   ogImage: "/og/home.png"
 };
 
-// Servicios clave
+// Servicios principales
 const services = [
   {
     title: "Rediseño Web",
-    description: "Moderniza y mejora conversión de tu sitio actual",
-    icon: "/mockups/feature-reportes.svg",
+    description: "Modernizamos y mejoramos conversión de tu sitio actual",
+    icon: "📊",
     href: "/es/servicios/redisenio"
   },
   {
     title: "Landing Pages",
     description: "Alta conversión en 5 días, sin pago adelantado",
-    icon: "/mockups/feature-pedidos.svg",
+    icon: "🎯",
     href: "/es/servicios/landing-portfolios"
   },
   {
     title: "Apps Web",
-    description: "Módulos completos: inventario, pedidos, reportes, chatbot",
-    icon: "/mockups/feature-inventario.svg",
+    description: "Módulos completos: inventarios, pedidos, reportes",
+    icon: "💻",
     href: "/es/servicios/apps-web"
   }
 ];
 
-// Beneficios diferenciales
-const benefits = [
+// Qué incluye
+const includes = [
   {
-    icon: "🎯",
-    title: "Demo real sin pago",
-    description: "Te mostramos funcionando antes de pagar"
+    icon: "📊",
+    title: "Panel y módulos a medida",
+    description: "Usuarios, pedidos, inventario y más. Todo personalizado para tu negocio."
   },
   {
     icon: "⚡",
-    title: "Entrega rápida",
-    description: "5 días para landing, 2-4 semanas para apps"
+    title: "Automatizaciones",
+    description: "Emails, hojas de cálculo y WhatsApp. Todo se ejecuta automáticamente."
   },
   {
-    icon: "🤖",
-    title: "Automatizaciones listas",
-    description: "WhatsApp, email, Sheets integrados"
+    icon: "🔗",
+    title: "Integraciones",
+    description: "Sheets, pagos, APIs. Conectamos con todas tus herramientas actuales."
   },
   {
     icon: "🛠️",
     title: "Soporte de arranque",
-    description: "7-14 días de acompañamiento"
+    description: "7 días de acompañamiento para que todo funcione perfectamente."
   }
 ];
 
-// Proceso en 4 pasos
-const process = [
-  {
-    step: "1",
-    title: "Diagnóstico 10 min",
-    description: "Entendemos tu negocio y definimos el alcance"
-  },
-  {
-    step: "2", 
-    title: "Demo con tus datos",
-    description: "Te mostramos la solución funcionando con información real"
-  },
-  {
-    step: "3",
-    title: "Versión operativa",
-    description: "Desarrollamos tu proyecto completo y funcional"
-  },
-  {
-    step: "4",
-    title: "Lanzamiento",
-    description: "Ajustamos detalles y lanzamos al mundo"
-  }
-];
-
-// Módulos disponibles
-const modules = [
-  {
-    id: "inventario",
-    title: "Inventario",
-    description: "Control total de stock y alertas automáticas",
-    icon: "/mockups/feature-inventario.svg"
-  },
-  {
-    id: "pedidos",
-    title: "Pedidos", 
-    description: "Gestión completa del flujo de pedidos",
-    icon: "/mockups/feature-pedidos.svg"
-  },
-  {
-    id: "reportes",
-    title: "Reportes",
-    description: "Analytics avanzados y métricas de negocio",
-    icon: "/mockups/feature-reportes.svg"
-  },
-  {
-    id: "usuarios",
-    title: "Usuarios",
-    description: "Sistema de roles y permisos personalizado",
-    icon: "/mockups/feature-usuarios.svg"
-  },
-  {
-    id: "pagos",
-    title: "Pagos",
-    description: "Integración con múltiples pasarelas",
-    icon: "/mockups/feature-pagos.svg"
-  },
-  {
-    id: "chatbot",
-    title: "Chatbot",
-    description: "Asistente inteligente para atención al cliente",
-    icon: "/mockups/feature-chatbot.svg"
-  }
-];
-
-// Planes
-const plans = [
-  {
-    name: "Start",
-    price: "1,000",
-    currency: "USD",
-    features: [
-      "1 módulo principal",
-      "Sistema de autenticación", 
-      "3 automatizaciones",
-      "Soporte 7 días"
-    ],
-    popular: false
-  },
-  {
-    name: "Pro",
-    price: "1,500", 
-    currency: "USD",
-    features: [
-      "3 módulos principales",
-      "Sistema de autenticación",
-      "5 automatizaciones", 
-      "Integraciones avanzadas",
-      "Soporte 14 días"
-    ],
-    popular: true
-  }
-];
-
-// FAQ
-const faqs = [
-  {
-    question: "¿Cuánto tarda?",
-    answer: "Landing pages: 5 días. Apps web: 2-4 semanas. Siempre con demo previo."
-  },
-  {
-    question: "¿Quién es dueño del código?",
-    answer: "Tú. El código es 100% tuyo, incluyendo documentación completa."
-  },
-  {
-    question: "¿Qué incluye la demo?",
-    answer: "Te mostramos tu proyecto funcionando con datos reales de tu negocio."
-  },
-  {
-    question: "¿Se integra con mis herramientas?",
-    answer: "Sí, integramos con WhatsApp, Google Sheets, emails, pagos y más APIs."
-  }
-];
-
-// Métricas
+// Estadísticas de confianza
 const stats = [
   { value: "50+", label: "Proyectos Completados" },
   { value: "98%", label: "Satisfacción del Cliente" },
   { value: "24h", label: "Tiempo de Respuesta" },
   { value: "5★", label: "Calificación Promedio" }
+];
+
+// Testimonios
+const testimonials = [
+  {
+    name: "María González",
+    company: "TechStart",
+    text: "Fenux transformó completamente nuestra presencia digital. El rediseño aumentó nuestras conversiones en un 300%.",
+    avatar: "👩‍💼"
+  },
+  {
+    name: "Carlos Rodríguez",
+    company: "E-commerce Plus",
+    text: "La landing page que crearon para nosotros generó más leads en una semana que en todo el año anterior.",
+    avatar: "👨‍💻"
+  },
+  {
+    name: "Ana Martínez",
+    company: "Marketing Pro",
+    text: "Profesionales excepcionales. Entregaron exactamente lo que prometieron, en tiempo y forma.",
+    avatar: "👩‍🎨"
+  }
 ];
 ---
 
@@ -185,64 +94,76 @@ const stats = [
   canonical={pageConfig.canonical}
   ogImage={pageConfig.ogImage}
 >
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden py-16 md:py-24">
-    <!-- Background gradient -->
-    <div class="absolute inset-0 -z-10 bg-gradient-to-b from-fuchsia-700/30 via-purple-900/20 to-transparent"></div>
-    
+  <!-- Hero Section WOW -->
+  <section class="relative overflow-hidden py-16 md:py-24 bg-gradient-to-br from-slate-900 via-purple-900 to-orange-900">
     <!-- Background effects -->
+    <div class="absolute inset-0 bg-gradient-to-br from-purple-800/20 via-fuchsia-700/10 to-orange-600/20"></div>
     <div class="absolute top-0 left-1/4 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-3xl"></div>
     <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
     
-    <div class="container mx-auto px-4">
-      <div class="grid gap-10 md:grid-cols-2 items-center">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid gap-12 md:grid-cols-2 items-center">
         <!-- Content -->
-        <div class="space-y-6">
-          <h1 class="text-4xl md:text-6xl font-bold leading-tight text-white">
-            Apps web y páginas que <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-500 to-orange-400">generan clientes reales</span>.
+        <div class="space-y-8">
+          <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">
+            Impulsamos tu negocio con <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-orange-400">Apps Web y Landing Pages</span> de Alto Impacto
           </h1>
           
-          <p class="text-xl text-white/80 max-w-xl leading-relaxed">
-            Diseño, desarrollo y automatización en una sola entrega. Demo real, sin pago adelantado.
+          <p class="text-xl text-white/90 max-w-xl leading-relaxed">
+            Diseño, lógica y automatización en una sola entrega. Demo sin pago adelantado.
           </p>
           
           <!-- CTAs -->
           <div class="flex flex-wrap gap-4">
             <a 
+              href="#servicios"
+              class="px-8 py-4 rounded-xl bg-gradient-to-r from-fuchsia-600 to-pink-500 text-white font-bold text-lg shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300 transform hover:scale-105"
+              data-analytics="cta-servicios"
+            >
+              Ver Servicios
+            </a>
+            
+            <a 
               href="https://astro-sitio.vercel.app/" 
               target="_blank"
               rel="noopener noreferrer"
-              class="px-8 py-4 rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-semibold shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300 transform hover:scale-105"
-              data-analytics="cta-demo-hero"
+              class="px-8 py-4 rounded-xl bg-gradient-to-r from-orange-500 to-red-500 text-white font-bold text-lg shadow-lg hover:shadow-orange-500/25 transition-all duration-300 transform hover:scale-105"
+              data-analytics="cta-demo"
             >
-              Ver demo en vivo
+              Solicitar Demo
             </a>
             
             <a 
               href={import.meta.env.PUBLIC_WHATSAPP_LINK || "https://wa.me/580000000000?text=Hola%20quiero%20la%20demo"}
               target="_blank"
               rel="noopener noreferrer"
-              class="px-8 py-4 rounded-xl bg-white/10 hover:bg-white/15 text-white font-semibold transition-all duration-300 border border-white/20"
-              data-analytics="cta-whatsapp-hero"
-              aria-label="Hablar por WhatsApp"
+              class="px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm text-white font-bold text-lg hover:bg-white/20 transition-all duration-300 border border-white/20"
+              data-analytics="cta-whatsapp"
             >
               Hablar por WhatsApp
             </a>
           </div>
           
-          <!-- Mini form -->
-          <div class="mt-8">
-            <LeadForm 
-              source="home-hero"
-              showPhone={true}
-              showMessage={false}
-              buttonText="Reservar demo gratuita"
-              className="bg-white/10 backdrop-blur rounded-xl p-6 ring-1 ring-white/10"
-              inline={true}
-            />
-            <p class="text-xs text-white/60 mt-3 text-center">
-              Sin compromiso. Te mostramos funcionando antes de pagar.
-            </p>
+          <!-- Benefits -->
+          <div class="flex flex-wrap gap-6 text-white/80">
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-sm font-medium">Entregas ágiles</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-sm font-medium">Sin pago adelantado</span>
+            </div>
+            <div class="flex items-center gap-2">
+              <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+              </svg>
+              <span class="text-sm font-medium">Más de 50 proyectos</span>
+            </div>
           </div>
         </div>
         
@@ -250,30 +171,30 @@ const stats = [
         <div class="relative">
           <img 
             src="/mockups/hero-laptop.svg" 
-            alt="Panel de app web Fenux" 
+            alt="Panel de app web" 
             class="mx-auto drop-shadow-2xl w-full max-w-lg"
             loading="eager"
           />
           <img 
             src="/mockups/hero-mobile.svg" 
-            alt="App móvil Fenux" 
+            alt="App en móvil" 
             class="absolute -bottom-6 -right-2 w-36 md:w-44 drop-shadow-xl"
-            loading="lazy"
+            loading="eager"
           />
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Servicios clave -->
-  <section class="py-16 md:py-24 bg-gray-900/50">
+  <!-- Nuestros Servicios -->
+  <section id="servicios" class="py-16 md:py-24 bg-gray-900/50">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-          Servicios clave
+          Qué hacemos
         </h2>
         <p class="text-xl text-white/70 max-w-2xl mx-auto">
-          Soluciones específicas para cada necesidad de tu negocio
+          Sin compromiso. Te mostramos funcionando antes de pagar.
         </p>
       </div>
       
@@ -281,17 +202,15 @@ const stats = [
         {services.map((service) => (
           <a 
             href={service.href}
-            class="glass-card group block"
+            class="service-card group block"
             data-analytics={`cta-service-${service.title.toLowerCase().replace(' ', '-')}`}
           >
             <div class="mb-6">
-              <img 
-                src={service.icon} 
-                alt={`Mockup de ${service.title}`}
-                class="w-full h-20 object-contain group-hover:scale-105 transition-transform duration-300"
-              />
+              <div class="w-16 h-16 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-xl flex items-center justify-center text-3xl group-hover:scale-110 transition-transform duration-300">
+                {service.icon}
+              </div>
             </div>
-            <h3 class="text-xl font-semibold text-white mb-3">{service.title}</h3>
+            <h3 class="text-xl font-bold text-white mb-3">{service.title}</h3>
             <p class="text-white/70 mb-4">{service.description}</p>
             <span class="text-fuchsia-400 font-medium group-hover:text-fuchsia-300 transition-colors">
               Explorar →
@@ -302,101 +221,33 @@ const stats = [
     </div>
   </section>
 
-  <!-- Beneficios diferenciales -->
+  <!-- Qué incluye -->
   <section class="py-16 md:py-24">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-          Por qué somos distintos
+          Qué incluye
         </h2>
         <p class="text-xl text-white/70 max-w-2xl mx-auto">
-          Ventajas que nos hacen únicos en el mercado
+          Todo lo necesario para que tu app web funcione desde el primer día
         </p>
       </div>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {benefits.map((benefit) => (
-          <div class="text-center group">
+        {includes.map((item) => (
+          <div class="feature-card group">
             <div class="w-16 h-16 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-xl flex items-center justify-center mx-auto mb-6 text-3xl group-hover:scale-110 transition-transform duration-300">
-              {benefit.icon}
+              {item.icon}
             </div>
-            <h3 class="text-lg font-semibold text-white mb-3">{benefit.title}</h3>
-            <p class="text-white/70 text-sm">{benefit.description}</p>
+            <h3 class="text-xl font-bold text-white mb-3 text-center">{item.title}</h3>
+            <p class="text-white/70 text-center">{item.description}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- Proceso en 4 pasos -->
-  <section class="py-16 md:py-24 bg-gray-900/50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-          Nuestro proceso
-        </h2>
-        <p class="text-xl text-white/70 max-w-2xl mx-auto">
-          Proceso simple y transparente para obtener tu solución
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        {process.map((step, index) => (
-          <div class="text-center group">
-            <div class="w-20 h-20 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
-              {step.step}
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-3">{step.title}</h3>
-            <p class="text-white/70">{step.description}</p>
-          </div>
-        ))}
-      </div>
-      
-      <div class="text-center mt-12">
-        <a 
-          href="https://astro-sitio.vercel.app/" 
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-8 py-4 rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-semibold hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300 transform hover:scale-105"
-          data-analytics="cta-demo-process"
-        >
-          Ver demo ahora
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Módulos disponibles -->
-  <section class="py-16 md:py-24">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-          Módulos disponibles
-        </h2>
-        <p class="text-xl text-white/70 max-w-2xl mx-auto">
-          Cada módulo resuelve necesidades específicas de tu negocio
-        </p>
-      </div>
-      
-      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-        {modules.map((module) => (
-          <div class="glass-card group">
-            <div class="mb-6">
-              <img 
-                src={module.icon} 
-                alt={`Mockup de ${module.title}`}
-                class="w-full h-20 object-contain group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <h3 class="text-xl font-semibold text-white mb-3">{module.title}</h3>
-            <p class="text-white/70">{module.description}</p>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- Prueba social -->
+  <!-- Estadísticas de confianza -->
   <section class="py-16 md:py-24 bg-gray-900/50">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
@@ -408,110 +259,52 @@ const stats = [
         </p>
       </div>
       
-      <div class="grid md:grid-cols-4 gap-8 mb-16">
+      <div class="grid md:grid-cols-4 gap-8">
         {stats.map((stat) => (
-          <div class="text-center">
-            <div class="text-4xl md:text-5xl font-bold text-white mb-2">
+          <div class="text-center group">
+            <div class="text-4xl md:text-5xl font-bold text-white mb-2 group-hover:scale-110 transition-transform duration-300">
               {stat.value}
             </div>
-            <div class="text-white/70">{stat.label}</div>
+            <div class="text-white/70 text-lg">{stat.label}</div>
           </div>
         ))}
-      </div>
-      
-      <!-- Logos de herramientas -->
-      <div class="text-center">
-        <p class="text-white/60 mb-8">Tecnologías que utilizamos</p>
-        <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
-          <div class="text-white/40 font-semibold">Astro</div>
-          <div class="text-white/40 font-semibold">Vercel</div>
-          <div class="text-white/40 font-semibold">WhatsApp</div>
-          <div class="text-white/40 font-semibold">Google Sheets</div>
-        </div>
       </div>
     </div>
   </section>
 
-  <!-- Planes -->
+  <!-- Testimonios -->
   <section class="py-16 md:py-24">
     <div class="container mx-auto px-4">
       <div class="text-center mb-16">
         <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-          Planes claros
+          Lo que dicen nuestros clientes
         </h2>
         <p class="text-xl text-white/70 max-w-2xl mx-auto">
-          Precios transparentes sin sorpresas
+          Casos reales de éxito con nuestras soluciones
         </p>
       </div>
       
-      <!-- Badge -->
-      <div class="text-center mb-12">
-        <div class="inline-flex items-center px-6 py-3 rounded-full bg-green-500/10 border border-green-500/30 text-green-200 font-medium">
-          <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
-            <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-          </svg>
-          Sin pago adelantado — pagas al aprobar la demo
-        </div>
-      </div>
-      
-      <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-        {plans.map((plan) => (
-          <div class={`glass-card ${plan.popular ? 'border-2 border-fuchsia-500/50 relative' : ''}`}>
-            {plan.popular && (
-              <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
-                <span class="bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white px-4 py-2 rounded-full text-sm font-semibold">
-                  Más popular
-                </span>
+      <div class="grid md:grid-cols-3 gap-8">
+        {testimonials.map((testimonial) => (
+          <div class="testimonial-card group">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-full flex items-center justify-center text-2xl mr-4">
+                {testimonial.avatar}
               </div>
-            )}
-            
-            <div class="text-center mb-8">
-              <h3 class="text-2xl font-bold text-white mb-2">{plan.name}</h3>
-              <div class="text-4xl font-bold text-white mb-2">${plan.price}</div>
-              <div class="text-white/70">{plan.currency}</div>
+              <div>
+                <div class="font-bold text-white">{testimonial.name}</div>
+                <div class="text-white/60 text-sm">{testimonial.company}</div>
+              </div>
             </div>
-            
-            <ul class="space-y-4 mb-8">
-              {plan.features.map((feature) => (
-                <li class="flex items-center text-white/80">
-                  <svg class="w-5 h-5 text-green-400 mr-3" fill="currentColor" viewBox="0 0 20 20">
-                    <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
-                  </svg>
-                  {feature}
-                </li>
+            <p class="text-white/80 italic">"{testimonial.text}"</p>
+            <!-- Estrellas -->
+            <div class="flex mt-4">
+              {[...Array(5)].map((_, i) => (
+                <svg class="w-4 h-4 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
               ))}
-            </ul>
-            
-            <button 
-              class="w-full py-3 rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-semibold hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300"
-              onclick="document.querySelector('.hero-form').scrollIntoView({behavior: 'smooth'})"
-              data-analytics={`cta-reservar-${plan.name.toLowerCase()}`}
-            >
-              Reservar demo
-            </button>
-          </div>
-        ))}
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="py-16 md:py-24 bg-gray-900/50">
-    <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-          Preguntas frecuentes
-        </h2>
-        <p class="text-xl text-white/70 max-w-2xl mx-auto">
-          Respuestas a las dudas más comunes
-        </p>
-      </div>
-      
-      <div class="max-w-3xl mx-auto space-y-6">
-        {faqs.map((faq) => (
-          <div class="glass-card">
-            <h3 class="text-lg font-semibold text-white mb-3">{faq.question}</h3>
-            <p class="text-white/80">{faq.answer}</p>
+            </div>
           </div>
         ))}
       </div>
@@ -522,55 +315,26 @@ const stats = [
   <section class="py-16 md:py-24 bg-gradient-to-r from-fuchsia-900/50 to-orange-900/50">
     <div class="container mx-auto px-4 text-center">
       <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-        Tu app operativa en días, no meses
+        ¿Listo para impulsar tu negocio?
       </h2>
       <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
-        No más esperas de meses. Construimos tu solución y la tienes funcionando en semanas.
+        Reserva tu demo gratuita y descubre cómo podemos transformar tu presencia digital.
       </p>
       
-      <div class="flex flex-wrap justify-center gap-4">
-        <a 
-          href="https://astro-sitio.vercel.app/" 
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-8 py-4 rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-semibold hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300 transform hover:scale-105"
-          data-analytics="cta-demo-final"
-        >
-          Probar demo en vivo
-        </a>
-        
-        <a 
-          href={import.meta.env.PUBLIC_WHATSAPP_LINK || "https://wa.me/580000000000?text=Hola%20quiero%20la%20demo"}
-          target="_blank"
-          rel="noopener noreferrer"
-          class="px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 transition-all duration-300 border border-white/20"
-          data-analytics="cta-whatsapp-final"
-        >
-          Hablar por WhatsApp
-        </a>
-      </div>
-    </div>
-  </section>
-
-  <!-- Formulario de reserva (reutilizar el del hero) -->
-  <section id="reserva" class="py-16 md:py-24 bg-gray-900/50">
-    <div class="container mx-auto px-4">
-      <div class="max-w-2xl mx-auto text-center">
-        <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">
-          Reserva tu demo gratuita
-        </h2>
-        <p class="text-xl text-white/70 mb-8">
-          Sin compromiso. Te mostramos tu solución funcionando antes de pagar.
-        </p>
-        
-        <div class="hero-form">
+      <div class="max-w-2xl mx-auto">
+        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
+          <h3 class="text-2xl font-bold text-white mb-6">Reserva tu demo gratuita</h3>
           <LeadForm 
-            source="home-reserva"
+            source="home-final"
             showPhone={true}
-            showMessage={true}
+            showMessage={false}
             buttonText="Reservar demo gratuita"
-            className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20"
+            className="space-y-4"
+            inline={false}
           />
+          <p class="text-sm text-white/70 mt-4">
+            Sin compromiso. Te mostramos funcionando antes de pagar.
+          </p>
         </div>
       </div>
     </div>
@@ -578,21 +342,58 @@ const stats = [
 </Base>
 
 <style>
-  .glass-card {
+  .service-card {
     @apply bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-fuchsia-500/10;
+  }
+  
+  .feature-card {
+    @apply bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-fuchsia-500/10;
+  }
+  
+  .testimonial-card {
+    @apply bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-fuchsia-500/10;
+  }
+  
+  /* Animaciones fade-up */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
   }
   
   /* Animaciones suaves */
   @media (prefers-reduced-motion: no-preference) {
-    .glass-card {
+    .service-card, .feature-card, .testimonial-card {
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Animación de entrada para elementos */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
   
   /* Reducir animaciones si el usuario lo prefiere */
   @media (prefers-reduced-motion: reduce) {
-    .glass-card {
+    .service-card, .feature-card, .testimonial-card {
       transition: none;
+    }
+    
+    .animate-on-scroll {
+      opacity: 1;
+      transform: none;
     }
   }
 </style>
@@ -603,7 +404,7 @@ const stats = [
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "Fenux",
-  "description": "Construimos apps web y landing pages con automatizaciones listas. Demo real sin pago adelantado.",
+  "description": "Soluciones Web y Apps que Impulsan tu Negocio. Diseño premium, automatización y ventas en un solo lugar.",
   "url": "https://fenux.com",
   "logo": "https://fenux.com/logos/logocompleto.png",
   "contactPoint": {
@@ -619,23 +420,24 @@ const stats = [
   "offers": [
     {
       "@type": "Offer",
-      "name": "Start",
-      "price": "1000",
-      "priceCurrency": "USD",
-      "description": "1 módulo principal, sistema de autenticación, 3 automatizaciones, soporte 7 días"
+      "name": "Rediseño Web",
+      "description": "Modernizamos y mejoramos conversión de tu sitio actual"
     },
     {
       "@type": "Offer", 
-      "name": "Pro",
-      "price": "1500",
-      "priceCurrency": "USD",
-      "description": "3 módulos principales, sistema de autenticación, 5 automatizaciones, integraciones avanzadas, soporte 14 días"
+      "name": "Landing Pages",
+      "description": "Alta conversión en 5 días, sin pago adelantado"
+    },
+    {
+      "@type": "Offer",
+      "name": "Apps Web",
+      "description": "Módulos completos: inventarios, pedidos, reportes"
     }
   ]
 }
 </script>
 
-<!-- Analytics tracking -->
+<!-- Analytics tracking y animaciones -->
 <script>
   // Track CTA clicks
   document.addEventListener('DOMContentLoaded', function() {
@@ -661,6 +463,27 @@ const stats = [
         // Console log for debugging
         console.log('CTA clicked:', action);
       });
+    });
+    
+    // Animaciones fade-up al scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    // Observar elementos con animación
+    const animatedElements = document.querySelectorAll('.service-card, .feature-card, .testimonial-card, h2, h3, p');
+    animatedElements.forEach(el => {
+      el.classList.add('animate-on-scroll');
+      observer.observe(el);
     });
   });
 </script>
