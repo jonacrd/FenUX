@@ -1,7 +1,6 @@
 ---
 // Home WOW - Fenux
 import Base from '../layouts/Base.astro';
-import LeadForm from '../components/LeadForm.astro';
 
 // Configuración de la página
 const pageConfig = {
@@ -429,6 +428,15 @@ const testimonials = [
     </script>
     
     <style>
+  /* Estilos específicos para el formulario minimalista */
+  form[data-source="home-final"] input {
+    @apply !bg-transparent !border-0 !border-b !border-white/20 !rounded-none !px-0 !py-3 !text-center !text-lg !placeholder-white/40 !focus:border-purple-400 !focus:outline-none !transition-colors !duration-300;
+  }
+  
+  form[data-source="home-final"] input:focus {
+    @apply !ring-0 !ring-offset-0;
+  }
+  
   .service-card {
     @apply bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-fuchsia-500/10;
   }
