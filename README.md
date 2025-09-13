@@ -11,6 +11,8 @@ Un proyecto moderno de desarrollo web premium desarrollado con Astro, React y Ta
 - **Responsive Design** - Mobile-first
 - **Carruseles Automáticos** - Animaciones suaves
 - **SEO Optimizado** - Meta tags y sitemap
+- **Meta Pixel** - Tracking de conversiones
+- **Analytics Avanzado** - Google Analytics + Meta Pixel
 
 ## 📁 Estructura del Proyecto
 
@@ -102,6 +104,52 @@ src/
 - `/en/services/website-redesign` - Website redesign
 - `/en/services/landing-portfolios` - Landing pages
 - `/en/services/web-apps` - Web applications
+
+## 📊 Meta Pixel & Analytics
+
+### Configuración de Meta Pixel
+
+El proyecto incluye integración completa de Meta Pixel para tracking de conversiones:
+
+1. **Configurar variable de entorno:**
+   ```bash
+   PUBLIC_META_PIXEL_ID=tu_pixel_id_aqui
+   ```
+
+2. **Eventos trackeados automáticamente:**
+   - `PageView` - Carga de página
+   - `CTA_Click` - Clics en botones principales
+   - `Lead` - Envío exitoso del formulario de contacto
+
+3. **Eventos personalizados:**
+   - CTA Hero: `{ place: 'hero' }`
+   - Lead con plan: `{ plan: 'standard|flash', source: 'landing' }`
+
+### UTM para Campañas
+
+Para campañas de Meta Ads, usa estos UTM parameters:
+
+```
+https://TU_SUBDOMINIO.vercel.app/?utm_source=meta&utm_medium=cpc&utm_campaign=landing_flash
+```
+
+**Parámetros recomendados:**
+- `utm_source=meta` - Fuente de tráfico
+- `utm_medium=cpc` - Medio de pago
+- `utm_campaign=landing_flash` - Nombre de campaña
+- `utm_content=hero_button` - Contenido específico (opcional)
+- `utm_term=landing_page` - Palabra clave (opcional)
+
+### Testing
+
+1. **Verificar en Meta Events Manager:**
+   - Ve a Events Manager > Test Events
+   - Verifica que lleguen los eventos: PageView, CTA_Click, Lead
+
+2. **Sin Pixel ID configurado:**
+   - No genera errores
+   - Solo muestra warning en consola
+   - Funcionalidad normal del sitio
 
 ## 🎨 Componentes Principales
 

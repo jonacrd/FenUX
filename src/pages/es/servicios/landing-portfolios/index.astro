@@ -9,6 +9,7 @@ import ServicesUpsell from "../../../../components/ServicesUpsell.astro";
 import FAQ from "../../../../components/FAQ.astro";
 import ContactForm from "../../../../components/ContactForm.astro";
 import Footer from "../../../../components/Footer.astro";
+import MetaPixel from "../../../../components/MetaPixel.astro";
 import "../../../../styles/animations.css";
 
 const DOMAIN = "https://fen-ux-gqcp.vercel.app";
@@ -50,6 +51,9 @@ const meta = {
       gtag('config', '${GA4_ID}');
       window.ADS_ID = '${ADS_ID}';
     </script>
+    
+    <!-- Meta Pixel -->
+    <MetaPixel />
     
     <!-- Open Graph -->
     <meta property="og:title" content={meta.title} />
@@ -125,6 +129,12 @@ const meta = {
     </script>
   </head>
   <body class="preload-hidden">
+    <!-- Meta Pixel noscript -->
+    <noscript>
+      <img height="1" width="1" style="display:none"
+           src="https://www.facebook.com/tr?id=REEMPLAZA_POR_TU_ID&ev=PageView&noscript=1" />
+    </noscript>
+    
     <!-- Header -->
     <Header />
     
