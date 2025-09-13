@@ -646,49 +646,133 @@ export default function HeroRedesignCarrusel() {
         </div>
 
         {/* Segundo carrusel con título a la izquierda - se mueve hacia la derecha */}
-        <div className="flex flex-col lg:flex-row lg:items-center space-y-4 sm:space-y-6 lg:space-y-0 lg:space-x-8 mb-4 sm:mb-6 lg:mb-8 overflow-hidden pb-2 sm:pb-3 lg:pb-4">
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center',
+          gap: '1rem',
+          marginBottom: '2rem',
+          overflow: 'hidden',
+          paddingBottom: '1rem'
+        }}>
           {/* Título a la izquierda */}
-          <div className="flex-shrink-0 w-full lg:w-96 px-4 text-center lg:text-left">
-            <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-6xl font-bold text-white leading-tight">
-              Rediseño Web que <br className="hidden sm:block" /> Convierte
+          <div style={{
+            flexShrink: 0,
+            width: '100%',
+            maxWidth: '400px',
+            padding: '0 1rem',
+            textAlign: 'center'
+          }}>
+            <h1 style={{
+              fontSize: 'clamp(1.5rem, 4vw, 3rem)',
+              fontWeight: 'bold',
+              color: 'white',
+              lineHeight: '1.2',
+              margin: '0 0 1rem 0'
+            }}>
+              Rediseño Web que Convierte
             </h1>
-            <p className="text-sm sm:text-base md:text-lg mt-4 lg:mt-6 text-neutral-200 leading-relaxed">
+            <p style={{
+              fontSize: 'clamp(0.875rem, 2vw, 1.125rem)',
+              margin: '0',
+              color: '#e5e7eb',
+              lineHeight: '1.6'
+            }}>
               Transformamos tu sitio web obsoleto en una experiencia moderna y funcional. 
               Diseños únicos, responsive y optimizados para conversión.
             </p>
           </div>
           
           {/* Carrusel a la derecha */}
-          <div className="flex-1 overflow-hidden">
-          <div 
-            ref={carrusel2Ref}
-            data-carrusel-id="carrusel2"
-            className="flex space-x-4 sm:space-x-6 lg:space-x-8 cursor-pointer select-none"
-            style={{ 
-              width: 'max-content',
-              transition: 'none' // Sin transiciones para control manual preciso
-            }}
-            onTouchStart={handleCarrusel2TouchStart}
-            onTouchMove={handleCarrusel2TouchMove}
-            onTouchEnd={handleCarrusel2TouchEnd}
-            onMouseEnter={handleMouseEnter}
-            onMouseLeave={handleMouseLeave}
-            onMouseDown={handleCarrusel2MouseDown}
-            onMouseMove={handleCarrusel2MouseMove}
-            onMouseUp={handleCarrusel2MouseUp}
-          >
+          <div style={{
+            flex: 1,
+            overflow: 'hidden',
+            width: '100%'
+          }}>
+            <div 
+              ref={carrusel2Ref}
+              data-carrusel-id="carrusel2"
+              style={{ 
+                display: 'flex',
+                gap: '1rem',
+                cursor: 'pointer',
+                userSelect: 'none',
+                width: 'max-content',
+                transition: 'none' // Sin transiciones para control manual preciso
+              }}
+              onTouchStart={handleCarrusel2TouchStart}
+              onTouchMove={handleCarrusel2TouchMove}
+              onTouchEnd={handleCarrusel2TouchEnd}
+              onMouseEnter={handleMouseEnter}
+              onMouseLeave={handleMouseLeave}
+              onMouseDown={handleCarrusel2MouseDown}
+              onMouseMove={handleCarrusel2MouseMove}
+              onMouseUp={handleCarrusel2MouseUp}
+            >
               {products.slice(6, 12).map((product, index) => (
                 <div
                   key={product.title}
-                  className="flex-shrink-0 w-60 h-48 sm:w-72 sm:h-56 lg:w-80 lg:h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
+                  style={{
+                    flexShrink: 0,
+                    width: '240px',
+                    height: '192px',
+                    position: 'relative',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-20px) scale(1.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  }}
                 >
                   <img
                     src={product.thumbnail}
                     alt={product.title}
-                    className="w-full h-full object-cover rounded-lg shadow-lg"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: '8px',
+                      boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)'
+                    }}
                   />
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 rounded-lg transition-opacity duration-300"></div>
-                  <h3 className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-lg">
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    borderRadius: '8px',
+                    transition: 'opacity 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+                  }}
+                  />
+                  <h3 style={{
+                    position: 'absolute',
+                    bottom: '1rem',
+                    left: '1rem',
+                    color: 'white',
+                    opacity: 0,
+                    fontWeight: '600',
+                    fontSize: '1.125rem',
+                    transition: 'opacity 0.3s ease',
+                    margin: 0
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.opacity = '1';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.opacity = '0';
+                  }}
+                  >
                     {product.title}
                   </h3>
                 </div>
@@ -697,15 +781,67 @@ export default function HeroRedesignCarrusel() {
               {products.slice(6, 12).map((product, index) => (
                 <div
                   key={`duplicate-2-${product.title}`}
-                  className="flex-shrink-0 w-60 h-48 sm:w-72 sm:h-56 lg:w-80 lg:h-64 relative group cursor-pointer hover:-translate-y-5 hover:scale-105 transition-all duration-300"
+                  style={{
+                    flexShrink: 0,
+                    width: '240px',
+                    height: '192px',
+                    position: 'relative',
+                    cursor: 'pointer',
+                    transition: 'all 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.transform = 'translateY(-20px) scale(1.05)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.transform = 'translateY(0) scale(1)';
+                  }}
                 >
                   <img
                     src={product.thumbnail}
                     alt={product.title}
-                    className="w-full h-full object-cover rounded-lg shadow-lg"
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                      borderRadius: '8px',
+                      boxShadow: '0 10px 25px rgba(0, 0, 0, 0.3)'
+                    }}
                   />
-                  <div className="absolute inset-0 bg-black opacity-0 group-hover:opacity-60 rounded-lg transition-opacity duration-300"></div>
-                  <h3 className="absolute bottom-4 left-4 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 font-semibold text-lg">
+                  <div style={{
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    right: 0,
+                    bottom: 0,
+                    backgroundColor: 'rgba(0, 0, 0, 0)',
+                    borderRadius: '8px',
+                    transition: 'opacity 0.3s ease'
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+                  }}
+                  />
+                  <h3 style={{
+                    position: 'absolute',
+                    bottom: '1rem',
+                    left: '1rem',
+                    color: 'white',
+                    opacity: 0,
+                    fontWeight: '600',
+                    fontSize: '1.125rem',
+                    transition: 'opacity 0.3s ease',
+                    margin: 0
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.opacity = '1';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.opacity = '0';
+                  }}
+                  >
                     {product.title}
                   </h3>
                 </div>

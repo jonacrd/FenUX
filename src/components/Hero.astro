@@ -1,0 +1,198 @@
+---
+// Hero.astro - Sección principal optimizada, responsive y accesible
+const title = "Landing Page Premium en 5 días";
+const subtitle = "Demo gratuita + Entrega Flash 48h disponible";
+const ctaText = "Solicitar demo gratuita";
+---
+
+<section class="relative isolate text-white bg-[linear-gradient(180deg,#0d0712,40%,#2b0f2f)]" id="oferta">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 md:pt-28 pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-10 md:gap-12 min-h-[85dvh] md:min-h-[70dvh]">
+      
+      <!-- Texto -->
+      <div class="order-2 md:order-1">
+        <h1 class="font-bold leading-tight text-balance [font-size:clamp(28px,6vw,52px)] animate-[slideInLeft_0.6s_ease-out_forwards]">
+          <span>Landing Page</span>
+          <span class="bg-gradient-to-r from-[#C0176C] via-[#D2137D] to-[#FF8A00] bg-clip-text text-transparent"> Premium</span>
+          <span class="block">en 5 días</span>
+        </h1>
+        <p class="mt-4 text-neutral-200/90 [font-size:clamp(14px,2.6vw,18px)] animate-[slideInLeft_0.6s_ease-out_0.1s_backwards]">
+          {subtitle}
+        </p>
+        <div class="mt-6 flex flex-wrap items-center gap-3">
+          <a 
+            href="#contacto" 
+            data-analytics="cta-hero"
+            class="inline-flex items-center justify-center rounded-xl px-5 py-3 font-semibold text-white
+                   shadow-lg bg-gradient-to-r from-[#C0176C] via-[#D2137D] to-[#FF8A00]
+                   hover:opacity-95 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#FF8A00]/60
+                   animate-[bounceIn_0.7s_ease-out_forwards]"
+            aria-label={ctaText}
+          >
+            {ctaText}
+            <svg class="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </a>
+          <span class="text-sm text-neutral-300/80">Carga &lt; 2s • Responsive • SEO básico</span>
+        </div>
+      </div>
+
+      <!-- Mockups -->
+      <div class="order-1 md:order-2 relative flex justify-center items-end min-h-[450px] md:min-h-[550px]">
+        <!-- Laptop Mockup -->
+        <div class="relative z-10 animate-[slideInRight_0.6s_ease-out_forwards] mb-8">
+          <img 
+            src="/images/mockups/laptop.png" 
+            alt="Mockup de laptop mostrando landing page premium" 
+            class="w-full h-auto rounded-xl max-w-[500px] md:max-w-[600px] lg:max-w-[700px]"
+            width="700"
+            height="467"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+        
+        <!-- Mobile Mockup -->
+        <div class="mobile-mockup absolute top-1/2 -translate-y-1/2 -right-2 md:-right-4 z-20 w-36 md:w-44 lg:w-52 slide-in-right">
+          <img 
+            src="/images/mockups/mobile.png" 
+            alt="Mockup de móvil mostrando landing page premium responsive" 
+            class="w-full h-auto rounded-xl"
+            width="200"
+            height="400"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div aria-hidden="true"
+       class="pointer-events-none absolute inset-x-0 -z-10 top-0 h-[38dvh]
+              bg-gradient-to-b from-[#C0176C33] via-transparent to-transparent blur-3xl"></div>
+</section>
+
+<script>
+  // Intersection Observer para animaciones
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Delay escalonado para los mockups
+        if (entry.target.classList.contains('mobile-mockup')) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 400);
+        } else {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 200);
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos con animaciones
+  document.querySelectorAll('.slide-in-left, .slide-in-right, .bounce-in, .mobile-mockup').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Asegurar que los mockups se muestren inmediatamente si ya están en viewport
+  setTimeout(() => {
+    document.querySelectorAll('.mobile-mockup').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        setTimeout(() => el.classList.add('visible'), 400);
+      }
+    });
+  }, 100);
+
+  // Analytics tracking optimizado
+  document.addEventListener('click', function(e) {
+    const analyticsEl = e.target.closest('[data-analytics]');
+    if (analyticsEl) {
+      const action = analyticsEl.getAttribute('data-analytics');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          event_category: 'CTA',
+          event_label: action
+        });
+      }
+    }
+  });
+</script>
+
+<style is:global>
+  @keyframes slideInLeft { 
+    from {opacity:0; transform:translateX(-30px)} 
+    to {opacity:1; transform:translateX(0)} 
+  }
+  @keyframes slideInRight{ 
+    from {opacity:0; transform:translateX(30px)}  
+    to {opacity:1; transform:translateX(0)} 
+  }
+  @keyframes bounceIn   { 
+    0%{opacity:0; transform:scale(1.2)} 
+    60%{opacity:1; transform:scale(.95)} 
+    100%{opacity:1; transform:scale(1)} 
+  }
+
+  /* Clases de animación */
+  .slide-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 600ms ease-out;
+  }
+
+  .slide-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 600ms ease-out;
+  }
+
+  .bounce-in {
+    opacity: 0;
+    transform: scale(1.2);
+    transition: all 700ms ease-out;
+  }
+
+  .slide-in-left.visible,
+  .slide-in-right.visible,
+  .bounce-in.visible {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+
+  .bounce-in.visible {
+    transform: scale(1) !important;
+  }
+
+  /* Responsive adjustments para mockup mobile */
+  @media (max-width: 768px) {
+    .mobile-mockup {
+      position: absolute !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      right: -0.5rem !important;
+      width: 7rem !important; /* w-28 */
+    }
+  }
+
+  @media (max-width: 640px) {
+    .mobile-mockup {
+      width: 6rem !important; /* w-24 */
+      right: -0.25rem !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mobile-mockup {
+      width: 5rem !important; /* w-20 */
+      right: -0.125rem !important;
+    }
+  }
+</style>

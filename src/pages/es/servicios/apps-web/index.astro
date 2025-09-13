@@ -1,6 +1,6 @@
 ---
 import LandingContent from "../../../../components/LandingContent.tsx";
-import AppsWebHero from "../../../../components/AppsWebHero";
+import AppsWebHero from "../../../../components/AppsWebHero.tsx";
 import ReusableHeader from "../../../../components/ReusableHeader.tsx";
 import es from "../../../../i18n/strings.es.json";
 import "../../../../styles/whatsapp-button.css";
@@ -67,7 +67,7 @@ D.hero.ctas = D.hero.ctas.map(c => ({...c, href: c.href.replace("WHATSAPP", WHAT
   </head>
   <body>
     <ReusableHeader client:load />
-    <AppsWebHero client:load />
+    <AppsWebHero />
     <LandingContent
       client:load
       lang="es"

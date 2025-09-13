@@ -1,0 +1,186 @@
+---
+// Header.astro - Barra superior minimal con logo y navegación
+---
+
+<header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/95 backdrop-blur-sm border-b border-brand-magenta/20">
+  <div class="container mx-auto px-4 py-4">
+    <div class="flex items-center justify-between">
+      <!-- Logo FENUX -->
+      <div class="flex items-center space-x-3">
+        <img 
+          src="/icons/fenix.svg" 
+          alt="Logo FENUX, fénix pixelado" 
+          class="w-8 h-8"
+          width="32"
+          height="32"
+        />
+        <span class="text-white font-inter font-bold text-xl">FENUX</span>
+      </div>
+
+      <!-- Navegación Desktop -->
+      <nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Navegación principal">
+        <a 
+          href="#oferta" 
+          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
+          aria-label="Ver oferta"
+        >
+          Oferta
+        </a>
+        <a 
+          href="#servicios" 
+          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
+          aria-label="Ver servicios"
+        >
+          Servicios
+        </a>
+        <a 
+          href="#precios" 
+          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
+          aria-label="Ver precios"
+        >
+          Precios
+        </a>
+        <a 
+          href="#preguntas" 
+          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
+          aria-label="Ver preguntas frecuentes"
+        >
+          Preguntas
+        </a>
+        <a 
+          href="#contacto" 
+          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
+          aria-label="Ver formulario de contacto"
+        >
+          Contacto
+        </a>
+      </nav>
+
+      <!-- CTA Principal -->
+      <div class="hidden md:block">
+        <a 
+          href="#contacto" 
+          class="btn-primary bg-gradient-brand text-white px-6 py-3 rounded-xl font-inter font-semibold hover:shadow-lg transition-all duration-300"
+          data-analytics="cta-header"
+          aria-label="Solicitar demo gratuita"
+        >
+          Solicitar Demo
+        </a>
+      </div>
+
+      <!-- Botón Mobile Menu -->
+      <button 
+        class="md:hidden text-white p-2"
+        aria-label="Abrir menú de navegación"
+        id="mobile-menu-button"
+      >
+        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+        </svg>
+      </button>
+    </div>
+
+    <!-- Menú Mobile -->
+    <div 
+      class="md:hidden mt-4 pb-4 border-t border-brand-magenta/20 pt-4 hidden" 
+      id="mobile-menu"
+      role="navigation"
+      aria-label="Navegación móvil"
+    >
+      <div class="flex flex-col space-y-4">
+        <a 
+          href="#oferta" 
+          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
+          aria-label="Ver oferta"
+        >
+          Oferta
+        </a>
+        <a 
+          href="#servicios" 
+          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
+          aria-label="Ver servicios"
+        >
+          Servicios
+        </a>
+        <a 
+          href="#precios" 
+          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
+          aria-label="Ver precios"
+        >
+          Precios
+        </a>
+        <a 
+          href="#preguntas" 
+          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
+          aria-label="Ver preguntas frecuentes"
+        >
+          Preguntas
+        </a>
+        <a 
+          href="#contacto" 
+          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
+          aria-label="Ver formulario de contacto"
+        >
+          Contacto
+        </a>
+        <a 
+          href="#contacto" 
+          class="btn-primary bg-gradient-brand text-white px-6 py-3 rounded-xl font-inter font-semibold text-center mt-4"
+          data-analytics="cta-header-mobile"
+          aria-label="Solicitar demo gratuita"
+        >
+          Solicitar Demo
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Toggle mobile menu
+  const mobileMenuButton = document.getElementById('mobile-menu-button');
+  const mobileMenu = document.getElementById('mobile-menu');
+  
+  if (mobileMenuButton && mobileMenu) {
+    mobileMenuButton.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+      
+      // Update aria-expanded
+      const isExpanded = !mobileMenu.classList.contains('hidden');
+      mobileMenuButton.setAttribute('aria-expanded', isExpanded);
+    });
+  }
+
+  // Smooth scroll for navigation links
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      const target = document.querySelector(this.getAttribute('href'));
+      if (target) {
+        target.scrollIntoView({
+          behavior: 'smooth',
+          block: 'start'
+        });
+      }
+    });
+  });
+
+  // Analytics tracking
+  document.querySelectorAll('[data-analytics]').forEach(element => {
+    element.addEventListener('click', function() {
+      const action = this.getAttribute('data-analytics');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          event_category: 'CTA',
+          event_label: action
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .btn-primary {
+    @apply inline-flex items-center justify-center px-6 py-3 rounded-xl font-inter font-semibold text-white bg-gradient-to-r from-brand-magenta via-brand-fuchsia to-brand-orange transition-all duration-300 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-brand-dark;
+  }
+</style>

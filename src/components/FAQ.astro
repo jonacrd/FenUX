@@ -1,9 +1,260 @@
 ---
-const { items=[] } = Astro.props;
+// FAQ.astro - Preguntas frecuentes con acordeón
 ---
-<section class="section">
-  <h2 class="hl">Preguntas frecuentes</h2>
-  {items.map(q=>(
-    <details class="card reveal"><summary><strong>{q.q}</strong></summary><div style="opacity:.85;margin-top:6px">{q.a}</div></details>
-  ))}
+
+<section class="py-20 bg-brand-dark" id="preguntas">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-inter font-bold text-white mb-4">
+        Preguntas frecuentes
+      </h2>
+      <p class="text-xl text-white/70 font-inter font-light max-w-2xl mx-auto">
+        Resolvemos las dudas más comunes sobre nuestros servicios
+      </p>
+    </div>
+
+    <div class="max-w-3xl mx-auto space-y-4">
+      <!-- FAQ 1 -->
+      <div class="faq-item">
+        <button 
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq-1"
+        >
+          <span class="text-left">¿Tengo la propiedad completa del sitio web?</span>
+          <svg class="w-5 h-5 text-brand-orange transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-1">
+          <p class="text-white/80 font-inter font-light leading-relaxed">
+            Sí, una vez completado el pago, recibes la propiedad completa del código fuente, diseño y todos los archivos. Puedes hacer con el sitio lo que desees, incluyendo modificaciones futuras o cambiar de proveedor de hosting.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 2 -->
+      <div class="faq-item">
+        <button 
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq-2"
+        >
+          <span class="text-left">¿Qué incluye exactamente el paquete de 5 días?</span>
+          <svg class="w-5 h-5 text-brand-orange transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-2">
+          <p class="text-white/80 font-inter font-light leading-relaxed">
+            El paquete incluye: diseño personalizado, desarrollo responsive, 1 sección hero + 3 bloques de contenido, formulario de contacto o botón WhatsApp, SEO básico, optimización de velocidad, y 1 ronda de ajustes menores. Todo listo para publicar.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 3 -->
+      <div class="faq-item">
+        <button 
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq-3"
+        >
+          <span class="text-left">¿Cuántas revisiones incluye cada paquete?</span>
+          <svg class="w-5 h-5 text-brand-orange transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-3">
+          <p class="text-white/80 font-inter font-light leading-relaxed">
+            El paquete Estándar incluye 1 ronda de ajustes menores (cambios de texto, colores, imágenes). El paquete Flash incluye 2 rondas de ajustes y prioridad en el desarrollo. Los cambios mayores requieren un presupuesto adicional.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 4 -->
+      <div class="faq-item">
+        <button 
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq-4"
+        >
+          <span class="text-left">¿Necesito tener hosting y dominio propio?</span>
+          <svg class="w-5 h-5 text-brand-orange transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-4">
+          <p class="text-white/80 font-inter font-light leading-relaxed">
+            No es obligatorio, pero sí recomendable. Te ayudamos a configurar hosting y dominio si no los tienes. También podemos alojar temporalmente tu sitio mientras decides el hosting definitivo.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 5 -->
+      <div class="faq-item">
+        <button 
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq-5"
+        >
+          <span class="text-left">¿Puedo integrar pasarelas de pago?</span>
+          <svg class="w-5 h-5 text-brand-orange transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-5">
+          <p class="text-white/80 font-inter font-light leading-relaxed">
+            Sí, podemos integrar Stripe, PayPal, MercadoPago y otras pasarelas de pago. Esta integración requiere un presupuesto adicional ya que implica configuración de seguridad y testing exhaustivo.
+          </p>
+        </div>
+      </div>
+
+      <!-- FAQ 6 -->
+      <div class="faq-item">
+        <button 
+          class="faq-question"
+          aria-expanded="false"
+          aria-controls="faq-6"
+        >
+          <span class="text-left">¿Qué tipo de soporte ofrecen después de la entrega?</span>
+          <svg class="w-5 h-5 text-brand-orange transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+          </svg>
+        </button>
+        <div class="faq-answer" id="faq-6">
+          <p class="text-white/80 font-inter font-light leading-relaxed">
+            Ofrecemos 30 días de soporte gratuito para bugs y problemas técnicos. Para actualizaciones de contenido, cambios de diseño o nuevas funcionalidades, ofrecemos nuestros servicios de mantenimiento mensual.
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA Final -->
+    <div class="text-center mt-16">
+      <p class="text-white/70 font-inter font-light mb-6">
+        ¿Tienes más preguntas? Estamos aquí para ayudarte
+      </p>
+      <a 
+        href="#contacto" 
+        class="btn-primary inline-flex items-center px-8 py-4 text-lg font-inter font-semibold rounded-xl"
+        data-analytics="cta-faq-contact"
+        aria-label="Contactar para resolver dudas"
+      >
+        Contactar ahora
+        <svg class="ml-2 w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+        </svg>
+      </a>
+    </div>
+  </div>
 </section>
+
+<script>
+  // Intersection Observer para animaciones
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 100);
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos FAQ
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.classList.add('fade-in-up');
+    observer.observe(item);
+  });
+
+  // Manejar acordeón FAQ
+  document.querySelectorAll('.faq-question').forEach(button => {
+    button.addEventListener('click', function() {
+      const isExpanded = this.getAttribute('aria-expanded') === 'true';
+      const answer = document.getElementById(this.getAttribute('aria-controls'));
+      const icon = this.querySelector('svg');
+      
+      // Cerrar todos los otros FAQ
+      document.querySelectorAll('.faq-question').forEach(otherButton => {
+        if (otherButton !== this) {
+          otherButton.setAttribute('aria-expanded', 'false');
+          const otherAnswer = document.getElementById(otherButton.getAttribute('aria-controls'));
+          const otherIcon = otherButton.querySelector('svg');
+          if (otherAnswer) {
+            otherAnswer.style.maxHeight = '0';
+            otherAnswer.style.paddingTop = '0';
+            otherAnswer.style.paddingBottom = '0';
+          }
+          if (otherIcon) {
+            otherIcon.style.transform = 'rotate(0deg)';
+          }
+        }
+      });
+      
+      // Toggle actual FAQ
+      if (isExpanded) {
+        this.setAttribute('aria-expanded', 'false');
+        answer.style.maxHeight = '0';
+        answer.style.paddingTop = '0';
+        answer.style.paddingBottom = '0';
+        icon.style.transform = 'rotate(0deg)';
+      } else {
+        this.setAttribute('aria-expanded', 'true');
+        answer.style.maxHeight = answer.scrollHeight + 'px';
+        answer.style.paddingTop = '1rem';
+        answer.style.paddingBottom = '1rem';
+        icon.style.transform = 'rotate(180deg)';
+      }
+    });
+  });
+
+  // Analytics tracking
+  document.querySelectorAll('[data-analytics]').forEach(element => {
+    element.addEventListener('click', function() {
+      const action = this.getAttribute('data-analytics');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          event_category: 'FAQ',
+          event_label: action
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .faq-item {
+    @apply bg-brand-mid/30 backdrop-blur-sm rounded-xl border border-brand-magenta/20 overflow-hidden;
+  }
+
+  .faq-question {
+    @apply w-full flex items-center justify-between p-6 text-left text-white font-inter font-semibold hover:bg-brand-magenta/10 transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-inset;
+  }
+
+  .faq-answer {
+    @apply overflow-hidden transition-all duration-300 ease-in-out;
+    max-height: 0;
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 600ms ease-out;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center px-8 py-4 text-lg font-inter font-semibold text-white bg-gradient-to-r from-brand-magenta via-brand-fuchsia to-brand-orange rounded-xl transition-all duration-300 hover:shadow-lg hover:shadow-brand-magenta/30 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-brand-dark;
+  }
+</style>

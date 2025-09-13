@@ -1,6 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
 
 interface Pack {
   name: string;
@@ -21,8 +19,6 @@ interface PricingProps {
 }
 
 const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'es' }) => {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
   const [convertedPrices, setConvertedPrices] = useState<{ [key: number]: number }>({});
   const [currency, setCurrency] = useState('USD');
 
@@ -55,23 +51,16 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
   }, [currency, packs]);
 
   return (
-    <motion.section
-      ref={ref}
+    <section
       className="section"
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
       style={{
         maxWidth: '1100px',
         margin: '0 auto',
         padding: '56px 16px'
       }}
     >
-      <motion.h2
+      <h2
         className="hl"
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.6, delay: 0.2 }}
         style={{
           fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
           fontWeight: 700,
@@ -83,13 +72,10 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
         }}
       >
         {title}
-      </motion.h2>
+      </h2>
 
-      <motion.div
+      <div
         className="packs"
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
         style={{
           display: 'grid',
           gap: '16px',
@@ -98,13 +84,9 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
         }}
       >
         {packs.map((pack, index) => (
-          <motion.article
+          <article
             key={index}
             className="card reveal pack price-box"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-            whileHover={{ y: -8, scale: 1.02 }}
             style={{
               background: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.14)',
@@ -117,7 +99,7 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
             data-usd={pack.usd}
             data-currency=""
           >
-            <motion.h3
+            <h3
               style={{
                 fontSize: '20px',
                 fontWeight: 700,
@@ -126,14 +108,14 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
               }}
             >
               {pack.name}
-            </motion.h3>
+            </h3>
             
-            <motion.div
+            <div
               style={{
                 marginBottom: '16px'
               }}
             >
-              <motion.span
+              <span
                 className="price"
                 style={{
                   fontWeight: 900,
@@ -142,8 +124,8 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
                 }}
               >
                 {convertedPrices[pack.usd] || '—'}
-              </motion.span>
-              <motion.span
+              </span>
+              <span
                 className="currency"
                 style={{
                   fontWeight: 700,
@@ -153,8 +135,8 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
                 }}
               >
                 {currency}
-              </motion.span>
-              <motion.small
+              </span>
+              <small
                 className="muted"
                 style={{
                   opacity: 0.7,
@@ -163,10 +145,10 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
                 }}
               >
                 ({i18n.from} USD {pack.usd})
-              </motion.small>
-            </motion.div>
+              </small>
+            </div>
 
-            <motion.ul
+            <ul
               className="clean"
               style={{
                 paddingLeft: '18px',
@@ -175,11 +157,8 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
               }}
             >
               {pack.items.map((item, itemIndex) => (
-                <motion.li
+                <li
                   key={itemIndex}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: -10 }}
-                  transition={{ duration: 0.3, delay: 0.6 + index * 0.1 + itemIndex * 0.05 }}
                   style={{
                     margin: '0.35rem 0',
                     color: 'var(--ink, #1e293b)',
@@ -197,16 +176,13 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
                     •
                   </span>
                   {item}
-                </motion.li>
+                </li>
               ))}
-            </motion.ul>
+            </ul>
 
-            <motion.a
+            <a
               className="btn"
               href={pack.cta.href}
-              whileHover={{ y: -2 }}
-              whileTap={{ scale: 0.98 }}
-              transition={{ duration: 0.2 }}
               style={{
                 position: 'relative',
                 overflow: 'hidden',
@@ -224,16 +200,13 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
               {...pack.cta.attrs}
             >
               {pack.cta.label}
-            </motion.a>
-          </motion.article>
+            </a>
+          </article>
         ))}
-      </motion.div>
+      </div>
 
-      <motion.p
+      <p
         className="small muted"
-        initial={{ opacity: 0, y: 20 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-        transition={{ duration: 0.6, delay: 0.8 }}
         style={{
           marginTop: '8px',
           opacity: 0.7,
@@ -242,7 +215,7 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
         }}
       >
         {i18n.base}: USD {baseUSD} — conversión aprox. según tu país.
-      </motion.p>
+      </p>
 
       <style dangerouslySetInnerHTML={{
         __html: `
@@ -253,7 +226,7 @@ const Pricing: React.FC<PricingProps> = ({ title, baseUSD, packs = [], lang = 'e
           }
         `
       }} />
-    </motion.section>
+    </section>
   );
 };
 

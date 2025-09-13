@@ -1,0 +1,184 @@
+---
+// Mockups.astro - Showcase de mockups con composiciones
+---
+
+<section class="py-20 bg-brand-mid/30">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-inter font-bold text-white mb-4">
+        Ve tu landing page en acción
+      </h2>
+      <p class="text-xl text-white/70 font-inter font-light max-w-2xl mx-auto">
+        Ejemplos reales de landing pages que hemos creado para nuestros clientes
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <!-- Mockup Desktop -->
+      <div class="mockup-container group desktop-mockup">
+        <div class="relative">
+          <img 
+            src="/images/mockups/laptop.png" 
+            alt="Mockup de laptop mostrando landing page premium en pantalla completa" 
+            class="w-full h-auto rounded-xl group-hover:scale-105 transition-transform duration-500"
+            width="600"
+            height="400"
+            loading="lazy"
+            decoding="async"
+          />
+          <!-- Overlay con información -->
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="absolute bottom-4 left-4 right-4">
+              <h3 class="text-white font-inter font-bold text-lg mb-2">
+                Diseño Desktop
+              </h3>
+              <p class="text-white/80 font-inter font-light text-sm">
+                Optimizado para pantallas grandes con navegación intuitiva
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockup Mobile -->
+      <div class="mockup-container group mobile-mockup">
+        <div class="relative max-w-sm mx-auto">
+          <img 
+            src="/images/mockups/mobile.png" 
+            alt="Mockup de móvil mostrando landing page premium responsive" 
+            class="w-full h-auto rounded-xl group-hover:scale-105 transition-transform duration-500"
+            width="300"
+            height="600"
+            loading="lazy"
+            decoding="async"
+          />
+          <!-- Overlay con información -->
+          <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 via-transparent to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <div class="absolute bottom-4 left-4 right-4">
+              <h3 class="text-white font-inter font-bold text-lg mb-2">
+                Diseño Mobile
+              </h3>
+              <p class="text-white/80 font-inter font-light text-sm">
+                Perfectamente adaptado para dispositivos móviles
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Características destacadas -->
+    <div class="mt-16 grid md:grid-cols-3 gap-8">
+      <div class="text-center">
+        <div class="w-12 h-12 bg-gradient-brand rounded-xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-inter font-bold text-white mb-2">
+          Carga ultrarrápida
+        </h3>
+        <p class="text-white/70 font-inter font-light text-sm">
+          Optimizada para cargar en menos de 2 segundos
+        </p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-12 h-12 bg-gradient-brand rounded-xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-inter font-bold text-white mb-2">
+          Diseño atractivo
+        </h3>
+        <p class="text-white/70 font-inter font-light text-sm">
+          Interfaz moderna que captura la atención del usuario
+        </p>
+      </div>
+
+      <div class="text-center">
+        <div class="w-12 h-12 bg-gradient-brand rounded-xl flex items-center justify-center mx-auto mb-4">
+          <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+          </svg>
+        </div>
+        <h3 class="text-lg font-inter font-bold text-white mb-2">
+          Totalmente funcional
+        </h3>
+        <p class="text-white/70 font-inter font-light text-sm">
+          Formularios, botones y enlaces funcionando perfectamente
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer para animaciones
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 200);
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos con animaciones
+  document.querySelectorAll('.mockup-container').forEach((container, index) => {
+    if (container.classList.contains('desktop-mockup')) {
+      container.classList.add('slide-in-left');
+    } else if (container.classList.contains('mobile-mockup')) {
+      container.classList.add('slide-in-right');
+    } else {
+      container.classList.add('fade-in-up');
+    }
+    observer.observe(container);
+  });
+</script>
+
+<style>
+  .mockup-container {
+    @apply transition-all duration-300;
+  }
+
+  .desktop-mockup {
+    opacity: 0;
+    transform: translateX(-50px);
+    transition: all 800ms ease-out;
+  }
+
+  .desktop-mockup.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .mobile-mockup {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 800ms ease-out;
+  }
+
+  .mobile-mockup.visible {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 600ms ease-out;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

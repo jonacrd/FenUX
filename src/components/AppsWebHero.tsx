@@ -1,146 +1,254 @@
-'use client';
-
-import React from 'react';
-import { ArrowRight, Code, Smartphone, Globe, Zap } from 'lucide-react';
-
-// Simple Button component
-const Button = ({ children, className = '', variant = 'default', size = 'default', asChild = false, ...props }: any) => {
-  const baseClasses = "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50";
-  
-  const variantClasses = {
-    default: "bg-primary text-primary-foreground hover:bg-primary/90",
-    outline: "border border-input bg-background hover:bg-accent hover:text-accent-foreground",
-    ghost: "hover:bg-accent hover:text-accent-foreground",
-    link: "text-primary underline-offset-4 hover:underline",
-  };
-  
-  const sizeClasses = {
-    default: "h-10 px-4 py-2",
-    sm: "h-9 rounded-md px-3",
-    lg: "h-11 rounded-md px-8",
-  };
-  
-  const classes = `${baseClasses} ${variantClasses[variant]} ${sizeClasses[size]} ${className}`;
-  
-  if (asChild) {
-    return React.cloneElement(children, { className: classes, ...props });
-  }
-  
-  return (
-    <button className={classes} {...props}>
-      {children}
-    </button>
-  );
-};
-
-// Utility function
-const cn = (...classes: any[]) => {
-  return classes.filter(Boolean).join(' ');
-};
-
 export default function AppsWebHero() {
   return (
-    <main>
-      <section className="overflow-hidden bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-        <div className="relative mx-auto max-w-5xl px-6 py-28 lg:py-20 pt-32">
-          <div className="lg:flex lg:items-center lg:gap-12">
-            <div className="relative z-10 mx-auto max-w-xl text-center lg:ml-0 lg:w-1/2 lg:text-left">
-              <a
-                href="/"
-                className="rounded-lg mx-auto flex w-fit items-center gap-2 border p-1 pr-3 lg:ml-0">
-                <span className="bg-muted rounded-[calc(var(--radius)-0.25rem)] px-2 py-1 text-xs">Nuevo</span>
-                <span className="text-sm">Desarrollo de Aplicaciones Web</span>
-                <span className="bg-border block h-4 w-px"></span>
-                <ArrowRight className="size-4" />
-              </a>
+    <div style={{
+      height: '100vh',
+      background: '#0a0a0a',
+      color: 'white',
+      overflow: 'hidden',
+      display: 'flex',
+      flexDirection: 'column',
+      marginTop: '0px',
+      paddingTop: '70px'
+    }}>
+      {/* Main Content */}
+      <main style={{
+        height: '100%',
+        width: '100%',
+        padding: '0',
+        margin: '0',
+        display: 'flex',
+        alignItems: 'center'
+      }}>
+        <section style={{
+          height: '100%',
+          width: '100%',
+          overflow: 'hidden',
+          display: 'flex',
+          alignItems: 'center'
+        }}>
+          <div style={{
+            height: '100%',
+            width: '100%',
+            padding: '0',
+            position: 'relative',
+            display: 'flex',
+            alignItems: 'center',
+            maxWidth: '1200px',
+            margin: '0 auto'
+          }}>
+            <div style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: '3rem',
+              padding: '2rem',
+              height: '100%',
+              width: '100%'
+            }}>
+              {/* Left Content */}
+              <div style={{
+                flex: '1',
+                maxWidth: '50%',
+                padding: '2rem',
+                zIndex: 10
+              }}>
+                {/* Announcement Badge */}
+                <a href="/" style={{
+                  display: 'inline-flex',
+                  alignItems: 'center',
+                  gap: '0.5rem',
+                  background: 'rgba(255, 255, 255, 0.1)',
+                  border: '1px solid rgba(255, 255, 255, 0.2)',
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '8px',
+                  textDecoration: 'none',
+                  color: 'white',
+                  fontSize: '0.875rem',
+                  marginBottom: '2rem',
+                  transition: 'all 0.3s ease'
+                }}>
+                  <span style={{
+                    background: 'rgba(255, 255, 255, 0.2)',
+                    padding: '0.125rem 0.5rem',
+                    borderRadius: '4px',
+                    fontSize: '0.75rem',
+                    fontWeight: '600'
+                  }}>New</span>
+                  <span>Introduction Tailark Html</span>
+                  <span style={{
+                    width: '1px',
+                    height: '16px',
+                    background: 'rgba(255, 255, 255, 0.3)'
+                  }}></span>
+                  <span>→</span>
+                </a>
 
-              <h1 className="mt-10 text-balance text-4xl font-bold md:text-5xl xl:text-5xl text-white drop-shadow-2xl bg-black/20 backdrop-blur-sm px-4 py-2 rounded-lg">
-                Aplicaciones Web Listas para Producción
-              </h1>
-              
-              <p className="mt-6 text-lg text-gray-300 leading-relaxed">
-                Desarrollamos aplicaciones web modernas, escalables y optimizadas. 
-                Desde MVP hasta aplicaciones empresariales complejas.
-              </p>
+                {/* Main Title */}
+                <h1 style={{
+                  fontSize: 'clamp(2.5rem, 5vw, 4rem)',
+                  fontWeight: '700',
+                  lineHeight: '1.1',
+                  marginBottom: '1.5rem',
+                  color: 'white'
+                }}>
+                  Apps Web que Facturan
+                </h1>
 
-              <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:gap-6">
-                <Button
-                  asChild
-                  size="lg"
-                  className="bg-blue-600 hover:bg-blue-700 text-white">
-                  <a href="#contacto">
-                    <span>Empezar Proyecto</span>
-                    <ArrowRight className="ml-2 size-4" />
-                  </a>
-                </Button>
-                
-                <Button
-                  asChild
-                  variant="outline"
-                  size="lg"
-                  className="border-white/20 text-white hover:bg-white/10">
-                  <a href="#portfolio">
-                    <span>Ver Portfolio</span>
-                  </a>
-                </Button>
+                {/* Description */}
+                <p style={{
+                  fontSize: 'clamp(1rem, 2vw, 1.25rem)',
+                  color: '#a1a1aa',
+                  marginBottom: '2rem',
+                  lineHeight: '1.6',
+                  maxWidth: '500px'
+                }}>
+                  Desarrollamos aplicaciones web modernas, escalables y optimizadas. Desde MVP hasta aplicaciones empresariales complejas con Stripe integrado.
+                </p>
+
+                {/* Email Form */}
+                <div style={{
+                  marginBottom: '2rem'
+                }}>
+                  <form style={{
+                    maxWidth: '400px',
+                    marginBottom: '2rem'
+                  }}>
+                    <div style={{
+                      position: 'relative',
+                      display: 'grid',
+                      gridTemplateColumns: '1fr auto',
+                      alignItems: 'center',
+                      background: 'rgba(255, 255, 255, 0.05)',
+                      border: '1px solid rgba(255, 255, 255, 0.1)',
+                      borderRadius: '16px',
+                      padding: '0.25rem',
+                      boxShadow: '0 4px 20px rgba(0, 0, 0, 0.1)'
+                    }}>
+                      <div style={{
+                        position: 'absolute',
+                        left: '1.25rem',
+                        top: '50%',
+                        transform: 'translateY(-50%)',
+                        color: '#a1a1aa',
+                        fontSize: '1.25rem'
+                      }}>✉</div>
+                      <input
+                        type="email"
+                        placeholder="Your mail address"
+                        style={{
+                          background: 'transparent',
+                          border: 'none',
+                          padding: '1rem 1rem 1rem 3rem',
+                          color: 'white',
+                          fontSize: '1rem',
+                          outline: 'none',
+                          width: '100%'
+                        }}
+                      />
+                      <button type="submit" style={{
+                        background: 'white',
+                        color: 'black',
+                        border: 'none',
+                        padding: '0.75rem 1.5rem',
+                        borderRadius: '12px',
+                        fontWeight: '600',
+                        cursor: 'pointer',
+                        transition: 'all 0.2s ease',
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '0.5rem'
+                      }}>
+                        <span>Get Started</span>
+                        <span>→</span>
+                      </button>
+                    </div>
+                  </form>
+
+                  {/* Feature List */}
+                  <ul style={{
+                    listStyle: 'disc',
+                    paddingLeft: '1.5rem',
+                    color: '#a1a1aa',
+                    fontSize: '0.875rem'
+                  }}>
+                    <li style={{ marginBottom: '0.5rem' }}>Faster</li>
+                    <li style={{ marginBottom: '0.5rem' }}>Modern</li>
+                    <li style={{ marginBottom: '0.5rem' }}>100% Customizable</li>
+                  </ul>
+                </div>
               </div>
 
-              <div className="mt-12 grid grid-cols-3 gap-8 text-center lg:grid-cols-3">
-                <div className="flex flex-col items-center">
-                  <div className="rounded-full bg-blue-500/20 p-3 mb-3">
-                    <Code className="size-6 text-blue-400" />
-                  </div>
-                  <h3 className="text-sm font-semibold text-white">Desarrollo</h3>
-                  <p className="text-xs text-gray-400 mt-1">React, Next.js, Node.js</p>
-                </div>
-                
-                <div className="flex flex-col items-center">
-                  <div className="rounded-full bg-green-500/20 p-3 mb-3">
-                    <Smartphone className="size-6 text-green-400" />
-                  </div>
-                  <h3 className="text-sm font-semibold text-white">Responsive</h3>
-                  <p className="text-xs text-gray-400 mt-1">Mobile-first</p>
-                </div>
-                
-                <div className="flex flex-col items-center">
-                  <div className="rounded-full bg-purple-500/20 p-3 mb-3">
-                    <Zap className="size-6 text-purple-400" />
-                  </div>
-                  <h3 className="text-sm font-semibold text-white">Rápido</h3>
-                  <p className="text-xs text-gray-400 mt-1">Optimizado</p>
-                </div>
-              </div>
-            </div>
+              {/* Right Gallery */}
+              <div style={{
+                flex: '1',
+                position: 'relative',
+                height: '100%',
+                width: '50%'
+              }}>
+                <div style={{
+                  position: 'relative',
+                  background: 'linear-gradient(to right, rgba(0, 0, 0, 0.8) 0%, transparent 35%)',
+                  borderRadius: '24px',
+                  padding: '0.75rem',
+                  height: '100%',
+                  width: '100%'
+                }}>
+                  {/* Add Music Button */}
+                  <button style={{
+                    position: 'absolute',
+                    top: '1rem',
+                    right: '1rem',
+                    background: 'rgba(0, 0, 0, 0.8)',
+                    color: 'white',
+                    border: 'none',
+                    padding: '0.5rem 1rem',
+                    borderRadius: '8px',
+                    fontSize: '0.875rem',
+                    cursor: 'pointer',
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    zIndex: 10,
+                    transition: 'all 0.3s ease'
+                  }}>
+                    <span style={{ fontSize: '1rem' }}>+</span>
+                    Add music
+                  </button>
 
-            <div className="relative mt-16 lg:mt-0 lg:w-1/2">
-              <div className="relative mx-auto w-full max-w-lg">
-                <div className="absolute inset-0 rounded-2xl bg-gradient-to-r from-blue-500/20 to-purple-500/20 blur-3xl"></div>
-                <div className="relative rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 p-8">
-                  <div className="space-y-4">
-                    <div className="flex items-center gap-3">
-                      <div className="w-3 h-3 rounded-full bg-red-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
-                      <div className="w-3 h-3 rounded-full bg-green-500"></div>
-                      <div className="flex-1 h-4 bg-white/20 rounded"></div>
-                    </div>
-                    
-                    <div className="space-y-3">
-                      <div className="h-4 bg-blue-500/30 rounded w-3/4"></div>
-                      <div className="h-4 bg-purple-500/30 rounded w-1/2"></div>
-                      <div className="h-4 bg-green-500/30 rounded w-2/3"></div>
-                    </div>
-                    
-                    <div className="grid grid-cols-2 gap-3 mt-6">
-                      <div className="h-16 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-lg"></div>
-                      <div className="h-16 bg-gradient-to-br from-green-500/20 to-blue-500/20 rounded-lg"></div>
-                    </div>
+                  {/* Image Grid */}
+                  <div style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(3, 1fr)',
+                    gridTemplateRows: 'repeat(2, 1fr)',
+                    gap: '0.5rem',
+                    height: '100%',
+                    width: '100%'
+                  }}>
+                    {[1, 2, 3, 4, 5, 6].map((index) => (
+                      <div key={index} style={{
+                        borderRadius: '12px',
+                        overflow: 'hidden',
+                        boxShadow: '0 4px 12px rgba(0, 0, 0, 0.3)',
+                        position: 'relative',
+                        cursor: 'pointer',
+                        transition: 'all 0.3s ease',
+                        background: 'linear-gradient(45deg, #00E5FF, #7C4DFF)',
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                        color: 'white',
+                        fontSize: '1.2rem',
+                        fontWeight: 'bold'
+                      }}>
+                        App {index}
+                      </div>
+                    ))}
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
-    </main>
+        </section>
+      </main>
+    </div>
   );
 }

@@ -22,11 +22,11 @@ export default defineConfig({
       minify: 'esbuild',
       rollupOptions: {
         output: {
-          manualChunks: {
-            'react-vendor': ['react', 'react-dom'],
-            'framer-motion': ['framer-motion'],
-            'utils': ['clsx', 'class-variance-authority']
-          }
+        manualChunks: {
+          'react-vendor': ['react', 'react-dom'],
+          'framer-motion': ['framer-motion'],
+          'utils': ['clsx', 'class-variance-authority']
+        }
         }
       }
     },

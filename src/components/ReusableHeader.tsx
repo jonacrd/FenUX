@@ -97,7 +97,7 @@ export default function ReusableHeader() {
               </button>
             </div>
 
-            <div className="absolute inset-0 m-auto hidden size-fit lg:block">
+            <div className="hidden lg:flex lg:items-center lg:gap-8">
               <ul className="flex gap-8 text-sm">
                 {menuItems.map((item, index) => (
                   <li key={index}>
@@ -111,8 +111,8 @@ export default function ReusableHeader() {
               </ul>
             </div>
 
-            <div className="bg-black/95 backdrop-blur-lg group-data-[state=active]:block lg:group-data-[state=active]:flex mb-6 hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-white/30 p-6 shadow-2xl md:flex-nowrap lg:m-0 lg:flex lg:w-fit lg:gap-6 lg:space-y-0 lg:border-transparent lg:bg-transparent lg:p-0 lg:shadow-none">
-              <div className="lg:hidden">
+            <div className="bg-black/95 backdrop-blur-lg group-data-[state=active]:block hidden w-full flex-wrap items-center justify-end space-y-8 rounded-3xl border border-white/30 p-6 shadow-2xl md:flex-nowrap lg:hidden">
+              <div>
                 <ul className="space-y-6 text-base">
                   {menuItems.map((item, index) => (
                     <li key={index}>
@@ -136,6 +136,17 @@ export default function ReusableHeader() {
                   </a>
                 </Button>
               </div>
+            </div>
+            
+            <div className="hidden lg:flex lg:items-center">
+              <Button
+                asChild
+                size="sm"
+                className="bg-blue-600 hover:bg-blue-700 text-white">
+                <a href="#contacto">
+                  <span>Contacto</span>
+                </a>
+              </Button>
             </div>
           </div>
         </div>

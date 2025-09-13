@@ -1,20 +1,228 @@
 ---
-const { title, baseUSD, packs=[], lang='es' } = Astro.props;
-const i18n = { es:{from:'Desde',currency:'Moneda',base:'Precio base'}, en:{from:'From',currency:'Currency',base:'Base price'} }[lang];
+// Pricing.astro - Tarjetas de precios con dos paquetes
 ---
-<section class="section">
-  <h2 class="hl">{title}</h2>
-  <div class="packs">
-    {packs.map(p => (
-      <article class="card reveal pack price-box" data-usd={p.usd} data-currency="">
-        <h3>{p.name}</h3>
-        <div><span class="price">—</span> <span class="currency">USD</span> <small class="muted">({i18n.from} USD {p.usd})</small></div>
-        <ul class="clean">
-          {p.items.map(li => <li>{li}</li>)}
-        </ul>
-        <a class="btn" href={p.cta.href} {...p.cta.attrs}>{p.cta.label}</a>
-      </article>
-    ))}
+
+<section class="py-20 bg-brand-dark" id="precios">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-inter font-bold text-white mb-4">
+        Elige tu paquete
+      </h2>
+      <p class="text-xl text-white/70 font-inter font-light max-w-2xl mx-auto">
+        Dos opciones diseñadas para diferentes necesidades y presupuestos
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Paquete Estándar -->
+      <div class="pricing-card group">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-inter font-bold text-white mb-2">
+            Estándar
+          </h3>
+          <div class="flex items-baseline justify-center">
+            <span class="text-4xl font-inter font-bold text-white">149</span>
+            <span class="text-xl text-white/70 font-inter font-light ml-2">USD</span>
+          </div>
+          <p class="text-white/60 font-inter font-light text-sm mt-2">
+            Entrega en 5 días
+          </p>
+        </div>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">1 sección hero + 3 bloques</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">Formulario o botón WhatsApp</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">SEO básico incluido</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">1 ronda de ajustes</span>
+          </div>
+        </div>
+
+        <button 
+          class="w-full btn-secondary"
+          data-plan="standard"
+          data-analytics="cta-pricing-standard"
+          aria-label="Elegir paquete Estándar por 149 USD"
+        >
+          Elegir Estándar
+        </button>
+      </div>
+
+      <!-- Paquete Flash -->
+      <div class="pricing-card group featured">
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+          <span class="bg-gradient-brand text-white px-4 py-2 rounded-full text-sm font-inter font-semibold">
+            Más Popular
+          </span>
+        </div>
+        
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-inter font-bold text-white mb-2">
+            Flash
+          </h3>
+          <div class="flex items-baseline justify-center">
+            <span class="text-4xl font-inter font-bold text-white">199</span>
+            <span class="text-xl text-white/70 font-inter font-light ml-2">USD</span>
+          </div>
+          <p class="text-white/60 font-inter font-light text-sm mt-2">
+            Entrega en 48 horas
+          </p>
+        </div>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">Todo lo del Estándar +</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">Prioridad en desarrollo</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">2 rondas de ajustes</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">Setup Analytics/Meta Pixel</span>
+          </div>
+        </div>
+
+        <button 
+          class="w-full btn-primary"
+          data-plan="flash"
+          data-analytics="cta-pricing-flash"
+          aria-label="Elegir paquete Flash por 199 USD"
+        >
+          Elegir Flash
+        </button>
+      </div>
+    </div>
+
+    <!-- Garantía -->
+    <div class="text-center mt-12">
+      <div class="inline-flex items-center space-x-2 bg-brand-mid/30 rounded-xl px-6 py-3">
+        <svg class="w-5 h-5 text-brand-orange" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+        </svg>
+        <span class="text-white font-inter font-medium">
+          Garantía de satisfacción 100% o te devolvemos tu dinero
+        </span>
+      </div>
+    </div>
   </div>
-  <p class="small muted" style="margin-top:8px">{i18n.base}: USD {baseUSD} — conversión aprox. según tu país.</p>
 </section>
+
+<script>
+  // Intersection Observer para animaciones
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 200);
+      }
+    });
+  }, observerOptions);
+
+  // Observar tarjetas de precios
+  document.querySelectorAll('.pricing-card').forEach(card => {
+    card.classList.add('fade-in-up');
+    observer.observe(card);
+  });
+
+  // Manejar clics en botones de precios
+  document.querySelectorAll('[data-plan]').forEach(button => {
+    button.addEventListener('click', function() {
+      const plan = this.getAttribute('data-plan');
+      
+      // Scroll al formulario
+      const contactForm = document.getElementById('contacto');
+      if (contactForm) {
+        contactForm.scrollIntoView({ behavior: 'smooth' });
+        
+        // Preseleccionar el plan en el formulario
+        setTimeout(() => {
+          const planSelect = document.getElementById('plan');
+          if (planSelect) {
+            planSelect.value = plan;
+            planSelect.dispatchEvent(new Event('change'));
+          }
+        }, 500);
+      }
+    });
+  });
+
+  // Analytics tracking
+  document.querySelectorAll('[data-analytics]').forEach(element => {
+    element.addEventListener('click', function() {
+      const action = this.getAttribute('data-analytics');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          event_category: 'Pricing',
+          event_label: action
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .pricing-card {
+    @apply relative bg-brand-mid/30 backdrop-blur-sm rounded-xl p-8 border border-brand-magenta/20 hover:border-brand-magenta/40 transition-all duration-300 hover:shadow-lg hover:shadow-brand-magenta/10;
+  }
+
+  .pricing-card.featured {
+    @apply border-brand-orange/40 bg-brand-mid/40;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-brand text-white px-6 py-3 rounded-xl font-inter font-semibold hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-brand-dark;
+  }
+
+  .btn-secondary {
+    @apply bg-white/10 text-white px-6 py-3 rounded-xl font-inter font-semibold hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-brand-dark;
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 600ms ease-out;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

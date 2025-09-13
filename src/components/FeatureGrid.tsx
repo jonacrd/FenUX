@@ -1,6 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { useInView } from 'framer-motion';
 
 interface FeatureItem {
   title: string;
@@ -13,21 +11,14 @@ interface FeatureGridProps {
 }
 
 const FeatureGrid: React.FC<FeatureGridProps> = ({ title, items = [] }) => {
-  const ref = React.useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-100px" });
-
   // Validación adicional para evitar errores
   if (!items || !Array.isArray(items)) {
     return null;
   }
 
   return (
-    <motion.section
-      ref={ref}
+    <section
       className="section"
-      initial={{ opacity: 0, y: 30 }}
-      animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-      transition={{ duration: 0.7, ease: [0.22, 0.61, 0.36, 1] }}
       style={{
         maxWidth: '1100px',
         margin: '0 auto',
@@ -35,11 +26,8 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ title, items = [] }) => {
       }}
     >
       {title && (
-        <motion.h2
+        <h2
           className="hl"
-          initial={{ opacity: 0, y: 20 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
           style={{
             marginBottom: '8px',
             fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
@@ -51,14 +39,11 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ title, items = [] }) => {
           }}
         >
           {title}
-        </motion.h2>
+        </h2>
       )}
       
-      <motion.div
+      <div
         className="grid-2"
-        initial={{ opacity: 0, y: 30 }}
-        animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-        transition={{ duration: 0.7, delay: 0.4 }}
         style={{
           display: 'grid',
           gap: '18px',
@@ -66,13 +51,9 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ title, items = [] }) => {
         }}
       >
         {items.map((feature, index) => (
-          <motion.article
+          <article
             key={index}
             className="card reveal"
-            initial={{ opacity: 0, y: 20 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-            transition={{ duration: 0.5, delay: 0.5 + index * 0.1 }}
-            whileHover={{ y: -5, scale: 1.02 }}
             style={{
               background: 'rgba(255,255,255,0.04)',
               border: '1px solid rgba(255,255,255,0.14)',
@@ -83,7 +64,7 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ title, items = [] }) => {
               cursor: 'pointer'
             }}
           >
-            <motion.h3
+            <h3
               style={{
                 margin: '0.2rem 0',
                 fontSize: '18px',
@@ -92,8 +73,8 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ title, items = [] }) => {
               }}
             >
               {feature.title}
-            </motion.h3>
-            <motion.p
+            </h3>
+            <p
               style={{
                 opacity: 0.85,
                 margin: '8px 0 0 0',
@@ -102,12 +83,12 @@ const FeatureGrid: React.FC<FeatureGridProps> = ({ title, items = [] }) => {
               }}
             >
               {feature.desc}
-            </motion.p>
-          </motion.article>
+            </p>
+          </article>
         ))}
-      </motion.div>
+      </div>
 
-    </motion.section>
+    </section>
   );
 };
 
