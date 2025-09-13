@@ -1,16 +1,18 @@
 ---
-// FENUX Landing Page Premium - Página principal
+// FENUX Sistema Captaclientes Ágil - Landing ultra-concreta
 import Header from "../../../../components/Header.astro";
-import Hero from "../../../../components/Hero.astro";
-import TrustBar from "../../../../components/TrustBar.astro";
-import Benefits from "../../../../components/Benefits.astro";
-import Pricing from "../../../../components/Pricing.astro";
-import ServicesUpsell from "../../../../components/ServicesUpsell.astro";
-import FAQ from "../../../../components/FAQ.astro";
-import ContactForm from "../../../../components/ContactForm.astro";
+import HeroCaptaclientes from "../../../../components/HeroCaptaclientesNuevo.astro";
+import QueIncluye from "../../../../components/QueIncluye.astro";
+import ComoFunciona from "../../../../components/ComoFunciona.astro";
+import PricingCaptaclientes from "../../../../components/PricingCaptaclientes.astro";
+import TestimoniosCaptaclientes from "../../../../components/TestimoniosCaptaclientes.astro";
+import FormularioCaptaclientes from "../../../../components/FormularioCaptaclientes.astro";
+import VideoYQR from "../../../../components/VideoYQR.astro";
+import BotonWhatsApp from "../../../../components/BotonWhatsApp.astro";
 import Footer from "../../../../components/Footer.astro";
 import MetaPixel from "../../../../components/MetaPixel.astro";
 import "../../../../styles/animations.css";
+import "../../../../styles/captaclientes.css";
 
 const DOMAIN = "https://fen-ux-gqcp.vercel.app";
 const CONTACT_EMAIL = "hola@fenux.com";
@@ -19,8 +21,8 @@ const GA4_ID = "G-XXXXXXX";
 const ADS_ID = "AW-XXXXXXX";
 
 const meta = {
-  title: "FENUX - Landing Page Premium en 5 días | Demo Gratuita",
-  description: "Creamos landing pages premium que convierten visitantes en clientes. Diseño único, optimizada para SEO, 100% responsive. Entrega en 5 días o 48 horas. ¡Solicita tu demo gratuita!",
+  title: "Sistema que capta clientes en 48h | Demo sin pago adelantado",
+  description: "Landing + Bot WhatsApp + Automatización. Sistema completo que capta clientes en 48 horas. Demo gratuita sin pago adelantado. Agendamiento Zoom el mismo día.",
   canonical: `${DOMAIN}/es/servicios/landing-portfolios`
 };
 ---
@@ -91,9 +93,33 @@ const meta = {
     <script type="application/ld+json">
       {JSON.stringify({
         "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "FENUX - Landing Page Premium",
-        "description": meta.description,
+        "@type": "Product",
+        "name": "Sistema Captaclientes Ágil",
+        "description": "Landing + Bot WhatsApp + Automatización. Sistema completo que capta clientes en 48 horas con demo gratuita sin pago adelantado.",
+        "brand": {
+          "@type": "Organization",
+          "name": "FENUX",
+          "url": DOMAIN
+        },
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "Paquete Estándar",
+            "price": "99.000",
+            "priceCurrency": "CLP",
+            "description": "Landing premium en 5 días con SEO básico",
+            "availability": "https://schema.org/InStock"
+          },
+          {
+            "@type": "Offer", 
+            "name": "Sistema Ágil 48h",
+            "price": "550000",
+            "priceCurrency": "CLP",
+            "description": "Landing + Bot WhatsApp + Automatización + 7 días de soporte",
+            "availability": "https://schema.org/InStock"
+          }
+        ],
+        "category": "Marketing Digital",
         "provider": {
           "@type": "Organization",
           "name": "FENUX",
@@ -104,27 +130,7 @@ const meta = {
             "contactType": "customer service",
             "email": CONTACT_EMAIL
           }
-        },
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Paquete Estándar",
-            "price": "149",
-            "priceCurrency": "USD",
-            "description": "Landing page premium en 5 días",
-            "availability": "https://schema.org/InStock"
-          },
-          {
-            "@type": "Offer", 
-            "name": "Paquete Flash",
-            "price": "199",
-            "priceCurrency": "USD",
-            "description": "Landing page premium en 48 horas",
-            "availability": "https://schema.org/InStock"
-          }
-        ],
-        "areaServed": ["ES", "MX", "US", "GB", "CA", "AU", "DE", "NL"],
-        "serviceType": "Web Development"
+        }
       })}
     </script>
   </head>
@@ -139,25 +145,28 @@ const meta = {
     <Header />
     
     <!-- Hero Section -->
-    <Hero />
+    <HeroCaptaclientes />
     
-    <!-- Trust Bar -->
-    <TrustBar />
+    <!-- Qué incluye -->
+    <QueIncluye />
     
-    <!-- Benefits Section -->
-    <Benefits />
+    <!-- Cómo funciona -->
+    <ComoFunciona />
     
     <!-- Pricing Section -->
-    <Pricing />
+    <PricingCaptaclientes />
     
-    <!-- Services Upsell -->
-    <ServicesUpsell />
+    <!-- Testimonios -->
+    <TestimoniosCaptaclientes />
     
-    <!-- FAQ Section -->
-    <FAQ />
+    <!-- Formulario de reserva -->
+    <FormularioCaptaclientes />
     
-    <!-- Contact Form -->
-    <ContactForm />
+    <!-- Video y QR -->
+    <VideoYQR />
+    
+    <!-- Botón flotante WhatsApp -->
+    <BotonWhatsApp />
     
     <!-- Footer -->
     <Footer />
@@ -194,6 +203,20 @@ const meta = {
           page_location: window.location.href
         });
       }
+      
+      // Meta Pixel PageView
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('track','PageView');
+      }
+      
+      // Capturar UTMs para tracking
+      const urlParams = new URLSearchParams(window.location.search);
+      const utmSource = urlParams.get('utm_source') || 'direct';
+      const utmCampaign = urlParams.get('utm_campaign') || 'organic';
+      
+      // Guardar UTMs en sessionStorage para usar en formularios
+      sessionStorage.setItem('utm_source', utmSource);
+      sessionStorage.setItem('utm_campaign', utmCampaign);
     </script>
   </body>
 </html>

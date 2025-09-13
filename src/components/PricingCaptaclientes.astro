@@ -1,0 +1,248 @@
+---
+// PricingCaptaclientes.astro - Planes comparativos para Sistema Captaclientes Ágil
+---
+
+<section class="py-20 bg-brand-dark" id="precios">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-inter font-bold text-white mb-4">
+        Elige tu paquete
+      </h2>
+      <p class="text-xl text-white/70 font-inter font-light max-w-2xl mx-auto">
+        Dos opciones diseñadas para diferentes necesidades y presupuestos
+      </p>
+    </div>
+
+    <!-- Banner sin pago adelantado -->
+    <div class="text-center mb-12">
+      <div class="inline-flex items-center space-x-2 bg-green-500/20 border border-green-500/50 rounded-xl px-6 py-3">
+        <svg class="w-5 h-5 text-green-400" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+        </svg>
+        <span class="text-green-300 font-inter font-semibold">
+          Sin pago adelantado — pagas cuando apruebes la demo
+        </span>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+      <!-- Paquete Estándar -->
+      <div class="pricing-card group">
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-inter font-bold text-white mb-2">
+            Estándar
+          </h3>
+          <div class="flex items-baseline justify-center">
+            <span class="text-4xl font-inter font-bold text-white">99.000</span>
+            <span class="text-xl text-white/70 font-inter font-light ml-2">CLP</span>
+          </div>
+          <p class="text-white/60 font-inter font-light text-sm mt-2">
+            Landing premium (5 días)
+          </p>
+        </div>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">Landing optimizada (velocidad/SEO)</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">SEO básico incluido</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">1 ronda de ajustes</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">Formulario de contacto</span>
+          </div>
+        </div>
+
+        <button 
+          class="w-full btn-secondary"
+          data-plan="estandar"
+          data-analytics="cta-pricing-estandar"
+          aria-label="Elegir paquete Estándar por 99.000 CLP"
+        >
+          Seleccionar
+        </button>
+      </div>
+
+      <!-- Paquete Ágil 48h -->
+      <div class="pricing-card group featured">
+        <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+          <span class="bg-gradient-to-r from-[#C0176C] to-[#FF8A00] text-white px-4 py-2 rounded-full text-sm font-inter font-semibold">
+            Más Popular
+          </span>
+        </div>
+        
+        <div class="text-center mb-8">
+          <h3 class="text-2xl font-inter font-bold text-white mb-2">
+            Ágil 48h
+          </h3>
+          <div class="flex items-baseline justify-center">
+            <span class="text-4xl font-inter font-bold text-white">550.000</span>
+            <span class="text-xl text-white/70 font-inter font-light ml-2">CLP</span>
+          </div>
+          <p class="text-white/60 font-inter font-light text-sm mt-2">
+            Sistema completo + 7 días soporte
+          </p>
+        </div>
+
+        <div class="space-y-4 mb-8">
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">Todo lo del Estándar +</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">Bot WhatsApp entrenado</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">Automatización básica (Google Sheets)</span>
+          </div>
+          <div class="flex items-center space-x-3">
+            <svg class="w-5 h-5 text-brand-orange flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+            </svg>
+            <span class="text-white/80 font-inter font-medium">7 días de acompañamiento</span>
+          </div>
+        </div>
+
+        <button 
+          class="w-full btn-primary"
+          data-plan="agil"
+          data-analytics="cta-pricing-agil"
+          aria-label="Reservar demo del paquete Ágil 48h por 1.500 USD"
+        >
+          Reservar demo
+        </button>
+      </div>
+    </div>
+
+    <!-- Garantía -->
+    <div class="text-center mt-12">
+      <div class="inline-flex items-center space-x-2 bg-brand-mid/30 rounded-xl px-6 py-3">
+        <svg class="w-5 h-5 text-brand-orange" fill="currentColor" viewBox="0 0 20 20">
+          <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+        </svg>
+        <span class="text-white font-inter font-medium">
+          Garantía de satisfacción 100% o te devolvemos tu dinero
+        </span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer para animaciones
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 200);
+      }
+    });
+  }, observerOptions);
+
+  // Observar tarjetas de precios
+  document.querySelectorAll('.pricing-card').forEach(card => {
+    card.classList.add('fade-in-up');
+    observer.observe(card);
+  });
+
+  // Manejar clics en botones de precios
+  document.querySelectorAll('[data-plan]').forEach(button => {
+    button.addEventListener('click', function() {
+      const plan = this.getAttribute('data-plan');
+      
+      // Scroll al formulario
+      const contactForm = document.getElementById('reserva');
+      if (contactForm) {
+        contactForm.scrollIntoView({ behavior: 'smooth' });
+        
+        // Preseleccionar el plan en el formulario
+        setTimeout(() => {
+          const planSelect = document.getElementById('plan');
+          if (planSelect) {
+            planSelect.value = plan;
+            planSelect.dispatchEvent(new Event('change'));
+          }
+        }, 500);
+      }
+
+      // Analytics
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'plan_select', {
+          event_category: 'Pricing',
+          event_label: plan
+        });
+      }
+    });
+  });
+
+  // Analytics tracking
+  document.querySelectorAll('[data-analytics]').forEach(element => {
+    element.addEventListener('click', function() {
+      const action = this.getAttribute('data-analytics');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          event_category: 'Pricing',
+          event_label: action
+        });
+      }
+    });
+  });
+</script>
+
+<style>
+  .pricing-card {
+    @apply relative bg-brand-mid/30 backdrop-blur-sm rounded-xl p-8 border border-brand-magenta/20 hover:border-brand-magenta/40 transition-all duration-300 hover:shadow-lg hover:shadow-brand-magenta/10;
+  }
+
+  .pricing-card.featured {
+    @apply border-brand-orange/40 bg-brand-mid/40;
+  }
+
+  .btn-primary {
+    @apply bg-gradient-to-r from-[#C0176C] via-[#D2137D] to-[#FF8A00] text-white px-6 py-3 rounded-xl font-inter font-semibold hover:shadow-lg transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-brand-dark;
+  }
+
+  .btn-secondary {
+    @apply bg-white/10 text-white px-6 py-3 rounded-xl font-inter font-semibold hover:bg-white/20 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-brand-dark;
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 600ms ease-out;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+</style>

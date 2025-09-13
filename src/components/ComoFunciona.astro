@@ -1,0 +1,133 @@
+---
+// ComoFunciona.astro - Sección "Cómo funciona" con 4 pasos numerados
+---
+
+<section class="py-20 bg-brand-mid/30" id="como-funciona">
+  <div class="container mx-auto px-4">
+    <div class="text-center mb-16">
+      <h2 class="text-3xl md:text-4xl font-inter font-bold text-white mb-4">
+        Cómo funciona (4 pasos)
+      </h2>
+      <p class="text-xl text-white/70 font-inter font-light max-w-2xl mx-auto">
+        Proceso simple y directo para tener tu sistema funcionando en 48 horas
+      </p>
+    </div>
+
+    <div class="max-w-4xl mx-auto">
+      <div class="grid md:grid-cols-2 gap-8 lg:gap-12">
+        <!-- Paso 1 -->
+        <div class="step-card group">
+          <div class="step-number">1</div>
+          <div class="step-content">
+            <h3 class="text-xl font-inter font-bold text-white mb-3">
+              Diagnóstico express (10 min)
+            </h3>
+            <p class="text-white/70 font-inter font-light">
+              Llamada rápida para entender tu negocio, objetivos y definir la estrategia de captación
+            </p>
+          </div>
+        </div>
+
+        <!-- Paso 2 -->
+        <div class="step-card group">
+          <div class="step-number">2</div>
+          <div class="step-content">
+            <h3 class="text-xl font-inter font-bold text-white mb-3">
+              Demo gratuita con tus datos
+            </h3>
+            <p class="text-white/70 font-inter font-light">
+              Te mostramos el sistema funcionando con información real de tu negocio, sin compromiso
+            </p>
+          </div>
+        </div>
+
+        <!-- Paso 3 -->
+        <div class="step-card group">
+          <div class="step-number">3</div>
+          <div class="step-content">
+            <h3 class="text-xl font-inter font-bold text-white mb-3">
+              Versión operativa en 48 h
+            </h3>
+            <p class="text-white/70 font-inter font-light">
+              Desarrollo y entrega del sistema completo: landing, bot WhatsApp y automatización
+            </p>
+          </div>
+        </div>
+
+        <!-- Paso 4 -->
+        <div class="step-card group">
+          <div class="step-number">4</div>
+          <div class="step-content">
+            <h3 class="text-xl font-inter font-bold text-white mb-3">
+              Ajustes y arranque
+            </h3>
+            <p class="text-white/70 font-inter font-light">
+              7 días de acompañamiento para optimizar y asegurar que todo funcione perfectamente
+            </p>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  // Intersection Observer para animaciones
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => {
+          entry.target.classList.add('visible');
+        }, index * 200);
+      }
+    });
+  }, observerOptions);
+
+  // Observar tarjetas de pasos
+  document.querySelectorAll('.step-card').forEach(card => {
+    card.classList.add('fade-in-up');
+    observer.observe(card);
+  });
+</script>
+
+<style>
+  .step-card {
+    @apply relative bg-brand-mid/30 backdrop-blur-sm rounded-xl p-6 border border-brand-magenta/20 hover:border-brand-magenta/40 transition-all duration-300 hover:shadow-lg hover:shadow-brand-magenta/10 flex items-start space-x-4;
+  }
+
+  .step-number {
+    @apply w-12 h-12 bg-gradient-to-r from-[#C0176C] to-[#FF8A00] rounded-full flex items-center justify-center text-white font-bold text-lg flex-shrink-0;
+  }
+
+  .step-content {
+    @apply flex-1;
+  }
+
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 600ms ease-out;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Línea conectora responsiva */
+  @media (min-width: 768px) {
+    .step-card:nth-child(odd) {
+      @apply relative;
+    }
+    
+    .step-card:nth-child(even) {
+      @apply relative mt-16;
+    }
+  }
+</style>

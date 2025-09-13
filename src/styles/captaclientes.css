@@ -1,0 +1,230 @@
+/* Estilos específicos para la landing de Sistema Captaclientes Ágil */
+
+/* Variables CSS personalizadas */
+:root {
+  --brand-dark: #0d0712;
+  --brand-mid: #2b0f2f;
+  --brand-magenta: #C0176C;
+  --brand-fuchsia: #D2137D;
+  --brand-orange: #FF8A00;
+}
+
+/* Clases de utilidad personalizadas */
+.bg-gradient-brand {
+  background: linear-gradient(135deg, var(--brand-magenta) 0%, var(--brand-fuchsia) 50%, var(--brand-orange) 100%);
+}
+
+.text-gradient-brand {
+  background: linear-gradient(135deg, var(--brand-magenta) 0%, var(--brand-fuchsia) 50%, var(--brand-orange) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Animaciones personalizadas */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes bounceIn {
+  0% {
+    opacity: 0;
+    transform: scale(1.2);
+  }
+  60% {
+    opacity: 1;
+    transform: scale(0.95);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+/* Clases de animación */
+.fade-in-up {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: all 600ms ease-out;
+}
+
+.fade-in-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-30px);
+  transition: all 600ms ease-out;
+}
+
+.slide-in-left.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(30px);
+  transition: all 600ms ease-out;
+}
+
+.slide-in-right.visible {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.bounce-in {
+  opacity: 0;
+  transform: scale(1.2);
+  transition: all 700ms ease-out;
+}
+
+.bounce-in.visible {
+  opacity: 1;
+  transform: scale(1);
+}
+
+/* Estilos para formularios */
+.form-input {
+  @apply w-full px-4 py-3 bg-white/10 border border-brand-magenta/30 rounded-xl text-white placeholder-white/50 focus:outline-none focus:ring-2 focus:ring-brand-orange focus:border-transparent transition-all duration-300;
+}
+
+.form-input:invalid {
+  @apply border-red-500/50;
+}
+
+.form-input:valid {
+  @apply border-green-500/50;
+}
+
+/* Botones personalizados */
+.btn-primary {
+  @apply inline-flex items-center justify-center px-6 py-3 font-semibold text-white bg-gradient-to-r from-brand-magenta via-brand-fuchsia to-brand-orange rounded-xl hover:opacity-95 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-brand-dark transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center px-6 py-3 font-semibold text-white bg-white/10 rounded-xl hover:bg-white/20 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-brand-orange focus:ring-offset-2 focus:ring-offset-brand-dark transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed;
+}
+
+/* Cards personalizadas */
+.card {
+  @apply bg-brand-mid/30 backdrop-blur-sm rounded-xl p-6 border border-brand-magenta/20 hover:border-brand-magenta/40 transition-all duration-300 hover:shadow-lg hover:shadow-brand-magenta/10;
+}
+
+.card.featured {
+  @apply border-brand-orange/40 bg-brand-mid/40;
+}
+
+/* Responsive utilities */
+@media (max-width: 768px) {
+  .mobile-mockup {
+    position: absolute !important;
+    top: 50% !important;
+    transform: translateY(-50%) !important;
+    right: -0.5rem !important;
+    width: 7rem !important;
+  }
+}
+
+@media (max-width: 640px) {
+  .mobile-mockup {
+    width: 6rem !important;
+    right: -0.25rem !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .mobile-mockup {
+    width: 5rem !important;
+    right: -0.125rem !important;
+  }
+}
+
+/* Accesibilidad */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Focus visible para mejor accesibilidad */
+.focus-visible:focus {
+  outline: 2px solid var(--brand-orange);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .card {
+    @apply border-2 border-white/50;
+  }
+  
+  .btn-primary {
+    @apply border-2 border-white;
+  }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  .fade-in-up,
+  .slide-in-left,
+  .slide-in-right,
+  .bounce-in {
+    transition: none;
+    animation: none;
+  }
+  
+  .fade-in-up.visible,
+  .slide-in-left.visible,
+  .slide-in-right.visible,
+  .bounce-in.visible {
+    opacity: 1;
+    transform: none;
+  }
+}

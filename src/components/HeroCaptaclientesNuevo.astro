@@ -1,0 +1,489 @@
+---
+// HeroCaptaclientesNuevo.astro - Hero con mini-formulario en lugar de Calendly
+const title = "Sistema que capta clientes en 48 h (versión operativa)";
+const subtitle = "Landing + Bot WhatsApp + Automatización. Demo sin pago adelantado.";
+const ctaSecondary = "Hablar por WhatsApp";
+const whatsappUrl = "https://wa.me/580000000000?text=Hola%20vengo%20del%20anuncio%20quiero%20la%20demo";
+---
+
+<section class="relative isolate text-white bg-[linear-gradient(180deg,#0d0712,40%,#2b0f2f)]" id="oferta">
+  <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-12 md:pt-20 pb-12 md:pb-16">
+    <div class="grid grid-cols-1 md:grid-cols-2 items-center gap-6 md:gap-12 min-h-[85vh] md:min-h-[70vh]">
+      
+      <!-- Texto -->
+      <div class="order-2 md:order-1">
+        <h1 class="font-bold leading-tight text-balance [font-size:clamp(28px,6vw,52px)] animate-[slideInLeft_0.6s_ease-out_forwards]">
+          <span>Sistema que capta</span>
+          <span class="bg-gradient-to-r from-[#C0176C] via-[#D2137D] to-[#FF8A00] bg-clip-text text-transparent"> clientes</span>
+          <span class="block">en 48 h (versión operativa)</span>
+        </h1>
+        <p class="mt-4 text-neutral-200/90 [font-size:clamp(14px,2.6vw,18px)] animate-[slideInLeft_0.6s_ease-out_0.1s_backwards]">
+          {subtitle}
+        </p>
+        
+        <!-- Badges -->
+        <div class="mt-6 flex flex-wrap items-center gap-3 animate-[slideInLeft_0.6s_ease-out_0.2s_backwards]">
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-green-500/20 text-green-300 border border-green-500/30">
+            Entrega versión operativa en 48h
+          </span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-500/20 text-orange-300 border border-orange-500/30">
+            Sin pago adelantado
+          </span>
+          <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-red-500/20 text-red-300 border border-red-500/30">
+            Cupos limitados
+          </span>
+        </div>
+
+        <!-- Botón WhatsApp -->
+        <div class="mt-6 animate-[slideInLeft_0.6s_ease-out_0.2s_backwards]">
+          <a 
+            href={whatsappUrl}
+            target="_blank"
+            rel="noopener noreferrer"
+            data-analytics="cta-whatsapp"
+            class="inline-flex items-center justify-center rounded-xl px-4 md:px-6 py-3 md:py-4 font-semibold text-white
+                   bg-green-600 hover:bg-green-700 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-green-500/60
+                   transition-all duration-300 text-base md:text-lg"
+            aria-label={ctaSecondary}
+          >
+            <svg class="mr-2 w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893A11.821 11.821 0 0020.885 3.488"/>
+            </svg>
+            {ctaSecondary}
+          </a>
+        </div>
+
+        <!-- Mini-formulario -->
+        <div class="mt-6 animate-[slideInLeft_0.6s_ease-out_0.3s_backwards]">
+          <div class="bg-white/5 backdrop-blur-sm rounded-xl p-4 md:p-6 max-w-md border border-white/10">
+            <form id="hero-demo-form" class="space-y-4" novalidate>
+              <!-- Nombre -->
+              <div>
+                <input 
+                  type="text" 
+                  id="hero-name" 
+                  name="name" 
+                  required
+                  class="w-full rounded-lg p-3 bg-white/20 text-white placeholder-white/60 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#FF8A00]/40 focus:border-[#FF8A00]/60 transition-all duration-300"
+                  placeholder="Tu nombre completo"
+                  aria-label="Nombre completo"
+                />
+                <div id="hero-name-error" class="text-red-200 text-xs mt-1 hidden" role="alert"></div>
+              </div>
+
+              <!-- Email -->
+              <div>
+                <input 
+                  type="email" 
+                  id="hero-email" 
+                  name="email" 
+                  required
+                  class="w-full rounded-lg p-3 bg-white/20 text-white placeholder-white/60 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#FF8A00]/40 focus:border-[#FF8A00]/60 transition-all duration-300"
+                  placeholder="tu@email.com"
+                  aria-label="Correo electrónico"
+                />
+                <div id="hero-email-error" class="text-red-200 text-xs mt-1 hidden" role="alert"></div>
+              </div>
+
+              <!-- Teléfono/WhatsApp -->
+              <div>
+                <input 
+                  type="tel" 
+                  id="hero-phone" 
+                  name="phone"
+                  class="w-full rounded-lg p-3 bg-white/20 text-white placeholder-white/60 border border-white/20 focus:outline-none focus:ring-2 focus:ring-[#FF8A00]/40 focus:border-[#FF8A00]/60 transition-all duration-300"
+                  placeholder="+56 9 1234 5678 (opcional)"
+                  aria-label="Teléfono o WhatsApp (opcional)"
+                />
+                <div id="hero-phone-error" class="text-red-200 text-xs mt-1 hidden" role="alert"></div>
+              </div>
+
+              <!-- Campo oculto para source -->
+              <input 
+                type="hidden" 
+                id="hero-source" 
+                name="source" 
+                value=""
+              />
+
+              <!-- Honeypot -->
+              <input 
+                type="text" 
+                name="company" 
+                style="display: none;" 
+                tabindex="-1" 
+                autocomplete="off"
+              />
+
+              <!-- Botón de envío -->
+              <button 
+                type="submit" 
+                class="w-full py-3 rounded-lg bg-gradient-to-r from-[#C0176C] to-[#FF8A00] font-semibold text-white
+                       hover:opacity-95 active:scale-[0.98] focus:outline-none focus:ring-2 focus:ring-[#FF8A00]/60
+                       transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                data-analytics="cta-hero-form"
+                aria-label="Reservar demo gratuita"
+              >
+                <span class="btn-text">Reservar demo gratuita</span>
+                <span class="btn-loading hidden">
+                  <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                  </svg>
+                  Enviando...
+                </span>
+              </button>
+
+              <!-- Texto pequeño -->
+              <p class="text-xs text-white/50 mt-3 text-center">
+                Sin compromiso. Te mostramos cómo funciona antes de pagar.
+              </p>
+
+              <!-- Mensajes de estado -->
+              <div id="hero-form-messages" class="hidden">
+                <div id="hero-success-message" class="bg-green-500/10 border border-green-500/30 rounded-lg p-3 text-green-200 text-center hidden">
+                  <div class="flex items-center justify-center space-x-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-sm font-medium">¡Recibido! Te contactamos en minutos.</span>
+                  </div>
+                </div>
+                <div id="hero-error-message" class="bg-red-500/10 border border-red-500/30 rounded-lg p-3 text-red-200 text-center hidden">
+                  <div class="flex items-center justify-center space-x-2">
+                    <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7 4a1 1 0 11-2 0 1 1 0 012 0zm-1-9a1 1 0 00-1 1v4a1 1 0 102 0V6a1 1 0 00-1-1z" clip-rule="evenodd"></path>
+                    </svg>
+                    <span class="text-sm font-medium">Error al enviar. Inténtalo de nuevo.</span>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mockups -->
+      <div class="order-1 md:order-2 relative flex justify-center items-end min-h-[450px] md:min-h-[550px]">
+        <!-- Laptop Mockup -->
+        <div class="relative z-10 animate-[slideInRight_0.6s_ease-out_forwards] mb-8">
+          <img 
+            src="/images/mockups/laptop.png" 
+            alt="Mockup de laptop mostrando sistema captaclientes" 
+            class="w-full h-auto rounded-xl max-w-[500px] md:max-w-[600px] lg:max-w-[700px]"
+            width="700"
+            height="467"
+            loading="eager"
+            decoding="async"
+          />
+          <!-- Sello Implementación Ágil -->
+          <div class="absolute -top-4 -right-4 bg-gradient-to-r from-[#C0176C] to-[#FF8A00] text-white px-4 py-2 rounded-lg font-bold text-sm shadow-lg animate-pulse">
+            Implementación ágil
+          </div>
+        </div>
+        
+        <!-- Mobile Mockup -->
+        <div class="mobile-mockup absolute top-1/2 -translate-y-1/2 -right-2 md:-right-4 z-20 w-36 md:w-44 lg:w-52 slide-in-right">
+          <img 
+            src="/images/mockups/mobile.png" 
+            alt="Mockup de móvil mostrando bot WhatsApp" 
+            class="w-full h-auto rounded-xl"
+            width="200"
+            height="400"
+            loading="eager"
+            decoding="async"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+  <div aria-hidden="true"
+       class="pointer-events-none absolute inset-x-0 -z-10 top-0 h-[38dvh]
+              bg-gradient-to-b from-[#C0176C33] via-transparent to-transparent blur-3xl"></div>
+</section>
+
+<script>
+  // Capturar UTMs de la URL
+  function getUTMParams() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmSource = urlParams.get('utm_source') || 'direct';
+    const utmCampaign = urlParams.get('utm_campaign') || 'organic';
+    
+    return {
+      source: utmSource,
+      campaign: utmCampaign
+    };
+  }
+
+  // Rellenar campo source con UTMs
+  document.addEventListener('DOMContentLoaded', function() {
+    const utmParams = getUTMParams();
+    const sourceField = document.getElementById('hero-source');
+    if (sourceField) {
+      sourceField.value = `${utmParams.source}-${utmParams.campaign}`;
+    }
+  });
+
+  // Validación del formulario
+  function validateHeroForm(formData) {
+    const errors = {};
+    
+    // Validar nombre
+    if (!formData.get('name') || formData.get('name').trim().length < 2) {
+      errors.name = 'El nombre debe tener al menos 2 caracteres';
+    }
+    
+    // Validar email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.get('email') || !emailRegex.test(formData.get('email'))) {
+      errors.email = 'Ingresa un email válido';
+    }
+    
+    // Validar teléfono (opcional pero si se proporciona debe ser válido)
+    const phoneRegex = /^[\+]?[1-9][\d]{0,15}$/;
+    if (formData.get('phone') && !phoneRegex.test(formData.get('phone').replace(/\s/g, ''))) {
+      errors.phone = 'Ingresa un teléfono válido';
+    }
+    
+    return errors;
+  }
+
+  // Mostrar errores
+  function showHeroErrors(errors) {
+    // Limpiar errores anteriores
+    document.querySelectorAll('[id$="-error"]').forEach(el => {
+      el.classList.add('hidden');
+      el.textContent = '';
+    });
+    
+    // Mostrar nuevos errores
+    Object.keys(errors).forEach(field => {
+      const errorEl = document.getElementById(`hero-${field}-error`);
+      if (errorEl) {
+        errorEl.textContent = errors[field];
+        errorEl.classList.remove('hidden');
+      }
+    });
+  }
+
+  // Manejar envío del formulario
+  document.getElementById('hero-demo-form').addEventListener('submit', async function(e) {
+    e.preventDefault();
+    
+    const form = this;
+    const formData = new FormData(form);
+    const submitBtn = form.querySelector('button[type="submit"]');
+    const btnText = submitBtn.querySelector('.btn-text');
+    const btnLoading = submitBtn.querySelector('.btn-loading');
+    const messages = document.getElementById('hero-form-messages');
+    const successMsg = document.getElementById('hero-success-message');
+    const errorMsg = document.getElementById('hero-error-message');
+    
+    // Validar formulario
+    const errors = validateHeroForm(formData);
+    if (Object.keys(errors).length > 0) {
+      showHeroErrors(errors);
+      return;
+    }
+    
+    // Mostrar estado de carga
+    submitBtn.disabled = true;
+    btnText.classList.add('hidden');
+    btnLoading.classList.remove('hidden');
+    messages.classList.remove('hidden');
+    successMsg.classList.add('hidden');
+    errorMsg.classList.add('hidden');
+    
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.get('name'),
+          email: formData.get('email'),
+          phone: formData.get('phone'),
+          message: 'Solicitud de demo desde hero - Sistema Captaclientes Ágil',
+          source: formData.get('source'),
+          company: formData.get('company') // honeypot
+        })
+      });
+      
+      const result = await response.json();
+      
+      if (response.ok && result.ok) {
+        // Éxito
+        successMsg.classList.remove('hidden');
+        errorMsg.classList.add('hidden');
+        
+        // Limpiar formulario
+        form.reset();
+        
+        // Analytics
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_submit', {
+            event_category: 'Hero_Demo_Request',
+            event_label: 'success'
+          });
+        }
+        
+        // Meta Pixel Lead tracking
+        if (typeof window !== 'undefined' && (window as any).fbq) {
+          (window as any).fbq('track','Lead', { 
+            plan: 'demo_request', 
+            source: formData.get('source') || 'direct'
+          });
+        }
+      } else {
+        // Error
+        successMsg.classList.add('hidden');
+        errorMsg.classList.remove('hidden');
+        
+        // Analytics
+        if (typeof gtag !== 'undefined') {
+          gtag('event', 'form_submit', {
+            event_category: 'Hero_Demo_Request',
+            event_label: 'error'
+          });
+        }
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      successMsg.classList.add('hidden');
+      errorMsg.classList.remove('hidden');
+    } finally {
+      // Restaurar botón
+      submitBtn.disabled = false;
+      btnText.classList.remove('hidden');
+      btnLoading.classList.add('hidden');
+    }
+  });
+
+  // Intersection Observer para animaciones
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, index) => {
+      if (entry.isIntersecting) {
+        // Delay escalonado para los mockups
+        if (entry.target.classList.contains('mobile-mockup')) {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, 400);
+        } else {
+          setTimeout(() => {
+            entry.target.classList.add('visible');
+          }, index * 200);
+        }
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos con animaciones
+  document.querySelectorAll('.slide-in-left, .slide-in-right, .bounce-in, .mobile-mockup').forEach(el => {
+    observer.observe(el);
+  });
+
+  // Asegurar que los mockups se muestren inmediatamente si ya están en viewport
+  setTimeout(() => {
+    document.querySelectorAll('.mobile-mockup').forEach(el => {
+      if (el.getBoundingClientRect().top < window.innerHeight) {
+        setTimeout(() => el.classList.add('visible'), 400);
+      }
+    });
+  }, 100);
+
+  // Analytics tracking optimizado
+  document.addEventListener('click', function(e) {
+    const analyticsEl = e.target.closest('[data-analytics]');
+    if (analyticsEl) {
+      const action = analyticsEl.getAttribute('data-analytics');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          event_category: 'CTA',
+          event_label: action
+        });
+      }
+      
+      // Meta Pixel CTA tracking
+      if (typeof window !== 'undefined' && (window as any).fbq) {
+        (window as any).fbq('trackCustom','CTA_Click', { place: action });
+      }
+    }
+  });
+</script>
+
+<style is:global>
+  @keyframes slideInLeft { 
+    from {opacity:0; transform:translateX(-30px)} 
+    to {opacity:1; transform:translateX(0)} 
+  }
+  @keyframes slideInRight{ 
+    from {opacity:0; transform:translateX(30px)}  
+    to {opacity:1; transform:translateX(0)} 
+  }
+  @keyframes bounceIn   { 
+    0%{opacity:0; transform:scale(1.2)} 
+    60%{opacity:1; transform:scale(.95)} 
+    100%{opacity:1; transform:scale(1)} 
+  }
+
+  /* Clases de animación */
+  .slide-in-left {
+    opacity: 0;
+    transform: translateX(-30px);
+    transition: all 600ms ease-out;
+  }
+
+  .slide-in-right {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 600ms ease-out;
+  }
+
+  .bounce-in {
+    opacity: 0;
+    transform: scale(1.2);
+    transition: all 700ms ease-out;
+  }
+
+  .slide-in-left.visible,
+  .slide-in-right.visible,
+  .bounce-in.visible {
+    opacity: 1 !important;
+    transform: translateX(0) !important;
+  }
+
+  .bounce-in.visible {
+    transform: scale(1) !important;
+  }
+
+  /* Responsive adjustments para mockup mobile */
+  @media (max-width: 768px) {
+    .mobile-mockup {
+      position: absolute !important;
+      top: 50% !important;
+      transform: translateY(-50%) !important;
+      right: -0.5rem !important;
+      width: 7rem !important; /* w-28 */
+    }
+  }
+
+  @media (max-width: 640px) {
+    .mobile-mockup {
+      width: 6rem !important; /* w-24 */
+      right: -0.25rem !important;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .mobile-mockup {
+      width: 5rem !important; /* w-20 */
+      right: -0.125rem !important;
+    }
+  }
+</style>

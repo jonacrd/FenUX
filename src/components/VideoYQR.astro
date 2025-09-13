@@ -1,0 +1,163 @@
+---
+// VideoYQR.astro - Sección de video y QR para agendar
+const calendlyUrl = "https://calendly.com/TU_USUARIO/30min";
+---
+
+<section class="py-20 bg-brand-mid/30 relative z-10" id="video-demo">
+  <div class="container mx-auto px-4">
+    <div class="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
+      
+      <!-- Video Section -->
+      <div class="order-2 lg:order-1">
+        <div class="text-center lg:text-left mb-8">
+          <h2 class="text-3xl md:text-4xl font-inter font-bold text-white mb-4">
+            Verlo en 60 segundos
+          </h2>
+          <p class="text-xl text-white/70 font-inter font-light">
+            Mira cómo funciona el sistema en acción
+          </p>
+        </div>
+        
+        <!-- Video Container -->
+        <div class="relative aspect-video bg-brand-dark rounded-xl overflow-hidden shadow-2xl">
+          <!-- Placeholder para video -->
+          <div class="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-[#C0176C]/20 to-[#FF8A00]/20">
+            <div class="text-center">
+              <div class="w-20 h-20 bg-white/20 rounded-full flex items-center justify-center mb-4 mx-auto">
+                <svg class="w-8 h-8 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z"/>
+                </svg>
+              </div>
+              <p class="text-white/80 font-inter font-medium">
+                Video demo próximamente
+              </p>
+              <p class="text-white/60 font-inter font-light text-sm mt-2">
+                Mientras tanto, agenda tu demo personalizada
+              </p>
+            </div>
+          </div>
+          
+          <!-- Botón de play overlay -->
+          <button 
+            class="absolute inset-0 flex items-center justify-center bg-black/20 hover:bg-black/30 transition-all duration-300 group"
+            aria-label="Reproducir video demo"
+          >
+            <div class="w-16 h-16 bg-white/90 rounded-full flex items-center justify-center group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-6 h-6 text-gray-800 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z"/>
+              </svg>
+            </div>
+          </button>
+        </div>
+      </div>
+
+      <!-- QR Section (solo desktop) -->
+      <div class="order-1 lg:order-2 hidden lg:block">
+        <div class="text-center">
+          <h3 class="text-2xl font-inter font-bold text-white mb-4">
+            Escanéalo y agenda tu demo
+          </h3>
+          <p class="text-white/70 font-inter font-light mb-8">
+            Acceso directo a Calendly para agendar en segundos
+          </p>
+          
+          <!-- QR Code Container -->
+          <div class="inline-block bg-white p-6 rounded-xl shadow-2xl">
+            <!-- QR Code Placeholder -->
+            <div class="w-48 h-48 bg-gray-100 rounded-lg flex items-center justify-center mb-4">
+              <div class="text-center">
+                <div class="w-16 h-16 bg-gray-300 rounded-lg mb-2 mx-auto flex items-center justify-center">
+                  <svg class="w-8 h-8 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v1m6 11h2m-6 0h-2v4m0-11v3m0 0h.01M12 12h4.01M16 20h4M4 12h4m12 0h.01M5 8h2a1 1 0 001-1V5a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1zm12 0h2a1 1 0 001-1V5a1 1 0 00-1-1h-2a1 1 0 00-1 1v2a1 1 0 001 1zM5 20h2a1 1 0 001-1v-2a1 1 0 00-1-1H5a1 1 0 00-1 1v2a1 1 0 001 1z"></path>
+                  </svg>
+                </div>
+                <p class="text-gray-600 font-inter font-medium text-sm">
+                  QR Code
+                </p>
+                <p class="text-gray-500 font-inter font-light text-xs">
+                  Apunta a Calendly
+                </p>
+              </div>
+            </div>
+            
+            <!-- Enlace de respaldo -->
+            <a 
+              href={calendlyUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              class="inline-flex items-center px-4 py-2 bg-gradient-to-r from-[#C0176C] to-[#FF8A00] text-white rounded-lg font-inter font-medium hover:opacity-90 transition-opacity duration-300"
+              data-analytics="cta-qr-calendly"
+            >
+              <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              Abrir Calendly
+            </a>
+          </div>
+          
+          <!-- Información adicional -->
+          <div class="mt-6 text-center">
+            <p class="text-white/60 font-inter font-light text-sm">
+              Disponible 24/7 • Sin compromiso • Demo gratuita
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script>
+  // Analytics tracking
+  document.querySelectorAll('[data-analytics]').forEach(element => {
+    element.addEventListener('click', function() {
+      const action = this.getAttribute('data-analytics');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          event_category: 'Video_QR',
+          event_label: action
+        });
+      }
+    });
+  });
+
+  // Intersection Observer para animaciones
+  const observerOptions = {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  };
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, observerOptions);
+
+  // Observar elementos
+  document.querySelectorAll('.aspect-video, .bg-white').forEach(el => {
+    el.classList.add('fade-in-up');
+    observer.observe(el);
+  });
+</script>
+
+<style>
+  .fade-in-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 600ms ease-out;
+  }
+
+  .fade-in-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Responsive adjustments */
+  @media (max-width: 1024px) {
+    .hidden.lg\\:block {
+      display: none !important;
+    }
+  }
+</style>

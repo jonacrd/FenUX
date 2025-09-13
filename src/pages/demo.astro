@@ -1,0 +1,185 @@
+---
+// demo.astro - Página de demo genérica reutilizable
+import Base from '../layouts/Base.astro';
+import HeroCaptaclientes from '../components/HeroCaptaclientesNuevo.astro';
+import QueIncluye from '../components/QueIncluye.astro';
+import ComoFunciona from '../components/ComoFunciona.astro';
+import PricingCaptaclientes from '../components/PricingCaptaclientes.astro';
+import TestimoniosCaptaclientes from '../components/TestimoniosCaptaclientes.astro';
+import FormularioCaptaclientes from '../components/FormularioCaptaclientes.astro';
+import VideoYQR from '../components/VideoYQR.astro';
+import BotonWhatsApp from '../components/BotonWhatsApp.astro';
+
+// ========================================
+// CONFIGURACIÓN DE PERSONALIZACIÓN
+// ========================================
+// CAMBIAR ESTOS VALORES PARA CADA DEMO
+
+const DEMO_CONFIG = {
+  // Información básica
+  title: "Sistema Demo - Transforma tu Negocio",
+  description: "Descubre cómo nuestro sistema puede revolucionar tu empresa. Demo gratuito sin compromiso.",
+  companyName: "Tu Empresa",
+  productName: "Sistema Demo",
+  
+  // URLs y enlaces
+  whatsappNumber: "580000000000", // Reemplazar con tu número real
+  whatsappMessage: "Hola%20quiero%20la%20demo",
+  formspreeId: "TU_ID_FORMSPREE", // Reemplazar con tu ID de Formspree
+  
+  // Colores de marca (opcional - usa los del proyecto por defecto)
+  primaryColor: "#C0176C",
+  secondaryColor: "#D2137D", 
+  accentColor: "#FF8A00",
+  
+  // Contenido del hero
+  heroTitle: "Transforma tu negocio con nuestro sistema",
+  heroSubtitle: "Solución completa que automatiza procesos y genera resultados desde el primer día.",
+  heroDescription: "Demo gratuito sin compromiso. Descubre cómo funciona con tus datos reales.",
+  
+  // Mockup (reemplazar con tu imagen)
+  mockupImage: "/images/mockups/demo-mockup.png",
+  mockupAlt: "Mockup del sistema demo",
+  
+  // Beneficios personalizables
+  benefits: [
+    {
+      icon: "🚀",
+      title: "Implementación rápida",
+      description: "Sistema operativo en menos de 48 horas, sin complicaciones técnicas."
+    },
+    {
+      icon: "💰", 
+      title: "ROI inmediato",
+      description: "Comienza a generar resultados desde el primer día de implementación."
+    },
+    {
+      icon: "📱",
+      title: "Fácil de usar",
+      description: "Interfaz intuitiva que cualquier persona puede manejar sin capacitación."
+    },
+    {
+      icon: "🔧",
+      title: "Soporte completo",
+      description: "Acompañamiento personalizado durante los primeros 7 días."
+    }
+  ],
+  
+  // Pasos del proceso
+  steps: [
+    {
+      number: "01",
+      title: "Solicita tu demo",
+      description: "Completa el formulario y agenda una demostración personalizada sin compromiso."
+    },
+    {
+      number: "02",
+      title: "Configuración express", 
+      description: "Configuramos tu sistema con tus datos reales en menos de 24 horas."
+    },
+    {
+      number: "03",
+      title: "Prueba gratuita",
+      description: "Prueba el sistema durante 7 días completos con datos reales de tu negocio."
+    },
+    {
+      number: "04",
+      title: "Implementación final",
+      description: "Si te convence, implementamos la versión completa y te acompañamos."
+    }
+  ]
+};
+
+// Meta tags
+const meta = {
+  title: DEMO_CONFIG.title,
+  description: DEMO_CONFIG.description,
+  canonical: "https://tudominio.com/demo", // Reemplazar con tu dominio
+  ogImage: "/images/og-demo.jpg" // Reemplazar con tu imagen OG
+};
+---
+
+<Base 
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+  ogImage={meta.ogImage}
+>
+  <!-- Hero con mini-formulario -->
+  <HeroCaptaclientes />
+
+  <!-- Qué incluye -->
+  <QueIncluye />
+
+  <!-- Cómo funciona -->
+  <ComoFunciona />
+
+  <!-- Planes y precios -->
+  <PricingCaptaclientes />
+
+  <!-- Testimonios -->
+  <TestimoniosCaptaclientes />
+
+  <!-- Formulario de reserva -->
+  <FormularioCaptaclientes />
+
+  <!-- Video y QR -->
+  <VideoYQR />
+
+  <!-- Botón WhatsApp flotante -->
+  <BotonWhatsApp />
+</Base>
+
+<script>
+  // Smooth scroll para enlaces internos
+  document.addEventListener('DOMContentLoaded', function() {
+    const links = document.querySelectorAll('a[href^="#"]');
+    links.forEach(link => {
+      link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href').substring(1);
+        const targetElement = document.getElementById(targetId);
+        if (targetElement) {
+          targetElement.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      });
+    });
+  });
+
+  // Analytics tracking
+  document.addEventListener('click', function(e) {
+    const analyticsEl = e.target.closest('[data-analytics]');
+    if (analyticsEl) {
+      const action = analyticsEl.getAttribute('data-analytics');
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'click', {
+          event_category: 'CTA',
+          event_label: action
+        });
+      }
+      
+      // Meta Pixel CTA tracking
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('trackCustom','CTA_Click', { place: action });
+      }
+    }
+  });
+</script>
+
+<style>
+  @keyframes slideInLeft { 
+    from {opacity:0; transform:translateX(-30px)} 
+    to {opacity:1; transform:translateX(0)} 
+  }
+  @keyframes slideInRight{ 
+    from {opacity:0; transform:translateX(30px)}  
+    to {opacity:1; transform:translateX(0)} 
+  }
+  @keyframes slideInUp { 
+    from {opacity:0; transform:translateY(30px)} 
+    to {opacity:1; transform:translateY(0)} 
+  }
+</style>
