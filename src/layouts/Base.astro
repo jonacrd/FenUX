@@ -113,7 +113,7 @@ const BRAND_CONFIG = {
   <body class="font-sans antialiased">
     <slot />
     
-    <!-- Landbot Script Exacto -->
+    <!-- Landbot Script Corregido -->
     <script>
       window.addEventListener('mouseover', initLandbot, { once: true });
       window.addEventListener('touchstart', initLandbot, { once: true });
@@ -124,7 +124,7 @@ const BRAND_CONFIG = {
           s.type = "module"
           s.async = true;
           s.addEventListener('load', function() {
-            var myLandbot = new Landbot.Livechat({
+            myLandbot = new Landbot.Livechat({
               configUrl: 'https://storage.googleapis.com/landbot.online/v3/H-3131692-XMRW5AQKBIILVQQU/index.json',
             });
           });
@@ -140,7 +140,7 @@ const BRAND_CONFIG = {
       href={`https://wa.me/${BRAND_CONFIG.whatsappNumber}?text=${BRAND_CONFIG.whatsappMessage}`}
       target="_blank"
       rel="noopener noreferrer"
-      class="fixed bottom-6 right-6 z-40 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500/50 md:hidden"
+      class="fixed bottom-6 right-6 z-30 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 focus:outline-none focus:ring-2 focus:ring-green-500/50 md:hidden"
       aria-label="Contactar por WhatsApp"
     >
       <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
