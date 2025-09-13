@@ -72,21 +72,19 @@ import LeadForm from './LeadForm.astro';
         </div>
 
         <!-- Mini formulario -->
-        <div class="max-w-md mx-auto">
-          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
-            <h3 class="text-lg font-semibold text-white mb-4">Reserva tu demo gratuita</h3>
-            <LeadForm 
-              source="apps-web-hero"
-              showPhone={true}
-              showMessage={false}
-              buttonText="Reservar demo gratuita"
-              className="space-y-4"
-              inline={false}
-            />
-            <p class="text-sm text-white/90 mt-4">
-              Sin compromiso. Te mostramos funcionando antes de pagar.
-            </p>
-          </div>
+        <div class="max-w-lg mx-auto">
+          <h3 class="text-lg font-semibold text-white mb-6 text-center">Reserva tu demo gratuita</h3>
+          <LeadForm 
+            source="apps-web-hero"
+            showPhone={true}
+            showMessage={false}
+            buttonText="Reservar Demo"
+            className="space-y-6"
+            inline={false}
+          />
+          <p class="text-sm text-white/60 mt-6 text-center">
+            Sin compromiso. Te mostramos funcionando antes de pagar.
+          </p>
         </div>
       </div>
 

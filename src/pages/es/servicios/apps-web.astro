@@ -543,21 +543,19 @@ const faqs = [
       </div>
       
       <!-- Mini formulario final -->
-      <div class="max-w-2xl mx-auto">
-        <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-2xl">
-          <h3 class="text-2xl font-bold text-white mb-6">Reserva tu demo gratuita</h3>
-          <LeadForm 
-            source="apps-web-final"
-            showPhone={true}
-            showMessage={true}
-            buttonText="Reservar demo gratuita"
-            className="space-y-4"
-            inline={false}
-          />
-          <p class="text-sm text-white/90 mt-4">
-            Sin compromiso. Te mostramos funcionando antes de pagar.
-          </p>
-        </div>
+      <div class="max-w-lg mx-auto">
+        <h3 class="text-xl font-semibold text-white mb-6 text-center">Reserva tu demo gratuita</h3>
+        <LeadForm 
+          source="apps-web-final"
+          showPhone={true}
+          showMessage={false}
+          buttonText="Reservar Demo"
+          className="space-y-6"
+          inline={false}
+        />
+        <p class="text-sm text-white/60 mt-6 text-center">
+          Sin compromiso. Te mostramos funcionando antes de pagar.
+        </p>
       </div>
     </div>
   </section>
@@ -573,13 +571,15 @@ const faqs = [
           Sin compromiso. Te mostramos tu app funcionando antes de pagar.
         </p>
         
-        <LeadForm 
-          source="apps-web-reserva"
-          showPhone={true}
-          showMessage={true}
-          buttonText="Reservar demo gratuita"
-          className="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20"
-        />
+        <div class="max-w-lg mx-auto">
+          <LeadForm 
+            source="apps-web-reserva"
+            showPhone={true}
+            showMessage={false}
+            buttonText="Reservar Demo"
+            className="space-y-6"
+          />
+        </div>
       </div>
     </div>
   </section>
