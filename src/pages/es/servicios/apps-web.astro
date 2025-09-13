@@ -76,20 +76,28 @@ const testimonials = [
 // FAQ
 const faqs = [
   {
-    question: "¿Cuánto tiempo toma desarrollar una app web?",
-    answer: "Depende de la complejidad, pero típicamente entre 2-6 semanas para una versión operativa completa."
+    question: "¿Cómo funciona el pago?",
+    answer: "Sin pago adelantado. Pagas solo cuando apruebes la demo y estés satisfecho con el resultado. Aceptamos transferencias bancarias y PayPal."
   },
   {
-    question: "¿Mantengo la propiedad del código?",
-    answer: "Sí, el código es 100% tuyo. Te entregamos todo el código fuente y documentación."
+    question: "¿Cuánto tarda?",
+    answer: "Landing pages: 5 días. Apps web: 2-4 semanas. Siempre con demo previo para validar antes de continuar."
   },
   {
-    question: "¿Qué tipo de soporte incluye?",
-    answer: "Incluimos 7-14 días de soporte post-entrega para ajustes y capacitación del equipo."
+    question: "¿Quién es dueño del código?",
+    answer: "Tú. El código es 100% tuyo, incluyendo documentación completa, base de datos y todos los archivos del proyecto."
   },
   {
-    question: "¿Se integra con mis herramientas actuales?",
-    answer: "Sí, integramos con Google Sheets, WhatsApp, emails, pasarelas de pago y más APIs."
+    question: "¿Qué incluye la demo?",
+    answer: "Te mostramos tu app funcionando con datos reales de tu negocio. Puedes probar todas las funcionalidades antes de decidir."
+  },
+  {
+    question: "¿Se integra con mis herramientas?",
+    answer: "Sí, integramos con WhatsApp, Google Sheets, emails, pasarelas de pago, CRM y más APIs. Sin límites de integraciones."
+  },
+  {
+    question: "¿Qué pasa si no me gusta?",
+    answer: "Sin problema. Si no estás satisfecho con la demo, no pagas nada. Tu satisfacción es nuestra garantía."
   }
 ];
 ---
@@ -100,191 +108,261 @@ const faqs = [
   canonical={pageConfig.canonical}
   ogImage={pageConfig.ogImage}
 >
-  <!-- Hero Section -->
-  <section class="relative overflow-hidden py-16 md:py-24 bg-gradient-to-b from-fuchsia-900/50 via-purple-900/30 to-transparent">
+  <!-- Hero Section Premium -->
+  <section class="relative overflow-hidden py-20 md:py-32 bg-gradient-to-br from-purple-900 via-fuchsia-900 to-orange-900">
     <!-- Background effects -->
-    <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-700/20 via-transparent to-orange-500/20"></div>
-    <div class="absolute top-0 left-1/4 w-96 h-96 bg-fuchsia-500/10 rounded-full blur-3xl"></div>
-    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/10 rounded-full blur-3xl"></div>
+    <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-700/30 via-purple-800/20 to-orange-600/30"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-fuchsia-500/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-72 h-72 bg-purple-500/10 rounded-full blur-3xl"></div>
     
-    <div class="container mx-auto px-4 relative">
-      <div class="grid gap-10 md:grid-cols-2 items-center">
+    <div class="container mx-auto px-4 relative z-10">
+      <div class="grid gap-12 md:grid-cols-2 items-center">
         <!-- Content -->
-        <div class="space-y-6">
-          <h1 class="text-4xl md:text-6xl font-bold text-white leading-tight">
-            Apps web que operan tu negocio, no solo lo muestran.
+        <div class="space-y-8">
+          <!-- Badges destacados -->
+          <div class="flex flex-wrap gap-3 mb-6">
+            <span class="px-4 py-2 bg-green-500/20 border border-green-500/30 rounded-full text-green-200 text-sm font-medium">
+              ⚡ Versión operativa en 48h
+            </span>
+            <span class="px-4 py-2 bg-blue-500/20 border border-blue-500/30 rounded-full text-blue-200 text-sm font-medium">
+              💳 Sin pago adelantado
+            </span>
+            <span class="px-4 py-2 bg-red-500/20 border border-red-500/30 rounded-full text-red-200 text-sm font-medium">
+              🔥 Cupos limitados
+            </span>
+          </div>
+          
+          <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
+            Apps web <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-orange-400">listas para operar</span> tu negocio, no solo mostrarlo.
           </h1>
           
-          <p class="text-xl text-white/80 max-w-xl leading-relaxed">
-            Diseño, lógica y automatización en una sola entrega. Demo real, sin pago adelantado.
+          <p class="text-2xl text-white/90 max-w-2xl leading-relaxed font-medium">
+            Diseño + lógica + automatización en una sola entrega. Demo real sin pago adelantado.
           </p>
           
           <!-- CTAs -->
-          <div class="flex flex-wrap gap-4">
+          <div class="flex flex-wrap gap-6">
             <a 
               href="https://astro-sitio.vercel.app/" 
               target="_blank"
               rel="noopener noreferrer"
-              class="px-8 py-4 rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-semibold hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300 transform hover:scale-105"
+              class="px-10 py-5 rounded-2xl bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-bold text-lg shadow-2xl hover:shadow-fuchsia-500/30 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
               data-analytics="cta-demo"
             >
-              Probar demo en vivo
+              Ver demo en vivo
             </a>
             
             <a 
               href={import.meta.env.PUBLIC_WHATSAPP_LINK || "https://wa.me/580000000000?text=Hola%20quiero%20la%20demo%20de%20apps%20web"}
               target="_blank"
               rel="noopener noreferrer"
-              class="px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 transition-all duration-300 border border-white/20"
+              class="px-10 py-5 rounded-2xl bg-white/15 backdrop-blur-sm text-white font-bold text-lg hover:bg-white/25 transition-all duration-300 border-2 border-white/30 hover:border-white/50"
               data-analytics="cta-whatsapp"
             >
               Hablar por WhatsApp
             </a>
           </div>
           
-          <!-- Mini form -->
-          <div class="mt-8">
-            <LeadForm 
-              source="apps-web-hero"
-              showPhone={true}
-              showMessage={false}
-              buttonText="Reservar demo gratuita"
-              className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20"
-              inline={true}
-            />
-            <p class="text-sm text-white/60 mt-3 text-center">
-              Sin compromiso. Te mostramos funcionando antes de pagar.
-            </p>
+          <!-- Mini form premium -->
+          <div class="mt-10">
+            <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-2xl">
+              <h3 class="text-xl font-bold text-white mb-6 text-center">Reserva tu demo gratuita</h3>
+              <LeadForm 
+                source="apps-web-hero"
+                showPhone={true}
+                showMessage={false}
+                buttonText="Reservar demo gratuita"
+                className="space-y-4"
+                inline={false}
+              />
+              <p class="text-sm text-white/70 mt-4 text-center">
+                Sin compromiso. Te mostramos funcionando antes de pagar.
+              </p>
+            </div>
           </div>
         </div>
         
-        <!-- Mockups -->
+        <!-- Mockups animados -->
         <div class="relative">
-          <img 
-            src="/mockups/hero-laptop.svg" 
-            alt="Panel de app web" 
-            class="mx-auto drop-shadow-2xl w-full max-w-lg"
-            loading="eager"
-          />
-          <img 
-            src="/mockups/hero-mobile.svg" 
-            alt="App en móvil" 
-            class="absolute -bottom-6 -right-2 w-36 md:w-44 drop-shadow-xl"
-            loading="eager"
-          />
+          <!-- Laptop mockup -->
+          <div class="relative z-10">
+            <img 
+              src="/mockups/hero-laptop.svg" 
+              alt="Panel de app web" 
+              class="mx-auto drop-shadow-2xl w-full max-w-2xl transform hover:scale-105 transition-transform duration-500"
+              loading="eager"
+            />
+            <!-- Glow effect -->
+            <div class="absolute inset-0 bg-gradient-to-r from-fuchsia-500/20 to-orange-500/20 rounded-3xl blur-xl -z-10"></div>
+          </div>
+          
+          <!-- Mobile mockup -->
+          <div class="absolute -bottom-8 -right-4 z-20">
+            <img 
+              src="/mockups/hero-mobile.svg" 
+              alt="App en móvil" 
+              class="w-40 md:w-48 drop-shadow-2xl transform hover:scale-110 transition-transform duration-500"
+              loading="eager"
+            />
+            <!-- Floating animation -->
+            <div class="absolute inset-0 animate-bounce" style="animation-duration: 3s; animation-iteration-count: infinite;"></div>
+          </div>
+          
+          <!-- Floating elements -->
+          <div class="absolute top-10 -left-4 w-8 h-8 bg-fuchsia-500/30 rounded-full animate-pulse"></div>
+          <div class="absolute bottom-20 -left-8 w-6 h-6 bg-orange-500/30 rounded-full animate-pulse" style="animation-delay: 1s;"></div>
+          <div class="absolute top-1/2 -right-8 w-4 h-4 bg-purple-500/30 rounded-full animate-pulse" style="animation-delay: 2s;"></div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Qué incluye -->
-  <section class="py-16 md:py-24 bg-gray-900/50">
+  <!-- Qué incluye Premium -->
+  <section class="py-20 md:py-32 bg-gradient-to-b from-gray-900/80 to-gray-900/50">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">
           Qué incluye
         </h2>
-        <p class="text-xl text-white/70 max-w-2xl mx-auto">
+        <p class="text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
           Todo lo necesario para que tu app web funcione desde el primer día
         </p>
       </div>
       
       <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-        <div class="glass-card group">
-          <div class="w-16 h-16 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-            </svg>
+        <!-- Panel y módulos -->
+        <div class="premium-card group">
+          <div class="mb-8">
+            <div class="w-20 h-20 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
+              </svg>
+            </div>
+            <img 
+              src="/mockups/feature-inventario.svg" 
+              alt="Mockup de panel de control"
+              class="w-full h-24 object-contain mb-6 group-hover:scale-105 transition-transform duration-300"
+            />
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Panel y módulos a medida</h3>
-          <p class="text-white/70">Usuarios, pedidos, inventario y más. Todo personalizado para tu negocio.</p>
+          <h3 class="text-2xl font-bold text-white mb-4">Panel y módulos a medida</h3>
+          <p class="text-white/80 text-lg leading-relaxed">Usuarios, pedidos, inventario y más. Todo personalizado para tu negocio específico.</p>
         </div>
         
-        <div class="glass-card group">
-          <div class="w-16 h-16 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
-            </svg>
+        <!-- Automatizaciones -->
+        <div class="premium-card group">
+          <div class="mb-8">
+            <div class="w-20 h-20 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+              </svg>
+            </div>
+            <img 
+              src="/mockups/feature-chatbot.svg" 
+              alt="Mockup de automatizaciones"
+              class="w-full h-24 object-contain mb-6 group-hover:scale-105 transition-transform duration-300"
+            />
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Automatizaciones</h3>
-          <p class="text-white/70">Emails, hojas de cálculo y WhatsApp. Todo se ejecuta automáticamente.</p>
+          <h3 class="text-2xl font-bold text-white mb-4">Automatizaciones</h3>
+          <p class="text-white/80 text-lg leading-relaxed">Emails, hojas de cálculo y WhatsApp. Todo se ejecuta automáticamente sin intervención.</p>
         </div>
         
-        <div class="glass-card group">
-          <div class="w-16 h-16 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
-            </svg>
+        <!-- Integraciones -->
+        <div class="premium-card group">
+          <div class="mb-8">
+            <div class="w-20 h-20 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"/>
+              </svg>
+            </div>
+            <img 
+              src="/mockups/feature-pagos.svg" 
+              alt="Mockup de integraciones"
+              class="w-full h-24 object-contain mb-6 group-hover:scale-105 transition-transform duration-300"
+            />
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Integraciones</h3>
-          <p class="text-white/70">Sheets, pagos, APIs. Conectamos con todas tus herramientas actuales.</p>
+          <h3 class="text-2xl font-bold text-white mb-4">Integraciones</h3>
+          <p class="text-white/80 text-lg leading-relaxed">Sheets, pagos, APIs. Conectamos con todas tus herramientas actuales sin fricción.</p>
         </div>
         
-        <div class="glass-card group">
-          <div class="w-16 h-16 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
-            <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z"/>
-            </svg>
+        <!-- Soporte -->
+        <div class="premium-card group">
+          <div class="mb-8">
+            <div class="w-20 h-20 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
+              <svg class="w-10 h-10 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192L5.636 18.364M12 2.25a9.75 9.75 0 100 19.5 9.75 9.75 0 000-19.5z"/>
+              </svg>
+            </div>
+            <img 
+              src="/mockups/feature-usuarios.svg" 
+              alt="Mockup de soporte"
+              class="w-full h-24 object-contain mb-6 group-hover:scale-105 transition-transform duration-300"
+            />
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Soporte de arranque</h3>
-          <p class="text-white/70">7 días de acompañamiento para que todo funcione perfectamente.</p>
+          <h3 class="text-2xl font-bold text-white mb-4">Soporte de arranque</h3>
+          <p class="text-white/80 text-lg leading-relaxed">7 días de acompañamiento personalizado para que todo funcione perfectamente desde el día 1.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Cómo funciona -->
-  <section class="py-16 md:py-24">
+  <!-- Cómo funciona Premium -->
+  <section class="py-20 md:py-32 bg-gradient-to-b from-gray-900/50 to-gray-900/80">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">
           Cómo funciona
         </h2>
-        <p class="text-xl text-white/70 max-w-2xl mx-auto">
+        <p class="text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
           Proceso simple y transparente para obtener tu app web operativa
         </p>
       </div>
       
-      <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+      <div class="grid md:grid-cols-3 gap-12">
+        <!-- Paso 1: Diagnóstico -->
         <div class="text-center group">
-          <div class="w-20 h-20 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
-            1
+          <div class="relative mb-8">
+            <div class="w-32 h-32 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-3xl flex items-center justify-center mx-auto text-4xl font-bold text-white group-hover:scale-110 transition-transform duration-300 shadow-2xl">
+              1
+            </div>
+            <!-- Línea conectora -->
+            <div class="hidden md:block absolute top-16 left-full w-full h-1 bg-gradient-to-r from-fuchsia-500/50 to-orange-500/50 transform translate-x-4"></div>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Diagnóstico express</h3>
-          <p class="text-white/70">10 minutos para entender tu negocio y definir el alcance.</p>
+          <h3 class="text-2xl font-bold text-white mb-4">Diagnóstico</h3>
+          <p class="text-white/80 text-lg leading-relaxed">10 minutos para entender tu negocio y definir el alcance exacto de tu app web.</p>
         </div>
         
+        <!-- Paso 2: Demo -->
         <div class="text-center group">
-          <div class="w-20 h-20 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
-            2
+          <div class="relative mb-8">
+            <div class="w-32 h-32 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-3xl flex items-center justify-center mx-auto text-4xl font-bold text-white group-hover:scale-110 transition-transform duration-300 shadow-2xl">
+              2
+            </div>
+            <!-- Línea conectora -->
+            <div class="hidden md:block absolute top-16 left-full w-full h-1 bg-gradient-to-r from-fuchsia-500/50 to-orange-500/50 transform translate-x-4"></div>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Demo con tus datos</h3>
-          <p class="text-white/70">Te mostramos la app funcionando con información real de tu negocio.</p>
+          <h3 class="text-2xl font-bold text-white mb-4">Demo</h3>
+          <p class="text-white/80 text-lg leading-relaxed">Te mostramos la app funcionando con información real de tu negocio, sin compromiso.</p>
         </div>
         
+        <!-- Paso 3: Entrega -->
         <div class="text-center group">
-          <div class="w-20 h-20 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
-            3
+          <div class="relative mb-8">
+            <div class="w-32 h-32 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-3xl flex items-center justify-center mx-auto text-4xl font-bold text-white group-hover:scale-110 transition-transform duration-300 shadow-2xl">
+              3
+            </div>
           </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Versión operativa</h3>
-          <p class="text-white/70">Desarrollamos tu app web completa y lista para usar.</p>
-        </div>
-        
-        <div class="text-center group">
-          <div class="w-20 h-20 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl font-bold text-white group-hover:scale-110 transition-transform duration-300">
-            4
-          </div>
-          <h3 class="text-xl font-semibold text-white mb-3">Ajustes y lanzamiento</h3>
-          <p class="text-white/70">Refinamos detalles y lanzamos tu app web al mundo.</p>
+          <h3 class="text-2xl font-bold text-white mb-4">Entrega</h3>
+          <p class="text-white/80 text-lg leading-relaxed">Desarrollamos tu app web completa y la entregamos lista para operar en 48 horas.</p>
         </div>
       </div>
       
-      <div class="text-center mt-12">
+      <div class="text-center mt-16">
         <a 
           href="https://astro-sitio.vercel.app/" 
           target="_blank"
           rel="noopener noreferrer"
-          class="px-8 py-4 rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-semibold hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300 transform hover:scale-105"
+          class="px-12 py-6 rounded-2xl bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-bold text-xl shadow-2xl hover:shadow-fuchsia-500/30 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
           data-analytics="cta-demo-process"
         >
           Ver demo ahora
@@ -449,87 +527,109 @@ const faqs = [
     </div>
   </section>
 
-  <!-- Testimonios -->
-  <section class="py-16 md:py-24 bg-gray-900/50">
+  <!-- Testimonios y Empresas Premium -->
+  <section class="py-20 md:py-32 bg-gradient-to-b from-gray-900/80 to-gray-900/50">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-          Lo que dicen nuestros clientes
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">
+          Empresas que confían en nosotros
         </h2>
-        <p class="text-xl text-white/70 max-w-2xl mx-auto">
+        <p class="text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
           Casos reales de éxito con nuestras apps web
         </p>
       </div>
       
-      <div class="grid md:grid-cols-3 gap-8">
+      <!-- Testimonios -->
+      <div class="grid md:grid-cols-3 gap-8 mb-20">
         {testimonials.map((testimonial) => (
-          <div class="glass-card">
-            <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-full flex items-center justify-center text-2xl mr-4">
+          <div class="premium-card group">
+            <div class="flex items-center mb-6">
+              <div class="w-16 h-16 bg-gradient-to-r from-fuchsia-600 to-orange-500 rounded-2xl flex items-center justify-center text-3xl mr-6">
                 {testimonial.avatar}
               </div>
               <div>
-                <div class="font-semibold text-white">{testimonial.name}</div>
-                <div class="text-white/60 text-sm">{testimonial.company}</div>
+                <div class="text-xl font-bold text-white">{testimonial.name}</div>
+                <div class="text-white/70 text-lg">{testimonial.company}</div>
               </div>
             </div>
-            <p class="text-white/80 italic">"{testimonial.text}"</p>
+            <p class="text-white/90 text-lg leading-relaxed italic">"{testimonial.text}"</p>
+            <!-- Estrellas -->
+            <div class="flex mt-4">
+              {[...Array(5)].map((_, i) => (
+                <svg class="w-5 h-5 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
+                </svg>
+              ))}
+            </div>
           </div>
         ))}
       </div>
       
-      <!-- Logos de herramientas -->
-      <div class="mt-16 text-center">
-        <p class="text-white/60 mb-8">Integramos con las herramientas que ya usas</p>
-        <div class="flex flex-wrap justify-center items-center gap-8 opacity-60">
-          <div class="text-white/40 font-semibold">WhatsApp</div>
-          <div class="text-white/40 font-semibold">Google Sheets</div>
-          <div class="text-white/40 font-semibold">Vercel</div>
-          <div class="text-white/40 font-semibold">Astro</div>
+      <!-- Logos de empresas -->
+      <div class="text-center">
+        <p class="text-white/70 mb-12 text-xl">Tecnologías que utilizamos</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center opacity-80">
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <div class="text-white font-bold text-lg">Astro</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <div class="text-white font-bold text-lg">Vercel</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <div class="text-white font-bold text-lg">WhatsApp</div>
+          </div>
+          <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 border border-white/20">
+            <div class="text-white font-bold text-lg">Google Sheets</div>
+          </div>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- FAQ -->
-  <section class="py-16 md:py-24">
+  <!-- FAQ Premium -->
+  <section class="py-20 md:py-32 bg-gradient-to-b from-gray-900/50 to-gray-900/80">
     <div class="container mx-auto px-4">
-      <div class="text-center mb-16">
-        <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
+      <div class="text-center mb-20">
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-8">
           Preguntas frecuentes
         </h2>
-        <p class="text-xl text-white/70 max-w-2xl mx-auto">
+        <p class="text-2xl text-white/80 max-w-3xl mx-auto leading-relaxed">
           Respuestas a las dudas más comunes
         </p>
       </div>
       
-      <div class="max-w-3xl mx-auto space-y-6">
+      <div class="max-w-4xl mx-auto space-y-6">
         {faqs.map((faq, index) => (
-          <div class="glass-card">
-            <h3 class="text-lg font-semibold text-white mb-3">{faq.question}</h3>
-            <p class="text-white/80">{faq.answer}</p>
+          <div class="premium-card group">
+            <h3 class="text-xl font-bold text-white mb-4">{faq.question}</h3>
+            <p class="text-white/90 text-lg leading-relaxed">{faq.answer}</p>
           </div>
         ))}
       </div>
     </div>
   </section>
 
-  <!-- CTA Final -->
-  <section class="py-16 md:py-24 bg-gradient-to-r from-fuchsia-900/50 to-orange-900/50">
-    <div class="container mx-auto px-4 text-center">
-      <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">
-        Tu app operativa en días, no meses
+  <!-- CTA Final Premium -->
+  <section class="py-20 md:py-32 bg-gradient-to-br from-fuchsia-900 via-purple-900 to-orange-900 relative overflow-hidden">
+    <!-- Background effects -->
+    <div class="absolute inset-0 bg-gradient-to-br from-fuchsia-700/30 via-purple-800/20 to-orange-600/30"></div>
+    <div class="absolute top-0 left-1/4 w-96 h-96 bg-fuchsia-500/20 rounded-full blur-3xl animate-pulse"></div>
+    <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-orange-500/20 rounded-full blur-3xl animate-pulse"></div>
+    
+    <div class="container mx-auto px-4 text-center relative z-10">
+      <h2 class="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
+        Tu app operativa en <span class="text-transparent bg-clip-text bg-gradient-to-r from-fuchsia-400 to-orange-400">días, no meses</span>
       </h2>
-      <p class="text-xl text-white/80 mb-8 max-w-2xl mx-auto">
+      <p class="text-2xl text-white/90 mb-12 max-w-3xl mx-auto leading-relaxed">
         No más esperas de meses. Construimos tu app web y la tienes funcionando en semanas.
       </p>
       
-      <div class="flex flex-wrap justify-center gap-4">
+      <div class="flex flex-wrap justify-center gap-6 mb-12">
         <a 
           href="https://astro-sitio.vercel.app/" 
           target="_blank"
           rel="noopener noreferrer"
-          class="px-8 py-4 rounded-xl bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-semibold hover:shadow-lg hover:shadow-fuchsia-500/25 transition-all duration-300 transform hover:scale-105"
+          class="px-12 py-6 rounded-2xl bg-gradient-to-r from-fuchsia-600 to-orange-500 text-white font-bold text-xl shadow-2xl hover:shadow-fuchsia-500/30 transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
           data-analytics="cta-demo-final"
         >
           Probar demo en vivo
@@ -539,11 +639,29 @@ const faqs = [
           href={import.meta.env.PUBLIC_WHATSAPP_LINK || "https://wa.me/580000000000?text=Hola%20quiero%20la%20demo%20de%20apps%20web"}
           target="_blank"
           rel="noopener noreferrer"
-          class="px-8 py-4 rounded-xl bg-white/10 backdrop-blur-sm text-white font-semibold hover:bg-white/20 transition-all duration-300 border border-white/20"
+          class="px-12 py-6 rounded-2xl bg-white/15 backdrop-blur-sm text-white font-bold text-xl hover:bg-white/25 transition-all duration-300 border-2 border-white/30 hover:border-white/50"
           data-analytics="cta-whatsapp-final"
         >
           Hablar por WhatsApp
         </a>
+      </div>
+      
+      <!-- Mini formulario final -->
+      <div class="max-w-2xl mx-auto">
+        <div class="bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20 shadow-2xl">
+          <h3 class="text-2xl font-bold text-white mb-6">Reserva tu demo gratuita</h3>
+          <LeadForm 
+            source="apps-web-final"
+            showPhone={true}
+            showMessage={true}
+            buttonText="Reservar demo gratuita"
+            className="space-y-4"
+            inline={false}
+          />
+          <p class="text-sm text-white/70 mt-4">
+            Sin compromiso. Te mostramos funcionando antes de pagar.
+          </p>
+        </div>
       </div>
     </div>
   </section>
@@ -572,22 +690,73 @@ const faqs = [
 </Base>
 
 <style>
+  .premium-card {
+    @apply bg-white/10 backdrop-blur-xl rounded-2xl p-8 border border-white/20 hover:bg-white/15 transition-all duration-500 hover:transform hover:scale-105 hover:shadow-2xl hover:shadow-fuchsia-500/20;
+  }
+  
   .glass-card {
     @apply bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-fuchsia-500/10;
   }
   
+  /* Animaciones fade-up */
+  .fade-up {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+  
+  .fade-up.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
   /* Animaciones suaves */
   @media (prefers-reduced-motion: no-preference) {
-    .glass-card {
+    .premium-card, .glass-card {
       transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* Animación de entrada para elementos */
+    .animate-on-scroll {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .animate-on-scroll.visible {
+      opacity: 1;
+      transform: translateY(0);
     }
   }
   
   /* Reducir animaciones si el usuario lo prefiere */
   @media (prefers-reduced-motion: reduce) {
-    .glass-card {
+    .premium-card, .glass-card {
       transition: none;
     }
+    
+    .animate-on-scroll {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  /* Efectos de hover mejorados */
+  .premium-card:hover {
+    box-shadow: 0 25px 50px -12px rgba(236, 72, 153, 0.25), 0 0 0 1px rgba(255, 255, 255, 0.1);
+  }
+  
+  /* Gradientes animados */
+  .gradient-animated {
+    background: linear-gradient(-45deg, #f97316, #ec4899, #8b5cf6, #06b6d4);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+  }
+  
+  @keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
   }
 </style>
 
@@ -626,7 +795,7 @@ const faqs = [
 }
 </script>
 
-<!-- Analytics tracking -->
+<!-- Analytics tracking y animaciones -->
 <script>
   // Track CTA clicks
   document.addEventListener('DOMContentLoaded', function() {
@@ -653,5 +822,27 @@ const faqs = [
         console.log('CTA clicked:', action);
       });
     });
+    
+    // Animaciones fade-up al scroll
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+    
+    // Observar elementos con animación
+    const animatedElements = document.querySelectorAll('.premium-card, .glass-card, h2, h3, p');
+    animatedElements.forEach(el => {
+      el.classList.add('animate-on-scroll');
+      observer.observe(el);
+    });
   });
 </script>
+
