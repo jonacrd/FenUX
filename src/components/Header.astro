@@ -1,58 +1,84 @@
 ---
 // Header.astro - Barra superior minimal con logo y navegación
+export interface Props {
+  currentPage?: string;
+  showHomeLink?: boolean;
+}
+
+const { currentPage = 'home', showHomeLink = true } = Astro.props;
+
+// Configuración de navegación según la página
+const getNavigationConfig = (page: string) => {
+  const baseConfig = {
+    home: {
+      links: [
+        { href: "#oferta", label: "Oferta" },
+        { href: "#servicios", label: "Servicios" },
+        { href: "#precios", label: "Precios" },
+        { href: "#preguntas", label: "Preguntas" },
+        { href: "#contacto", label: "Contacto" }
+      ]
+    },
+    appsWeb: {
+      links: [
+        { href: "#modulos", label: "Módulos" },
+        { href: "#precios", label: "Precios" },
+        { href: "#testimonios", label: "Testimonios" },
+        { href: "#faq", label: "FAQ" },
+        { href: "#contacto", label: "Contacto" }
+      ]
+    },
+    landingPortfolios: {
+      links: [
+        { href: "#incluye", label: "Qué incluye" },
+        { href: "#funciona", label: "Cómo funciona" },
+        { href: "#precios", label: "Precios" },
+        { href: "#testimonios", label: "Testimonios" },
+        { href: "#contacto", label: "Contacto" }
+      ]
+    },
+    demo: {
+      links: [
+        { href: "#incluye", label: "Qué incluye" },
+        { href: "#funciona", label: "Cómo funciona" },
+        { href: "#precios", label: "Precios" },
+        { href: "#testimonios", label: "Testimonios" },
+        { href: "#contacto", label: "Contacto" }
+      ]
+    }
+  };
+  
+  return baseConfig[page] || baseConfig.home;
+};
+
+const navConfig = getNavigationConfig(currentPage);
 ---
 
 <header class="fixed top-0 left-0 right-0 z-50 bg-brand-dark/95 backdrop-blur-sm border-b border-brand-magenta/20">
   <div class="container mx-auto px-4 py-4">
     <div class="flex items-center justify-between">
       <!-- Logo FENUX -->
-      <a href="/" class="hover:opacity-80 transition-opacity duration-300" aria-label="Ir a la página principal de FENUX">
+      <a href={showHomeLink ? "/" : "#"} class="hover:opacity-80 transition-opacity duration-300" aria-label="Ir a la página principal de FENUX">
         <img 
           src="/icons/fenix.png" 
           alt="Logo FENUX, fénix pixelado" 
-          class="w-12 h-12 object-contain"
-          width="48"
-          height="48"
+          class="w-24 h-19 object-contain"
+          width="40"
+          height="68"
         />
       </a>
 
       <!-- Navegación Desktop -->
       <nav class="hidden md:flex items-center space-x-8" role="navigation" aria-label="Navegación principal">
-        <a 
-          href="#oferta" 
-          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
-          aria-label="Ver oferta"
-        >
-          Oferta
-        </a>
-        <a 
-          href="#servicios" 
-          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
-          aria-label="Ver servicios"
-        >
-          Servicios
-        </a>
-        <a 
-          href="#precios" 
-          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
-          aria-label="Ver precios"
-        >
-          Precios
-        </a>
-        <a 
-          href="#preguntas" 
-          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
-          aria-label="Ver preguntas frecuentes"
-        >
-          Preguntas
-        </a>
-        <a 
-          href="#contacto" 
-          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
-          aria-label="Ver formulario de contacto"
-        >
-          Contacto
-        </a>
+        {navConfig.links.map((link) => (
+          <a 
+            href={link.href} 
+            class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium"
+            aria-label={`Ver ${link.label.toLowerCase()}`}
+          >
+            {link.label}
+          </a>
+        ))}
       </nav>
 
 
@@ -76,41 +102,15 @@
       aria-label="Navegación móvil"
     >
       <div class="flex flex-col space-y-4">
-        <a 
-          href="#oferta" 
-          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
-          aria-label="Ver oferta"
-        >
-          Oferta
-        </a>
-        <a 
-          href="#servicios" 
-          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
-          aria-label="Ver servicios"
-        >
-          Servicios
-        </a>
-        <a 
-          href="#precios" 
-          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
-          aria-label="Ver precios"
-        >
-          Precios
-        </a>
-        <a 
-          href="#preguntas" 
-          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
-          aria-label="Ver preguntas frecuentes"
-        >
-          Preguntas
-        </a>
-        <a 
-          href="#contacto" 
-          class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
-          aria-label="Ver formulario de contacto"
-        >
-          Contacto
-        </a>
+        {navConfig.links.map((link) => (
+          <a 
+            href={link.href} 
+            class="text-white/80 hover:text-white transition-colors duration-300 font-inter font-medium py-2"
+            aria-label={`Ver ${link.label.toLowerCase()}`}
+          >
+            {link.label}
+          </a>
+        ))}
       </div>
     </div>
   </div>

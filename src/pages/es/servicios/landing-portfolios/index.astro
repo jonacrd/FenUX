@@ -1,6 +1,6 @@
 ---
 // FENUX Sistema Captaclientes Ágil - Landing ultra-concreta
-import Header from "../../../../components/Header.astro";
+import Base from "../../../../layouts/Base.astro";
 import HeroCaptaclientes from "../../../../components/HeroCaptaclientesNuevo.astro";
 import QueIncluye from "../../../../components/QueIncluye.astro";
 import ComoFunciona from "../../../../components/ComoFunciona.astro";
@@ -10,7 +10,6 @@ import FormularioCaptaclientes from "../../../../components/FormularioCaptaclien
 import VideoYQR from "../../../../components/VideoYQR.astro";
 import BotonWhatsApp from "../../../../components/BotonWhatsApp.astro";
 import Footer from "../../../../components/Footer.astro";
-import MetaPixel from "../../../../components/MetaPixel.astro";
 import "../../../../styles/animations.css";
 import "../../../../styles/captaclientes.css";
 
@@ -26,197 +25,96 @@ const meta = {
   canonical: `${DOMAIN}/es/servicios/landing-portfolios`
 };
 ---
-<html lang="es">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{meta.title}</title>
-    <meta name="description" content={meta.description} />
-    <link rel="canonical" href={meta.canonical} />
-    <meta name="robots" content="index,follow" />
-    
-    <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="/icons/fenix.svg" />
-    <link rel="apple-touch-icon" href="/icons/fenix.svg" />
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Google Analytics -->
-    <script async src={`https://www.googletagmanager.com/gtag/js?id=${GA4_ID}`}></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', '${GA4_ID}');
-      window.ADS_ID = '${ADS_ID}';
-    </script>
-    
-    <!-- Meta Pixel -->
-    <MetaPixel />
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content={meta.title} />
-    <meta property="og:description" content={meta.description} />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content={meta.canonical} />
-    <meta property="og:image" content={`${DOMAIN}/images/landing-hero.webp`} />
-    <meta property="og:site_name" content="FENUX" />
-    
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content={meta.title} />
-    <meta name="twitter:description" content={meta.description} />
-    <meta name="twitter:image" content={`${DOMAIN}/images/landing-hero.webp`} />
-    
-    <!-- CSS Crítico -->
-    <style>
-      * { margin: 0; padding: 0; box-sizing: border-box; }
-      html, body { 
-        margin: 0 !important; 
-        padding: 0 !important; 
-        background: linear-gradient(135deg, #0d0712 0%, #2b0f2f 100%) !important; 
-        color: #ffffff !important; 
-        font-family: 'Inter', sans-serif !important;
-      }
-      body { min-height: 100vh; }
-      .astro-root { margin: 0; padding: 0; }
-      
-      /* Preload crítico */
-      .preload-hidden { opacity: 0; }
-      .preload-visible { opacity: 1; transition: opacity 0.3s ease; }
-    </style>
-    
-    <!-- Schema.org JSON-LD -->
-    <script type="application/ld+json">
-      {JSON.stringify({
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "Sistema Captaclientes Ágil",
-        "description": "Landing + Bot WhatsApp + Automatización. Sistema completo que capta clientes en 48 horas con demo gratuita sin pago adelantado.",
-        "brand": {
-          "@type": "Organization",
-          "name": "FENUX",
-          "url": DOMAIN
-        },
-        "offers": [
-          {
-            "@type": "Offer",
-            "name": "Paquete Estándar",
-            "price": "99.000",
-            "priceCurrency": "CLP",
-            "description": "Landing premium en 5 días con SEO básico",
-            "availability": "https://schema.org/InStock"
-          },
-          {
-            "@type": "Offer", 
-            "name": "Sistema Ágil 48h",
-            "price": "550000",
-            "priceCurrency": "CLP",
-            "description": "Landing + Bot WhatsApp + Automatización + 7 días de soporte",
-            "availability": "https://schema.org/InStock"
-          }
-        ],
-        "category": "Marketing Digital",
-        "provider": {
-          "@type": "Organization",
-          "name": "FENUX",
-          "url": DOMAIN,
-          "contactPoint": {
-            "@type": "ContactPoint",
-            "telephone": WHATSAPP,
-            "contactType": "customer service",
-            "email": CONTACT_EMAIL
-          }
-        }
-      })}
-    </script>
-  </head>
-  <body class="preload-hidden">
-    <!-- Meta Pixel noscript -->
-    <noscript>
-      <img height="1" width="1" style="display:none"
-           src="https://www.facebook.com/tr?id=REEMPLAZA_POR_TU_ID&ev=PageView&noscript=1" />
-    </noscript>
-    
-    <!-- Header -->
-    <Header />
-    
-    <!-- Hero Section -->
+
+<Base 
+  title={meta.title}
+  description={meta.description}
+  canonical={meta.canonical}
+  ogImage="/images/landing-hero.webp"
+  currentPage="landingPortfolios"
+  showHomeLink={true}
+>
+  <!-- Hero Section -->
+  <section id="hero">
     <HeroCaptaclientes />
-    
-    <!-- Qué incluye -->
+  </section>
+
+  <!-- Qué incluye -->
+  <section id="incluye">
     <QueIncluye />
-    
-    <!-- Cómo funciona -->
+  </section>
+
+  <!-- Cómo funciona -->
+  <section id="funciona">
     <ComoFunciona />
-    
-    <!-- Pricing Section -->
+  </section>
+
+  <!-- Precios -->
+  <section id="precios">
     <PricingCaptaclientes />
-    
-    <!-- Testimonios -->
+  </section>
+
+  <!-- Testimonios -->
+  <section id="testimonios">
     <TestimoniosCaptaclientes />
-    
-    <!-- Formulario de reserva -->
+  </section>
+
+  <!-- Formulario de contacto -->
+  <section id="contacto">
     <FormularioCaptaclientes />
-    
-    <!-- Video y QR -->
-    <VideoYQR />
-    
-    <!-- Botón flotante WhatsApp -->
-    <BotonWhatsApp />
-    
-    <!-- Footer -->
-    <Footer />
-    
-    <!-- Scripts -->
-    <script>
-      // Mostrar contenido después de cargar
-      document.addEventListener('DOMContentLoaded', function() {
-        document.body.classList.remove('preload-hidden');
-        document.body.classList.add('preload-visible');
-      });
-      
-      // Smooth scroll para enlaces internos
-      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-          e.preventDefault();
-          const target = document.querySelector(this.getAttribute('href'));
-          if (target) {
-            const headerHeight = 80; // Altura del header fijo
-            const targetPosition = target.offsetTop - headerHeight;
-            window.scrollTo({
-              top: targetPosition,
-              behavior: 'smooth'
-            });
-          }
-        });
-      });
-      
-      // Analytics tracking global
-      if (typeof gtag !== 'undefined') {
-        // Track page view
-        gtag('event', 'page_view', {
-          page_title: document.title,
-          page_location: window.location.href
-        });
-      }
-      
-      // Meta Pixel PageView
-      if (typeof window !== 'undefined' && (window as any).fbq) {
-        (window as any).fbq('track','PageView');
-      }
-      
-      // Capturar UTMs para tracking
-      const urlParams = new URLSearchParams(window.location.search);
-      const utmSource = urlParams.get('utm_source') || 'direct';
-      const utmCampaign = urlParams.get('utm_campaign') || 'organic';
-      
-      // Guardar UTMs en sessionStorage para usar en formularios
-      sessionStorage.setItem('utm_source', utmSource);
-      sessionStorage.setItem('utm_campaign', utmCampaign);
-    </script>
-  </body>
-</html>
+  </section>
+
+  <!-- Video y QR -->
+  <VideoYQR />
+
+  <!-- Botón WhatsApp flotante -->
+  <BotonWhatsApp />
+
+  <!-- Footer -->
+  <Footer />
+</Base>
+
+<!-- Schema JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Sistema Captaclientes Ágil",
+  "description": "Landing + Bot WhatsApp + Automatización. Sistema completo que capta clientes en 48 horas con demo gratuita sin pago adelantado.",
+  "brand": {
+    "@type": "Organization",
+    "name": "FENUX",
+    "url": "https://fen-ux-gqcp.vercel.app"
+  },
+  "offers": [
+    {
+      "@type": "Offer",
+      "name": "Paquete Estándar",
+      "price": "99000",
+      "priceCurrency": "CLP",
+      "description": "Landing premium en 5 días con SEO básico",
+      "availability": "https://schema.org/InStock"
+    },
+    {
+      "@type": "Offer", 
+      "name": "Sistema Ágil 48h",
+      "price": "550000",
+      "priceCurrency": "CLP",
+      "description": "Landing + Bot WhatsApp + Automatización + 7 días de soporte",
+      "availability": "https://schema.org/InStock"
+    }
+  ],
+  "category": "Marketing Digital",
+  "provider": {
+    "@type": "Organization",
+    "name": "FENUX",
+    "url": "https://fen-ux-gqcp.vercel.app",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "telephone": "+580000000000",
+      "contactType": "customer service",
+      "email": "hola@fenux.com"
+    }
+  }
+}
+</script>

@@ -1,7 +1,8 @@
 'use client';
+import { ReactNode } from 'react';
+import { motion, Variants } from 'framer-motion';
+import { cn } from '@/lib/utils';
 import React from 'react';
-import { motion, type Variants } from 'framer-motion';
-import { cn } from '../../lib/utils';
 
 type PresetType =
   | 'fade'
@@ -16,7 +17,7 @@ type PresetType =
   | 'swing';
 
 type AnimatedGroupProps = {
-  children: React.ReactNode;
+  children: ReactNode;
   className?: string;
   variants?: {
     container?: Variants;

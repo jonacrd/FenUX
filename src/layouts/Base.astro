@@ -8,15 +8,20 @@ export interface Props {
   canonical?: string;
   ogImage?: string;
   noindex?: boolean;
+  currentPage?: string;
+  showHomeLink?: boolean;
 }
 
 const { 
   title, 
   description, 
-  canonical = Astro.url.href,
-  ogImage = "/images/og-default.jpg",
-  noindex = false
+  canonical, 
+  ogImage, 
+  noindex = false,
+  currentPage = 'home',
+  showHomeLink = true
 } = Astro.props;
+
 
 // Variables de personalización - CAMBIAR AQUÍ PARA CADA DEMO
 const BRAND_CONFIG = {
@@ -113,7 +118,7 @@ const BRAND_CONFIG = {
     /></noscript>
   </head>
   <body class="font-sans antialiased">
-    <Header />
+        <Header currentPage={currentPage} showHomeLink={showHomeLink} />
     <slot />
     
     <!-- Landbot Script Simplificado -->
