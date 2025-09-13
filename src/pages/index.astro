@@ -107,33 +107,48 @@ const testimonials = [
       <div class="absolute inset-0 bg-gradient-to-t from-gray-950 to-transparent to-90%"></div>
     </div>
     
-    <div class="relative max-w-full mx-auto z-1">
-      <div class="max-w-screen-xl z-10 mx-auto px-4 py-28 gap-12 md:px-8">
-        <div class="space-y-5 max-w-3xl leading-0 lg:leading-5 mx-auto text-center">
-          <!-- Badge con chevron -->
-          <div class="text-sm text-gray-400 group mx-auto px-5 py-2 bg-gradient-to-tr from-zinc-300/5 via-gray-400/5 to-transparent border-[2px] border-white/5 rounded-3xl w-fit">
-            Bienvenido a Fenux
-            <svg class="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
-            </svg>
-          </div>
-          
-          <!-- Título principal con gradiente -->
-          <h1 class="text-4xl tracking-tighter mx-auto md:text-6xl bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)]">
-            Transforma tus ideas en 
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-orange-200">
-              experiencias digitales hermosas
-            </span>
-          </h1>
-          
-          <!-- Descripción -->
-          <p class="max-w-2xl mx-auto text-gray-300 text-lg">
-            Transforma tus ideas en realidad con nuestra suite completa de herramientas de desarrollo y recursos para crear apps web y landing pages de alto impacto.
-          </p>
-          
-                  <!-- Dashboard Preview con mockups de la carpeta mockups -->
-        <div class="mt-32 mx-10 relative z-10">
-          <div class="relative">
+    <div class="relative max-w-7xl mx-auto z-1 px-4 sm:px-6 lg:px-8">
+      <div class="text-center py-16 sm:py-20 lg:py-28">
+        <!-- Badge con chevron -->
+        <div class="text-sm text-gray-400 group mx-auto px-5 py-2 bg-gradient-to-tr from-zinc-300/5 via-gray-400/5 to-transparent border-[2px] border-white/5 rounded-3xl w-fit mb-8">
+          Bienvenido a Fenux
+          <svg class="inline w-4 h-4 ml-2 group-hover:translate-x-1 duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </div>
+        
+        <!-- Título principal con gradiente -->
+        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl tracking-tighter mx-auto bg-clip-text text-transparent bg-[linear-gradient(180deg,_#FFF_0%,_rgba(255,_255,_255,_0.00)_202.08%)] mb-6">
+          Transforma tus ideas en 
+          <span class="text-transparent bg-clip-text bg-gradient-to-r from-purple-300 to-orange-200">
+            experiencias digitales hermosas
+          </span>
+        </h1>
+        
+        <!-- Descripción -->
+        <p class="max-w-2xl mx-auto text-gray-300 text-base sm:text-lg mb-12">
+          Transforma tus ideas en realidad con nuestra suite completa de herramientas de desarrollo y recursos para crear apps web y landing pages de alto impacto.
+        </p>
+        
+        <!-- CTA con borde animado -->
+        <div class="mb-16">
+          <span class="relative inline-block overflow-hidden rounded-full p-[1.5px]">
+            <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"></span>
+            <div class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950 text-xs font-medium backdrop-blur-3xl">
+                <a
+                  href="#servicios"
+                  class="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/5 via-purple-400/20 text-white border-input border-[1px] hover:bg-gradient-to-tr hover:from-zinc-300/10 hover:via-purple-400/30 transition-all py-4 px-8 sm:px-10"
+                  data-analytics="cta-servicios"
+                >
+                  Conocer más
+                </a>
+            </div>
+          </span>
+        </div>
+        
+        <!-- Dashboard Preview con mockups de la carpeta mockups -->
+        <div class="relative z-10">
+          <div class="relative max-w-5xl mx-auto">
             <!-- Laptop mockup -->
             <img 
               src="/images/mockups/laptop.png" 
@@ -145,30 +160,11 @@ const testimonials = [
             <img 
               src="/images/mockups/mobile.png" 
               alt="Mockup de móvil con app Fenux" 
-              class="absolute -bottom-8 -right-8 w-40 md:w-48 drop-shadow-xl shadow-2xl rounded-lg"
+              class="absolute -bottom-4 -right-4 sm:-bottom-8 sm:-right-8 w-32 sm:w-40 md:w-48 drop-shadow-xl shadow-2xl rounded-lg"
               loading="eager"
             />
           </div>
         </div>
-
-          <!-- CTA con borde animado -->
-          <div class="items-center justify-center gap-x-3 space-y-3 sm:flex sm:space-y-0">
-            <span class="relative inline-block overflow-hidden rounded-full p-[1.5px]">
-              <span class="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]"></span>
-              <div class="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-gray-950 text-xs font-medium backdrop-blur-3xl">
-                  <a
-                    href="#servicios"
-                    class="inline-flex rounded-full text-center group items-center w-full justify-center bg-gradient-to-tr from-zinc-300/5 via-purple-400/20 text-white border-input border-[1px] hover:bg-gradient-to-tr hover:from-zinc-300/10 hover:via-purple-400/30 transition-all sm:w-auto py-4 px-10"
-                    data-analytics="cta-servicios"
-                  >
-                    Conocer más
-                  </a>
-              </div>
-            </span>
-          </div>
-        </div>
-        
-
       </div>
     </div>
   </section>
@@ -308,17 +304,47 @@ const testimonials = [
         Reserva tu demo gratuita y descubre cómo podemos transformar tu presencia digital.
       </p>
       
-      <div class="max-w-2xl mx-auto">
-        <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8 border border-white/20">
-          <h3 class="text-2xl font-bold text-white mb-6">Reserva tu demo gratuita</h3>
-          <LeadForm 
-            source="home-final"
-            showPhone={true}
-            showMessage={false}
-            buttonText="Reservar demo gratuita"
-            className="space-y-4"
-            inline={false}
-          />
+      <div class="max-w-md mx-auto">
+        <div class="bg-white/5 backdrop-blur-sm rounded-2xl p-8 border border-white/10">
+          <h3 class="text-xl font-semibold text-white mb-6">Reserva tu demo gratuita</h3>
+          <form 
+            action="/api/lead" 
+            method="POST" 
+            class="space-y-4"
+            data-source="home-final"
+          >
+            <div>
+              <input 
+                name="name" 
+                type="text" 
+                required 
+                placeholder="Tu nombre"
+                class="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm text-white placeholder-white/50 border-0 focus:outline-none focus:ring-2 focus:ring-purple-400/50 transition-all duration-300 text-center"
+                aria-label="Nombre completo"
+              />
+            </div>
+            
+            <div>
+              <input 
+                name="email" 
+                type="email" 
+                required 
+                placeholder="Tu email"
+                class="w-full px-4 py-3 rounded-xl bg-white/10 backdrop-blur-sm text-white placeholder-white/50 border-0 focus:outline-none focus:ring-2 focus:ring-purple-400/50 transition-all duration-300 text-center"
+                aria-label="Dirección de email"
+              />
+            </div>
+            
+            <input type="hidden" name="source" value="home-final" />
+            <input type="hidden" name="company" value="" />
+            
+            <button 
+              type="submit" 
+              class="w-full px-6 py-3 rounded-xl bg-gradient-to-r from-purple-500 to-pink-500 text-white font-semibold hover:shadow-lg hover:shadow-purple-500/25 transition-all duration-300 transform hover:scale-105 focus:outline-none focus:ring-2 focus:ring-purple-400/50"
+            >
+              Reservar Demo
+            </button>
+          </form>
           <p class="text-sm text-white/90 mt-4">
             Sin compromiso. Te mostramos funcionando antes de pagar.
           </p>
@@ -328,6 +354,76 @@ const testimonials = [
   </section>
 </Base>
 
+    <script>
+  // Manejar envío del formulario simplificado
+  document.addEventListener('DOMContentLoaded', function() {
+    const form = document.querySelector('form[data-source="home-final"]');
+    
+    if (form) {
+      form.addEventListener('submit', async function(e) {
+        e.preventDefault();
+        
+        const formData = new FormData(form);
+        const button = form.querySelector('button[type="submit"]');
+        const originalText = button.textContent;
+        
+        // Mostrar estado de carga
+        button.disabled = true;
+        button.textContent = 'Enviando...';
+        
+        try {
+          const response = await fetch('/api/lead', {
+            method: 'POST',
+            body: formData
+          });
+          
+          if (response.ok) {
+            // Éxito
+            button.textContent = '¡Enviado!';
+            button.classList.add('bg-green-500');
+            form.reset();
+            
+            // Analytics
+            if (typeof gtag !== 'undefined') {
+              gtag('event', 'lead_submit', {
+                event_category: 'Form',
+                event_label: 'home-final'
+              });
+            }
+            
+            // Meta Pixel
+            if (typeof window !== 'undefined' && window.fbq) {
+              window.fbq('track', 'Lead', { source: 'home-final' });
+            }
+            
+            // Resetear después de 3 segundos
+            setTimeout(() => {
+              button.textContent = originalText;
+              button.classList.remove('bg-green-500');
+              button.disabled = false;
+            }, 3000);
+            
+          } else {
+            throw new Error('Error en el servidor');
+          }
+          
+        } catch (error) {
+          console.error('Error enviando formulario:', error);
+          button.textContent = 'Error - Intenta de nuevo';
+          button.classList.add('bg-red-500');
+          
+          // Resetear después de 3 segundos
+          setTimeout(() => {
+            button.textContent = originalText;
+            button.classList.remove('bg-red-500');
+            button.disabled = false;
+          }, 3000);
+        }
+      });
+    }
+  });
+    </script>
+    
     <style>
   .service-card {
     @apply bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20 hover:bg-white/15 transition-all duration-300 hover:transform hover:scale-105 hover:shadow-xl hover:shadow-fuchsia-500/10;
